@@ -1,0 +1,22 @@
+<section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_references">
+
+    <title>Where to find more information</title>
+      <para>The following lists of references may be helpful in learning about XML, Docbook, and/or Maven:</para>
+      <itemizedlist>
+        <listitem>
+          <para><citetitle>XML In a Nutshell</citetitle> by Elliotte Rusy Harold and W. Scott Means.  Online at <link xlink:href="http://docstore.mik.ua/orelly/xml/xmlnut/index.htm">http://docstore.mik.ua/orelly/xml/xmlnut/index.htm</link>.</para>
+        </listitem>
+        <listitem>
+          <para><citetitle>DocBook 5: The Definitive Guide</citetitle> by Normal Walsh.  Online at <link xlink:href="https://www.safaribooksonline.com/library/view/docbook-5-the/9781449380243/">https://www.safaribooksonline.com/library/view/docbook-5-the/9781449380243/</link>.</para>
+        </listitem>
+        <listitem>
+          <para><citetitle>DocBook XSL: The Complete Guide</citetitle> by Bob Stayton.  Online at <link xlink:href="http://www.sagehill.net/docbookxsl/">http://www.sagehill.net/docbookxsl/</link>.</para>
+        </listitem>
+        <listitem>
+          <para><citetitle>Maven: The Complete Reference</citetitle> by Tim O'Brien, Manfred Moser, John Casey, Brian Fox, Jason Van Zyl, Eric Redmond, and Larry Shatzer.  Online at <link xlink:href="http://books.sonatype.com/mvnref-book/reference/index.html">http://books.sonatype.com/mvnref-book/reference/index.html</link>.</para>
+        </listitem>
+      </itemizedlist>
+
+</section>
+ 

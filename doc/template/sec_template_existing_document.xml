@@ -1,0 +1,54 @@
+<section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_existing_document">
+
+  <title>Modifying an existing document</title>
+    <para>To obtain a copy of the existing template document framework and all public documents from the 
+          public OpenPOWER git repository, simply clone the project using this command:<screen><prompt>$</prompt><userinput>git clone https://github.com/open-power/openpower-foundation-docbkx-framework.git</userinput>
+Cloning into 'openpower-foundation-docbkx-framework'...
+remote: Counting objects: 288, done.
+remote: Compressing objects: 100% (157/157), done.
+remote: Total 288 (delta 121), reused 288 (delta 121)
+Receiving objects: 100% (288/288), 12.41 MiB | 8.04 MiB/s, done.
+Resolving deltas: 100% (121/121), done.
+Checking connectivity... done.
+<prompt>~$</prompt></screen></para>
+
+    <para>To build a document such as the template guide, follow these steps from the directory where you just cloned:<screen><prompt>$</prompt><userinput>cd openpower-foundation-docbkx-framework/doc/template</userinput>
+<prompt>$</prompt><userinput>mvn clean</userinput>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OpenPOWER Template Guide 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ openpower-template-guide ---
+[INFO] Deleting ~/openpower-foundation-docbkx-framework/doc/template/target
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.353s
+[INFO] Finished at: Wed Feb 25 12:54:47 CST 2015
+[INFO] Final Memory: 3M/7M
+[INFO] ------------------------------------------------------------------------
+<prompt>$</prompt><userinput>mvn generate-sources</userinput>
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OpenPOWER Template Guide 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- openpowerdocs-maven-plugin:1.0.0:generate-webhelp (generate-webhelp) @ openpower-template-guide ---
+[INFO] Processing input file: bk_main.xml
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.361s
+[INFO] Finished at: Wed Feb 25 12:55:15 CDT 2015
+[INFO] Final Memory: 30M/390M
+[INFO] ------------------------------------------------------------------------
+<prompt>$</prompt></screen></para>
+    <para>If all goes well, the generated pdf should be available in <literal>~/openpower-foundation-docbkx-framework/doc/template/target/docbkx/webhelp/template-guide/</literal>.</para>
+
+</section>
+ 
