@@ -1,0 +1,55 @@
+<chapter version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:xlink="http://www.w3.org/1999/xlink">
+  
+  <title>Template document overview</title>
+ 
+    <para>The OpenPOWER Foundation documentation template provides a framework for OpenPOWER public and private
+          documentation.  The goal of the template and this writeup is to promote community contributions
+          to OpenPOWER documenation and to enable new contributions within a common look and feel. </para>
+
+    <para>The major sections of this document addresses the following topics:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Getting started: This section details tools and commands used to contribute to OpenPOWER documentation.
+              All users who are new to OpenPOWER Foundation documentation should start here.</para>
+      </listitem>
+      <listitem>
+        <para>Creating a new document: This section provides step-by-step instructions on how to create a new document 
+              from scratch.  Use this section to start a new documentation project.</para>
+      </listitem>
+      <listitem>
+        <para>Modifying an existing document: This section highlights common steps in editing an existing OpenPOWER
+              Foundation document.  Use this section as a guideline for contributing to an existing document.</para>
+      </listitem>
+      <listitem>
+        <para>Debugging build failures: This section provides examples of the two most common types of build failures
+              and helps users find the relevant failure information.</para>
+      </listitem>
+      <listitem>
+        <para>Policies and conventions: This secion contains
+              the generally accepted guidelines for creating OpenPOWER documentation.  Use this section as a reference
+              for documentation style beyond template provided features.</para>
+      </listitem>
+      <listitem>
+        <para>Frequently asked questions: This section answers common questions.  Use this section when the other sections
+              do not answer your questions.</para>
+      </listitem>
+      <listitem>
+        <para>Where to find more information: This section provides pointers to on-line information about XML, Docbook,
+              Maven, and other relevant references.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>In addition to OpenPOWER Foundation specific topics, <xref linkend="section_template_examples"/> 
+          provides examples of common documenation constructs in XML.</para>
+
+  <xi:include href="sec_template_getting_started.xml"/>
+  <xi:include href="sec_template_new_document.xml"/>
+  <xi:include href="sec_template_existing_document.xml"/>
+  <xi:include href="sec_template_debugging.xml"/>
+  <xi:include href="sec_template_policies.xml"/>
+  <xi:include href="sec_template_faq.xml"/>
+  <xi:include href="sec_template_references.xml"/>
+
+
+</chapter>

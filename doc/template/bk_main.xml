@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="5.0"
+  status="draft"
+  xml:id="bk_main">
+
+    <!-- TODO: When ready to publish document, remove the 'status="draft"' statement from the book object above. -->
+
+    <!-- TODO: Pick a Title for the new document -->
+    <title>Template Guide</title>
+    <!-- TODO: Either add a subtitle or remove the following line -->
+    <subtitle>A quick start template</subtitle>
+
+    <info>
+    <author>
+      <personname>
+          <!-- TODO: Insert appropriate firstname and surnames -->
+          <firstname>Firstname</firstname>
+          <surname>Lastname</surname>
+      </personname>
+      <!-- TODO: Set correct email address of document author -->
+      <email>Email@domain</email>
+      <affiliation>
+          <!-- TODO: Insert appropriate orgname -->
+          <orgname>Company</orgname>
+      </affiliation>
+    </author>
+    <copyright>
+      <!-- TODO: Set copyright year -->
+      <year>2015</year>
+      <holder>OpenPOWER Foundation</holder>
+    </copyright>
+    <!-- TODO: Set the correct document releaseinfo -->
+    <releaseinfo>Revision 0.9</releaseinfo>
+    <productname>OpenPOWER</productname>
+    <pubdate/>
+
+    <!-- TODO: Select one of the two following legalnotice role= values:
+           "apache2" for an Apache V2 license or 
+           "opfExternal" for an official OpenPOWER Foundation external license text.
+         If you don't know which one to select, leave as "apache2" -->
+    <legalnotice role="apache2">
+    <!--legalnotice role="opfExternal"-->
+
+      <annotation>
+          <remark>Copyright details are filled in by the template.</remark>
+      </annotation>
+    </legalnotice>
+    <!-- TODO: Decide whether you want any text inserted before the author listing.  
+               If you do, undelete the comment and adjust text between the paragraph tags below. -->
+    <!--
+    <abstract>
+      <para>Abstract text</para> 
+    </abstract>
+     -->
+
+    <revhistory>
+      <revision>
+          <!-- TODO: Set the initial version information -->
+          <date>2014-09-03</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Creation based on OpenStack documentation</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+     </revhistory>
+    </info>
+
+  <!-- The ch_preface.xml file is required by all documents -->
+  <xi:include href="../common/ch_preface.xml"/>
+
+  <!-- TODO: Add your chapter heading files here.  Remove both files and insert your own. -->
+  <!--       See the template document for naming conventions and location of files.      -->
+  <xi:include href="ch_template_overview.xml"/>
+  <xi:include href="ch_example.xml"/>
+
+  <!-- TODO: The following appendices are optional but highly recommended. You may add others as needed. -->
+  <xi:include href="../common/app_foundation.xml"/>
+
+  <!-- TODO: The following template document may be modified to create additional appendices -->
+  <xi:include href="app_template.xml"/>
+
+</book>
