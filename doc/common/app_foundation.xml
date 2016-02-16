@@ -28,30 +28,30 @@
             <listitem>
                 <para>
                     <link
-                        xlink:href="http://openpowerfoundation.org/wp-content/uploads/2014/07/OPF-Bylaws-0410.2014.pdf">
+                        xlink:href="https://members.openpowerfoundation.org/document/dl/635">
                         <citetitle>Bylaws of OpenPOWER Foundation</citetitle>
                     </link></para>
             </listitem>
             <listitem>
                 <para>
                     <link
-                        xlink:href="http://openpowerfoundation.org/wp-content/uploads/2015/02/OpenPOWER-IPR-Policy.1.15.2015.pdf">
+                        xlink:href="https://members.openpowerfoundation.org/document/dl/596">
                         <citetitle>OpenPOWER Foundation Intellectual Property Rights (IPR) Policy</citetitle>
                     </link></para>
             </listitem>
             <listitem>
                 <para>
                     <link
-                        xlink:href="http://openpowerfoundation.org/wp-content/uploads/2014/07/OpenPOWER-Membership-Agreement-04.2014.pdf">
+                        xlink:href="https://members.openpowerfoundation.org/document/dl/595">
                         <citetitle>OpenPOWER Foundation Membership Agreement</citetitle>
                     </link></para>
             </listitem>
             <listitem>
                 <para>
-                    <!-- link
-                        xlink:href="http://openpowerfoundation.org/wp-content/uploads/TBD" -->
-                        <citetitle>OpenPOWER Anti-Trust Guidelines (link TBD)</citetitle>
-                    <!-- /link --></para>
+                    <link
+                        xlink:href="https://members.openpowerfoundation.org/document/dl/498">
+                        <citetitle>OpenPOWER Anti-Trust Guidelines</citetitle>
+                    </link></para>
             </listitem>
         </itemizedlist>
 	</para>
@@ -114,11 +114,11 @@
 		</para>
             </listitem>
             <listitem>
-                <para>Technical Work Groups and projects -- Jeff Brown, TSC Chair, <email>tsc-chair@openpowerfoundation.org</email>
+                <para>Technical Work Groups and projects -- <email>tsc-chair@openpowerfoundation.org</email>
 		</para>
             </listitem>
             <listitem>
-                <para>Events and other activities -- Michelle Hunt, OpenPOWER ED, <email>m.hunt@ieee.org</email>
+                <para>Events and other activities -- <email>admin@openpowerfoundation.org</email>
 		</para>
             </listitem>
             <listitem>
@@ -128,7 +128,7 @@
         </itemizedlist>
 	</para>
 	<para>
-	    More contact information the foundation governance can be found at 
+	    More contact information can be found at 
 	      <link xlink:href="http://openpowerfoundation.org/get-involved/contact-us/">openpowerfoundation.org/get-involved/contact-us</link>.
 	</para>
     </section>
