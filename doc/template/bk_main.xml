@@ -9,7 +9,7 @@
     <!-- TODO: When ready to publish document, remove the 'status="draft"' statement from the book object above. -->
 
     <!-- TODO: Pick a Title for the new document -->
-    <title>Template Guide</title>
+    <title>Master Template Guide</title>
     <!-- TODO: Either add a subtitle or remove the following line -->
     <subtitle>A quick start template</subtitle>
 
@@ -17,14 +17,14 @@
     <author>
       <personname>
           <!-- TODO: Insert appropriate firstname and surnames -->
-          <firstname>Firstname</firstname>
-          <surname>Lastname</surname>
+          <firstname>Jeff</firstname>
+          <surname>Scheel</surname>
       </personname>
       <!-- TODO: Set correct email address of document author -->
-      <email>Email@domain</email>
+      <email>scheel@us.ibm.com</email>
       <affiliation>
           <!-- TODO: Insert appropriate orgname -->
-          <orgname>Company</orgname>
+          <orgname>IBM</orgname>
       </affiliation>
     </author>
     <copyright>
@@ -33,7 +33,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 0.9</releaseinfo>
+    <releaseinfo>Revision 0.9.1</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -57,8 +57,28 @@
      -->
 
     <revhistory>
+      <!-- TODO: Set the initial version information and clear any old information out -->
       <revision>
-          <!-- TODO: Set the initial version information -->
+          <date>2016-01-25</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 0.9.1: Technical and process updates.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+      <revision>
+          <date>2015-08-20</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 0.9: Draft for format review with TSC.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+      <revision>
           <date>2014-09-03</date>
           <revdescription>
             <itemizedlist spacing="compact">

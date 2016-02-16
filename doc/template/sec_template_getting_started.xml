@@ -22,14 +22,14 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_getting_star
               source and maven provides the build framework to create the published content in PDF and html form.
               Installation steps for these tools varies by operating system.</para>
         <para>On Debian-based Linux operating systems (Ubuntu and Debian), install maven and git as follows:
-        <screen><prompt>$</prompt><userinput>sudo apt-get install git</userinput>
-<prompt>$</prompt><userinput>sudo apt-get install maven</userinput></screen></para>
+        <screen><prompt>#</prompt><userinput>apt-get install git</userinput>
+<prompt>#</prompt><userinput>apt-get install maven</userinput></screen></para>
         <para>On RPM-based Linux operating systems (Fedora, RHEL, openSUSE, SLES), install maven and git as follows:
-        <screen><prompt>$</prompt><userinput>sudo yum install git</userinput>
-<prompt>$</prompt><userinput>sudo yum install maven</userinput></screen></para>
+        <screen><prompt>#</prompt><userinput>yum install git</userinput>
+<prompt>#</prompt><userinput>yum install maven</userinput></screen></para>
         <para>On Mac OS X, use Macports to install maven and git as follows:
-        <screen><prompt>$</prompt><userinput>sudo port install git</userinput>
-<prompt>$</prompt><userinput>sudo port install maven3</userinput></screen></para>
+        <screen><prompt>#</prompt><userinput>port install git</userinput>
+<prompt>#</prompt><userinput>port install maven3</userinput></screen></para>
         <para>or use Homebrew to install maven and git as follows:
         <screen><prompt>$</prompt><userinput>brew install git</userinput>
 <prompt>$</prompt><userinput>brew install maven</userinput></screen></para>
@@ -48,9 +48,13 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_getting_star
 
     <section>
       <title>Creating accounts</title>
-        <para>All OpenPOWER project documentation is maintained in GitHub trees, public and private.  To join the GitHub community,
+        <para>All OpenPOWER project documentation is maintained in GitHub trees, public and private.  The first
+              step to creating documentation will be joining the GitHub community.</para>
+        <para>To join the GitHub community,
               apply at <link xlink:href="https://github.com/join">https://github.com/join</link>.</para>
-        <para>If you will be participating in private OpenPOWER Foundation trees, you will need to visit the OpenPOWER Foundation Members
+        <para>The private trees are grouped in the OpenPOWER Foundation project at
+              <link xlink:href="https://github.com/OpenPOWERFoundation">https://github.com/OpenPOWERFoundation</link>.
+              If you will be participating in private OpenPOWER Foundation trees, you will need to visit the OpenPOWER Foundation Members
               Area wiki to find administrators for the appropriate git tree.</para>
         <para>To learn more about using git, see the online article in GitHub Help, "Good Resources for Learning Git and GitHub." at
               <link xlink:href="https://help.github.com/articles/good-resources-for-learning-git-and-github/">
