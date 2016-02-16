@@ -50,6 +50,11 @@ Checking connectivity... done.
 <prompt>$</prompt></screen></para>
               </listitem>
               <listitem>
+                <para>Add the new project to the master POM.xml file.  Using your editor, add the following lines
+                between the &lt;modules> and the &lt;/modules> tags near the top of the file:<programlisting><![CDATA[<module>my_proj</module>
+]]></programlisting></para>
+              </listitem>
+              <listitem>
                 <para>Finally, make sure to add the new directory to the git repository.
 <screen><prompt>$</prompt><userinput>git add my_proj</userinput></screen></para>
               </listitem>

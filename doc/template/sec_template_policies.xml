@@ -1,29 +1,34 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
 
-  <title>Policies and conventions</title>
+    <title>Policies and conventions</title>
     <para>Most document style policies are established simply by using the template documentation framework.  However, by applying some conventions to the document source structure, community members will be able to work across more documentation projects.</para>
     <para>The recommended documentation structure guidelines are as follows:
-       <orderedlist>
-         <listitem>
-           <para>The head book file should be named with the prefix "bk_".</para>
-         </listitem>
-         <listitem>
-           <para>The document versioning as defined by the <literal>releaseinfo</literal> tag in the main book file <literal>bk_xxx</literal> should be named "Revision N.N", not "Version N.N" or simply "N.N"</para>
-         </listitem>
-         <listitem>
-           <para>Chapters files should be named with the prefix "ch_".</para>
-         </listitem>
-         <listitem>
-           <para>Section and sub-section files should be named with the prefix "sec_".</para>
-         </listitem>
-         <listitem>
-           <para>Appendix files should be named with the prefix "app_".</para>
-         </listitem>
-         <listitem>
-           <para>Figures source and images should be placed in the <literal>figures</literal> sub-directory for the document.</para>
-         </listitem>
-       </orderedlist>
+        <orderedlist>
+            <listitem>
+                <para>The head book file should be named with the prefix "bk_".</para>
+            </listitem>
+            <listitem>
+                <para>The document versioning as defined by the <literal>releaseinfo</literal> tag in the main book file <literal>bk_xxx</literal> should be named "Revision N.N", not "Version N.N" or simply "N.N"</para>
+            </listitem>
+            <listitem>
+                <para>Chapters files should be named with the prefix "ch_".</para>
+            </listitem>
+            <listitem>
+                <para>Section and sub-section files should be named with the prefix "sec_".</para>
+            </listitem>
+            <listitem>
+                <para>Appendix files should be named with the prefix "app_".</para>
+            </listitem>
+            <listitem>
+                <para>Figures source and images should be placed in the <literal>figures</literal> sub-directory for the document.</para>
+            </listitem>
+        </orderedlist>
+    </para>
+    <para>In addition to documentation documentation structure, general community/project guidelines are as follows
+        <orderedlist>
+            <listitem><para></para></listitem>
+        </orderedlist>
     </para>
 
 </section>
