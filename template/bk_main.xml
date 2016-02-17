@@ -92,17 +92,17 @@
     </info>
 
   <!-- The ch_preface.xml file is required by all documents -->
-  <xi:include href="../common/ch_preface.xml"/>
+  <xi:include href="../../Docs-Master/common/ch_preface.xml"/>
 
   <!-- TODO: Add your chapter heading files here.  Remove both files and insert your own. -->
   <!--       See the template document for naming conventions and location of files.      -->
   <xi:include href="ch_template_overview.xml"/>
   <xi:include href="ch_example.xml"/>
 
-  <!-- TODO: The following appendices are optional but highly recommended. You may add others as needed. -->
-  <xi:include href="../common/app_foundation.xml"/>
+  <!-- The app_foundation.xml appendix file is required by all documents. -->
+  <xi:include href="../../Docs-Master/common/app_foundation.xml"/>
 
-  <!-- TODO: The following template document may be modified to create additional appendices -->
+  <!-- TODO: The following template document may be modified to create additional appendices as needed. -->
   <xi:include href="app_template.xml"/>
 
 </book>
