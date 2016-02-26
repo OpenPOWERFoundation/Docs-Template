@@ -12,7 +12,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
     <section xml:id="list_example_label">
       <title>Example Itemized List</title>
       <para>
-      Here's an example of an itemized list</para>
+      Here is an example of an itemized list</para>
       <itemizedlist>
         <listitem>
           <para>
@@ -184,9 +184,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
     <section>
       <title>Example of code citations and user input</title>
       <para>When showing user input, you want a nice sceen-looking layout, a prompt, monospace text, and a way to differentiate input from output.  Here's an example:
-      <screen><prompt>$</prompt><userinput>echo "Hello world"</userinput>
+      <screen><prompt>$ </prompt><userinput>echo "Hello world"</userinput>
 Hello world
-<prompt>$</prompt></screen>
+<prompt>$ </prompt></screen>
       </para>
       <para>Docbook also allows for formatting and display of common languages, allowing for whitespace
             and line returns just as they are written. Here's a sample snippet of C code with line numbering enabled:<programlisting linenumbering="numbered"><![CDATA[#include<stdio.h>

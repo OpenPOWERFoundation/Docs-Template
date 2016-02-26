@@ -2,19 +2,27 @@
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_existing_document">
 
   <title>Modifying an existing document</title>
-    <para>To obtain a copy of the existing template document framework and all public documents from the 
-          public OpenPOWER git repository, simply clone the project using this command:<screen><prompt>$</prompt><userinput>git clone https://github.com/open-power/openpower-foundation-docbkx-framework.git</userinput>
-Cloning into 'openpower-foundation-docbkx-framework'...
-remote: Counting objects: 288, done.
-remote: Compressing objects: 100% (157/157), done.
-remote: Total 288 (delta 121), reused 288 (delta 121)
-Receiving objects: 100% (288/288), 12.41 MiB | 8.04 MiB/s, done.
-Resolving deltas: 100% (121/121), done.
-Checking connectivity... done.
-<prompt>~$</prompt></screen></para>
 
-    <para>To build a document such as the template guide, follow these steps from the directory where you just cloned:<screen><prompt>$</prompt><userinput>cd openpower-foundation-docbkx-framework/doc/template</userinput>
-<prompt>$</prompt><userinput>mvn clean</userinput>
+    <para>To begin editing an existing document, you must first clone two projects -- the master document framework project and 
+    the specific document project.  Begin by cloning the master document as described in <xref linkend="section_cloning_master_doc"/>.</para>
+      
+    <para>Once complete, obtain a copy of the desired document by cloning its project.  For example, to clone this document, 
+    <citetitle>Master Template Guide</citetitle>, from the 
+    public OpenPOWER Foundation git repository, use this 
+    command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
+Cloning into 'Docs-Template'...
+Username for 'https://github.com': <userinput>my_userid</userinput>
+Password for 'https://my_userid@github.com': <userinput>my_password</userinput>
+remote: Counting objects: 62, done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 62 (delta 2), reused 0 (delta 0), pack-reused 52
+Unpacking objects: 100% (62/62), done.
+Checking connectivity... done.
+<prompt>$ </prompt></screen></para>
+
+    <para>To build a specific document such as the template guide, follow these steps from the directory where 
+    you just cloned:<screen><prompt>$ </prompt><userinput>cd Docs-Template/template</userinput>
+<prompt>$ </prompt><userinput>mvn clean</userinput>
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ------------------------------------------------------------------------
@@ -22,7 +30,7 @@ Checking connectivity... done.
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ openpower-template-guide ---
-[INFO] Deleting ~/openpower-foundation-docbkx-framework/doc/template/target
+[INFO] Deleting ~/Docs-Template/template/target
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -30,7 +38,7 @@ Checking connectivity... done.
 [INFO] Finished at: Wed Feb 25 12:54:47 CST 2015
 [INFO] Final Memory: 3M/7M
 [INFO] ------------------------------------------------------------------------
-<prompt>$</prompt><userinput>mvn generate-sources</userinput>
+<prompt>$ </prompt><userinput>mvn generate-sources</userinput>
 [INFO] Scanning for projects...
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
@@ -47,8 +55,20 @@ Checking connectivity... done.
 [INFO] Finished at: Wed Feb 25 12:55:15 CDT 2015
 [INFO] Final Memory: 30M/390M
 [INFO] ------------------------------------------------------------------------
-<prompt>$</prompt></screen></para>
-    <para>If all goes well, the generated pdf should be available in <literal>~/openpower-foundation-docbkx-framework/doc/template/target/docbkx/webhelp/template-guide/</literal>.</para>
+<prompt>$ </prompt></screen></para>
 
+    <note><para>The permutations of Maven invocations may be combined into one operation where the parameters are specified in the order
+    in which one wishes to execute them.  Thus, the command <literal>mvn clean generate-sources</literal> would accomplish the 
+    same thing as the above sequence of commands.</para></note>
+
+    <para>If all goes well, the generated pdf should be available in <literal>~/Docs-Template/template/target/docbkx/webhelp/template-guide/</literal>.</para>
+
+    <para>For assistance correcting commmon build failures, see <xref linkend="section_template_debug"/>.</para>
+
+    <note><para>Projects may contain multiple documents. While specific documents can be built by executing a 
+    <literal>mvn clean generate-sources</literal> in the specific document directory, executing this command in
+    the base project directory will build all projects identified in the <literal>&lt;module></literal> list in the
+    top-level <literal>pom.xml</literal> file, known as the "workgroup-pom".</para></note>
+    
 </section>
  

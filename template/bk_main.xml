@@ -29,11 +29,11 @@
     </author>
     <copyright>
       <!-- TODO: Set copyright year -->
-      <year>2015</year>
+      <year>2015, 2016</year>
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 0.9.1</releaseinfo>
+    <releaseinfo>Revision 0.9.2</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -58,6 +58,16 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-02-25</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 0.9.2: Technical and process updates. Explanation of project structure.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-01-25</date>
           <revdescription>

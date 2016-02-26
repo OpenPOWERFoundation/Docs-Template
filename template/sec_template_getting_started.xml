@@ -5,10 +5,13 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_getting_star
     <para>To begin contributing to the OpenPOWER Foundation documentation, the following steps must be completed:
       <orderedlist>
         <listitem>
-          <para>Install tools</para>
+          <para>Installing tools</para>
         </listitem>
         <listitem>
-          <para>Create accounts</para>
+          <para>Creating accounts</para>
+        </listitem>
+        <listitem>
+          <para>Cloning master document information</para>
         </listitem>
       </orderedlist>
     </para>
@@ -22,17 +25,17 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_getting_star
               source and maven provides the build framework to create the published content in PDF and html form.
               Installation steps for these tools varies by operating system.</para>
         <para>On Debian-based Linux operating systems (Ubuntu and Debian), install maven and git as follows:
-        <screen><prompt>#</prompt><userinput>apt-get install git</userinput>
-<prompt>#</prompt><userinput>apt-get install maven</userinput></screen></para>
+        <screen><prompt># </prompt><userinput>apt-get install git</userinput>
+<prompt># </prompt><userinput>apt-get install maven</userinput></screen></para>
         <para>On RPM-based Linux operating systems (Fedora, RHEL, openSUSE, SLES), install maven and git as follows:
-        <screen><prompt>#</prompt><userinput>yum install git</userinput>
-<prompt>#</prompt><userinput>yum install maven</userinput></screen></para>
+        <screen><prompt># </prompt><userinput>yum install git</userinput>
+<prompt># </prompt><userinput>yum install maven</userinput></screen></para>
         <para>On Mac OS X, use Macports to install maven and git as follows:
-        <screen><prompt>#</prompt><userinput>port install git</userinput>
-<prompt>#</prompt><userinput>port install maven3</userinput></screen></para>
+        <screen><prompt># </prompt><userinput>port install git</userinput>
+<prompt># </prompt><userinput>port install maven3</userinput></screen></para>
         <para>or use Homebrew to install maven and git as follows:
-        <screen><prompt>$</prompt><userinput>brew install git</userinput>
-<prompt>$</prompt><userinput>brew install maven</userinput></screen></para>
+        <screen><prompt>$ </prompt><userinput>brew install git</userinput>
+<prompt>$ </prompt><userinput>brew install maven</userinput></screen></para>
         <para>For information on how to setup the environment on Windows, see the following websites:
            <itemizedlist>
               <listitem>
@@ -44,22 +47,43 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_getting_star
               </listitem>
            </itemizedlist>
         </para>
+        <note><para>Modification of documentation source files requires a text editor.  While standard editors like vim, emacs, or gedit can be used,
+        it is highly recommended that an editor be used which highlights XML or Docbook syntax. If your favorite editor does not include an
+        extension or plugin to accomplish this, you might consider using Bluefish to edit your docbook files.  Details on this editor
+        can be found at <link xlink:href="http://bluefish.openoffice.nl/index.html">http://bluefish.openoffice.nl/index.html</link>.</para></note>
     </section>
 
-    <section>
+    <section xml:id="section_creating_accounts">
       <title>Creating accounts</title>
         <para>All OpenPOWER project documentation is maintained in GitHub trees, public and private.  The first
               step to creating documentation will be joining the GitHub community.</para>
         <para>To join the GitHub community,
               apply at <link xlink:href="https://github.com/join">https://github.com/join</link>.</para>
-        <para>The private trees are grouped in the OpenPOWER Foundation project at
+        <para>The OpenPOWER Foundation documentation trees are grouped in the OpenPOWER Foundation project at
               <link xlink:href="https://github.com/OpenPOWERFoundation">https://github.com/OpenPOWERFoundation</link>.
-              If you will be participating in private OpenPOWER Foundation trees, you will need to visit the OpenPOWER Foundation Members
-              Area wiki to find administrators for the appropriate git tree.</para>
+              Everyone should be able to see and access public trees like Docs-Master.  However, 
+              if you will be participating in private OpenPOWER Foundation trees, you will need to request access from the
+              Technical Steering Committee Chair, <email>tsc-chair@openpowerfoundation.org</email>.</para>
         <para>To learn more about using git, see the online article in GitHub Help, "Good Resources for Learning Git and GitHub." at
               <link xlink:href="https://help.github.com/articles/good-resources-for-learning-git-and-github/">
               https://help.github.com/articles/good-resources-for-learning-git-and-github/</link>.</para>
     </section>
 
+    <section xml:id="section_cloning_master_doc">
+      <title>Cloning master document information</title>
+        <para>To successfully build OpenPOWER Foundation documents, common document files must be in place in addition to the specific 
+        document files. These common files are obtained by cloning the OpenPOWER Foundation public project <literal>Docs-Master</literal>.</para>
+        <para>To clone the master template document framework use the clone git command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Master.git</userinput>
+Cloning into 'Docs-Master'...
+remote: Counting objects: 24, done.
+remote: Compressing objects: 100% (18/18), done.
+remote: Total 24 (delta 6), reused 20 (delta 5), pack-reused 0
+Unpacking objects: 100% (24/24), done.
+Checking connectivity... done.
+<prompt>$ </prompt></screen></para>
+        <para>More information can be found about the Docs-Master project online at <link xlink:href="https://github.com/OpenPOWERFoundation/Docs-Master">
+        https://github.com/OpenPOWERFoundation/Docs-Master</link>. Additional details about the OpenPOWER Foundation documentation structure 
+        are explained in <xref linkend="section_template_structure"/> of this document.</para>
+    </section>
 </section>
  

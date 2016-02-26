@@ -2,7 +2,51 @@
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
 
         <title>Debugging build failures</title>
-          <para>Maven/docbkx failures generally fall into one of two categories, validation errors or build failures.  Correcting the document begins with understanding which type of failure has occurred and understanding where to look in your document source.</para>
+          <para>Maven/docbkx failures generally fall into these categories:</para>
+          <itemizedlist>
+            <listitem><para>Project structure errors</para></listitem>
+            <listitem><para>Docbook validation errors</para></listitem>
+            <listitem><para>Build failures</para></listitem>
+          </itemizedlist>  
+          <para>Correcting the document errors starts with understanding which type of failure has occurred and 
+          understanding where to look in your document source.</para>
+          
+    <section>
+      <title>Project structure errors</title>
+      
+      <para>Because the OpenPOWER Foundation documentation projects are not self-contained in the 
+      GitHub repositories, forgetting to clone the <literal>Docs-Master</literal> project in addition
+      to the document project or cloning it in the wrong location is a common problem.  Failures of this kind
+      produce the following error:</para>
+<screen>...
+[INFO] Scanning for projects...
+[ERROR] The build could not read 1 project -> [Help 1]
+[ERROR]   
+[ERROR]   The project org.openpowerfoundation.docs:workgroup-pom:1.0.0-SNAPSHOT (/home/scheel/Docs-Template/pom.xml) has 1 error
+[ERROR]     Non-resolvable parent POM: Could not find artifact org.openpowerfoundation.docs:master-pom:pom:1.0.0-SNAPSHOT and 'parent.relativePath' points at wrong local POM @ line 6, column 11 -> [Help 2]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException</screen>
+      <para>The identifying characteristic of this error type is the message, "Non-resolvable parent POM".  This occurs because the
+      <literal>pom.xml</literal> file in the documentation project, called the "workgroup-pom" because of a project
+      <literal>&lt;artifactId>workgroup-pom&lt;/artifactId></literal> declaration, expects its parent pom file to be in the
+      location defined by the <literal>&lt;relativePath>../Docs-Master/pom.xml&lt;/relativePath></literal>, up one directory and
+      then in the <literal>Docs-Master</literal> director.  
+      </para>
+      
+      <para>So, if you see the message "Non-resolvable parent POM", ensure that the <literal>Docs-Master</literal> project 
+      and your project have been cloned
+      into the same parent directory.  See <xref linkend="section_cloning_master_doc"/> for detailed directions on how to do this.</para>
+      
+    </section>
+
+    <section>
+      <title>Docbook validation errors</title>
+                
           <para>Validation errors are generally indicated in the build output with text like the following:
 <screen>...
 @@@@@@@@@@@@@@@@@@@@@@
@@ -11,7 +55,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
 
 Note: Open the temporary file:
 
-file:/home/user1/openpower-foundation-docbkx-framework/doc/template/target//bk_main.xml-invalid.xml
+file:/home/user1/Docs-Template/template/target//bk_main.xml-invalid.xml
 
 to see all the errors in context. 
 You must correct the errors in the original 
@@ -26,7 +70,7 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
             <orderedlist>
 	      <listitem>
                 <para>The full path and filename that contains the context for the failure.  In the message above, this is 
-<literal>/home/user1/openpower-foundation-docbkx-framework/doc/template/target//bk_main.xml-invalid.xml</literal>.</para>
+<literal>/home/user1/Docs-Template/template/target//bk_main.xml-invalid.xml</literal>.</para>
               </listitem>
               <listitem>
                 <para>The location within the file of the syntax error.  For the above example, the key information is "<literal>lineNumber:  272; columnNumber: 70</literal>.</para>
@@ -35,6 +79,12 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
                 <para>An explanation of the failure.  This information in the above error reads, "text not allowed here; expected element "address", ...".</para>
               </listitem>
             </orderedlist>
+            
+    </section>
+
+    <section>
+      <title>Build failures</title>
+            
           <para>Build errors are easily identified as well.  Below is an example:
 <screen>...
 [INFO] ------------------------------------------------------------------------
@@ -46,21 +96,25 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp (generate-webhelp) on project openpower-template-guide: Execution generate-webhelp of goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp failed: XInclude resource error (sec_template_new_document.xml) and no fallback provided. XProc error err:XD0011: org.xml.sax.SAXParseException; systemId: file:/home/user1/openpower-foundation-docbkx-framework/doc/template/sec_template_new_document.xml; lineNumber: 55; columnNumber: 17; The element type "para" must be terminated by the matching end-tag "&lt;/para&gt;". -> [Help 1]...
 </screen></para>
+
           <para>Like validation errors, three key pieces of information are again provided:</para>
             <orderedlist>
 	      <listitem>
                 <para>The full path and filename of our failure is 
-<literal>/home/user1/openpower-foundation-docbkx-framework/doc/template/sec_template_new_document.xml</literal>.</para>
+<literal>/home/user1/Docs-Template/template/sec_template_new_document.xml</literal>.</para>
               </listitem>
               <listitem>
                 <para>The location within the file of the error is "<literal>lineNumber: 55; columnNumber: 17</literal>.</para>
               </listitem>
               <listitem>
-                <para>An explanation of the failure begins with the text, "The element type "para" must be terminated by the matching end-tag "&lt;/para&gt;."</para>
+                <para>An explanation of the failure begins with the text, "The element type "para" must be terminated by the 
+                matching end-tag "&lt;/para&gt;."</para>
               </listitem>
             </orderedlist>
-          <para>With these details in hand for either error, one simply locates the offending syntax and makes the appropriate correction.  Online resources such as those listed in <xref linkend="section_template_references"/> may be helpful.</para>
 
+          <para>With these details in hand for either error, one simply locates the offending syntax and makes the appropriate 
+          correction.  Online resources such as those listed in <xref linkend="section_template_references"/> may be helpful.</para>
+    </section>
 
 </section>
  
