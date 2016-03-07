@@ -33,7 +33,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 0.9.2</releaseinfo>
+    <releaseinfo>Revision 0.9.3</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -48,16 +48,31 @@
           <remark>Copyright details are filled in by the template.</remark>
       </annotation>
     </legalnotice>
-    <!-- TODO: Decide whether you want any text inserted before the author listing.  
-               If you do, undelete the comment and adjust text between the paragraph tags below. -->
-    <!--
+    
+    <!-- TODO: Update the following text with the correct document description (first paragraph),
+               Work Group name, and Work Product track (both in second paragraph). -->
     <abstract>
-      <para>Abstract text</para> 
+      <para>The purpose of the Master Template Guide document is to provide a guide for OpenPOWER
+      documentation writers.  As such, it provides directions, policies, references, and 
+      examples of the XML Docbook environment.  It is intended to be used both in final product form
+      (PDF and html) as a document and in source form as a template for new documents.</para>
+      <para>This document is a Non-standard Track, Work Group Note work product owned by the
+      System Software Workgroup and handled in compliance with the requirements outlined in the
+      <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document.</para>
     </abstract>
-     -->
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-02-25</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 0.9.3: Technical and process updates. Addition of documentation lifecycle and git command cheat sheets.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-02-25</date>
           <revdescription>

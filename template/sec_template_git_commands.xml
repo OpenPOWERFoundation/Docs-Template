@@ -1,0 +1,166 @@
+<section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_git_commands">
+
+    <title xml:id="section_template_git_commands_title">Common git commands</title>
+      <para>This section provides a list of commonly used git commands invocations. All commands shown, except
+      the first one (<literal>git clone</literal> must be issued from within the project directory.</para>
+
+      <itemizedlist>
+
+        <listitem>
+          <para>To clone a git tree for first time or temporary use via http, 
+          use:<screen><prompt>$ </prompt><userinput>git clone &lt;URL></userinput></screen></para>
+          <para>The <literal>&lt;URL></literal> value for OpenPOWER Foundation GitHub projects can be found on the project web pages.
+          They generally take the form of <literal>https://github.com/OpenPOWERFoundation/project_name</literal> where the
+          <literal>project_name</literal> can be found on the OpenPOWER Foundation Git Hub community page at 
+          <link xlink:href="https://github.com/OpenPOWERFoundation">https://github.com/OpenPOWERFoundation</link>.  The result of this
+          command will be a new directory with the same name as the project and in which will be the project files.</para>
+          <note><para>Trees can only be cloned once.  To update a tree, use a <literal>git pull</literal> or <literal>git merge</literal>
+          command.</para></note>
+          <note><para>When cloning from a private tree, you will be prompted for your GitHub userid and password.</para></note>
+        </listitem>
+
+        <listitem>
+          <para>To update a git tree with new files from the remote repository, 
+          use:<screen><prompt>$ </prompt><userinput>git pull</userinput></screen></para>
+          <para>This command assumes that the local tree has not been updated since the clone or last pull.  If updates have been made to
+          the local tree, the command will fail.  Use the <literal>git status</literal> command to see what has changed in a local tree.</para>
+          <note><para>When pulling from a private tree, you will be prompted for your GitHub userid and password.</para></note>
+        </listitem>
+
+        <listitem>
+          <para>To see the status of the local repository, 
+          use:<screen><prompt>$ </prompt><userinput>git status</userinput></screen></para>
+          <para>This command identifies files which have changed in the local repository and provides suggestions on how to handle.</para>
+          
+          <note><para>Adding the <literal>-s</literal> parameter to the end of the command will provide a simplified view in which changed files
+          are listed with flags such as <literal>M</literal> for modified files, <literal>A</literal> for newly added files,
+          and <literal>??</literal> for new or unknown files.  This parameter also suppresses suggested action information for the files.</para></note>
+        </listitem>
+
+        <listitem>
+          <para>To add a new file or directory to a git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git add &lt;new_file></userinput></screen></para>
+          <para>The <literal>&lt;new_file></literal> value can be either a file or a whole directory and may include the path to 
+          the target file or directory.  This command will convert the status of file in the <literal>git status -s</literal>
+          command from <literal>??</literal> to <literal>A</literal> or move it from the "Untracked files" section to the 
+          "Changes to be committed" section of the <literal>git status</literal> command.</para>
+        </listitem>
+
+        <listitem>
+          <para>To remove a file from a git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git rm &lt;file></userinput></screen></para>
+          <para>The <literal>&lt;file></literal> value must be a file and may include wildcard characters or the path to 
+          the target file.  This command will both remove the file(s) from the directory and the git tree.  Removed files will show in
+          a status modifier of <literal>D</literal> in the <literal>git status -s</literal>
+          command and be reflected in the "Changes not staged for commit" section of the<literal>git status</literal> command
+          with a "deleted:" status.</para>
+        </listitem>
+
+        <listitem>
+          <para>To remove a directory from a git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git rm -rf &lt;directory></userinput></screen></para>
+          <para>The <literal>&lt;directory></literal> value must be a directory name and may include wildcard characters or the path to 
+          the target directory.  This command will remove all files in the directory from the git tree, but will not remove the directory locally.
+          Standard operating system commands such as the Linux <literal>rmdir &lt;directory></literal> command must be issued separately to
+          remove the local directory.  All removed files will show in
+          a status modifier of <literal>D</literal> in the <literal>git status -s</literal>
+          command and be reflected in the "Changes not staged for commit" section of the<literal>git status</literal> command with a
+          "deleted:" status.  Because git does not
+          track directories, they will not be reflected in status.</para>
+        </listitem>
+
+        <listitem>
+          <para>To move or rename a file or directory in a git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git mv &lt;source> &lt;destination></userinput></screen></para>
+          <para>The <literal>&lt;source></literal> value must be a file or directory and may include the path to 
+          the target file.  The <literal>&lt;destination></literal> value may be a file (if renaming a file) or a directory
+          if moving a file or directory.
+          This command will move or rename the file(s) in both the local and remote the git trees.</para>
+        </listitem>
+
+        <listitem>
+          <para>To commit all local changes to the staging area for a git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git commit -a</userinput></screen></para>
+          <para>This command will invoke an editor for a commit message.  A well-formatted commit message includes a
+          title on the first line, a blank line, one or more lines of details describing the changes, and a Developer's
+          Certificate of Orig (DCO) Sign-off statement at the end.  <screen>Signed-off-by: Your name &lt;your_email@domain.com></screen></para>
+          <para>For information on the DCO, see <citetitle>Developer Certificate Of Origin</citetitle> at 
+          <link xlink:href="http://elinux.org/Developer_Certificate_Of_Origin">http://elinux.org/Developer_Certificate_Of_Origin</link>.</para>
+        </listitem>
+
+        <listitem>
+          <para>To push all locally staged changes to the remote git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git push</userinput></screen></para>
+          <note><para>When pushing to a private tree, you will be prompted for your GitHub userid and password.</para></note>
+        </listitem>
+
+        <listitem>
+          <para>To see what tags exist in a git tree, 
+          use:<screen><prompt>$ </prompt><userinput>git tag</userinput></screen></para>
+        </listitem>
+
+        <listitem>
+          <para>To create a new tag locally, 
+          use:<screen><prompt>$ </prompt><userinput>git tag -a &lt;tag_name> -m"text"</userinput></screen></para>
+          <para>The <literal>tag_name</literal> represents the simple value of the tag.  The <literal>text</literal> string
+          provides more description of the tag for readibility.</para>
+          <note><para>This command simply tags locally.  See the next command for how to push the tag to the remote repository.</para></note>
+        </listitem>
+
+        <listitem>
+          <para>To push a new tag from the local tree to the remote tree, 
+          use:<screen><prompt>$ </prompt><userinput>git push origin &lt;tag_name></userinput></screen></para>
+          <para>This commands assumes the <literal>git tag</literal> command has been run on the local tree.</para>
+        </listitem>
+
+        <listitem>
+          <para>To discard changes from a locally changed file and return to the last copy, 
+          use:<screen><prompt>$ </prompt><userinput>git checkout -- &lt;file></userinput></screen></para>
+          <para>The <literal>&lt;file></literal> value must be a file and may include wildcard characters or the path to 
+          the target file.</para>
+        </listitem>
+
+        <listitem>
+          <para>To identify what changes have been made locally to a file 
+          use:<screen><prompt>$ </prompt><userinput>git diff &lt;file></userinput></screen></para>
+          <para>The <literal>&lt;file></literal> value must be a file and may include wildcard characters or the path to 
+          the target file. The output will be in format similar to the standalone <literal>diff</literal> command.</para>
+        </listitem>
+
+      </itemizedlist>
+
+      <para>Additional resources about git can be found online at the following locations:</para>
+
+      <itemizedlist>
+
+        <listitem>
+          <para>The <citetitle>GitHub Glossary</citetitle> at 
+          <link xlink:href="https://help.github.com/articles/github-glossary/">https://help.github.com/articles/github-glossary/</link>.
+          This site provides a list of common terms associated with git and GitHub.</para>
+        </listitem>
+
+        <listitem>
+          <para>The GitHub <citetitle>Git Cheat Sheet</citetitle> at 
+          <link xlink:href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">
+          https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf</link>.  
+          This two page pdf provides a quick summary of many common commands.</para>
+        </listitem>
+
+
+        <listitem>
+          <para>The <citetitle>Git Reference</citetitle> at 
+          <link xlink:href="http://gitref.org/">http://gitref.org/</link>.  This is a deeper and more comprehensive reference of important commands.</para>
+        </listitem>
+
+        <listitem>
+          <para>The git-scm.com <citetitle>Documentation</citetitle> library at 
+          <link xlink:href="http://git-scm.com/doc">http://git-scm.com/doc</link>.  This site provides education in the form of books, videos, 
+          and other tutorials for common git activities.</para>
+        </listitem>
+
+      </itemizedlist>
+      
+      
+</section>
+ 

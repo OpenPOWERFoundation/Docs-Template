@@ -1,0 +1,153 @@
+<section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
+
+     <title xml:id="section_template_process_title">Publishing OpenPOWER Documents</title>
+      <para>The <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document
+      found in the OpenPOWER Foundation Members Community documents is the definitive guide for understanding 
+      OpenPOWER Foundation documents and their work flow. The section strives to
+      provide an overview to help writers understand enough of the basics to know how to prepare their
+      document and what to expect as they proceed through various stages of document development from first
+      draft to specification publish.</para>
+      
+      <para>The first key concept to understand about OpenPOWER Foundation documents and the first
+      decision to make when creating a new document is available document types or "Work Products".
+      These fall into one of two categories -- Standards Track or Non-standards Track -- with the simple
+      distinguishing factor being use.  If the purpose of a document is to define a specification or standard
+      for hardware or software, then the document is "Standards Track".  Everything else is "Non-standards
+      Track."</para>
+      
+      <para>Standards Track Work Products begin their life as Work Group Specification and may ultimately
+      become an OpenPOWER Standard.  Their document lifecycle is defined in the following illustration:</para>      
+
+      <figure pgwide="1" xml:id="project_process_std_track_label">
+        <title>Document work flow for Standard Track Work Products</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/project_process_std_track_graphic.svg" format="SVG" scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure> 
+
+      <para>Standard Track Work Products begin their lives as Work Group Specifications and have security classifications
+      of Public (non-confidental),
+      Members-only (OpenPOWER Foundation Confidental), or Work Group-only (OpenPOWER Work Group Confidential).
+      The security classification impacts the review type -- either public or internal to the Foundation -- as appropriate.
+      Only Work Group Specifications classified as Public may proceed into OpenPOWER Standard Documents.  Confidential
+      documents will remain Work Group Specifications.</para>
+      
+      <para>Non-standard Track Work Products exist simply as Work Group Notes.  Their document
+      lifecycle follows this simplified workflow:</para>
+      
+      <figure pgwide="1" xml:id="project_process_non-std_track_label">
+        <title>Document work flow for Non-standard Track Work Products</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/project_process_non-std_track_graphic.svg" format="SVG" scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure> 
+
+      <para>Non-standard Track, Work Group Notes begin as Drafts and drop the "Draft" annotation once reviewed.  Like
+      Standard Track Work Products, they may have security classifications as Public (non-confidential), Members-only
+      (OpenPOWER Foundation Confidential), or Work-Group only (OpenPOWER Work Group Confidential) which will
+      in turn dictate the review context (public or private).</para>
+      
+      <para>Once these decisions have been made, then they can be reflected into the document in the following ways:</para>
+      
+      <orderedlist>
+
+	    <listitem>
+	      <para>The document Work Product type is defined in the document <literal>pom.xml</literal> file with the 
+	      <literal>&lt;workProduct></literal> variable.  Valid settings are <literal>workgroupNotes</literal>,
+	      <literal>workgroupSpecification</literal>, <literal>candidateStandard</literal>, and <literal>openpowerStandard</literal>. 
+	      Select the appropriate setting in the following section:
+<programlisting><![CDATA[<!-- TODO: Define the appropriate work product type.  These values are defined by the
+           IPR Policy. Consult with the Work Group Chair or a Technical Steering
+           Committee member if you have questions about which value to select.
+
+          If no value is provided below, the document will default to "Work Group
+          Notes".-->
+<workProduct>workgroupNotes</workProduct>
+<!-- workProduct>workgroupSpecification</workProduct -->
+<!-- workProduct>candidateStandard</workProduct -->
+<!-- workProduct>openpowerStandard</workProduct -->]]></programlisting></para>
+	    </listitem>
+
+	    <listitem>
+	      <para>The document security is set in the document <literal>pom.xml</literal> file with the 
+	      <literal>&lt;security></literal> variable.  Valid settings are <literal>public</literal>,
+	      <literal>foundationConfidential</literal>, and <literal>workgroupConfidential</literal>. 
+	      Select the appropriate setting in the following section:
+<programlisting><![CDATA[<!-- TODO: Set the appropriate security policy for the document.  For documents
+           which are not "public" this will affect the document title page and
+           create a vertical running ribbon on the internal margin of the
+           security status in all CAPS.  Values and definitions are formally
+           defined by the IPR policy.  A layman's definition follows:
+
+           public =	                this document may be shared outside the
+                                    foundation and thus this setting must be
+                                    used only when completely sure it allowed
+           foundationConfidential = this document may be shared freely with
+                                    OpenPOWER Foundation members but may not be
+                                    shared publicly
+           workgroupConfidential =  this document may only be shared within the
+                                    work group and should not be shared with
+                                    other Foundation members or the public
+
+           The appropriate starting security for a new document is "workgroupConfidential". -->
+<security>workgroupConfidential</security>
+<!-- security>foundationConfidential</security -->
+<!-- security>public</security -->]]></programlisting></para>
+	    </listitem>
+
+	    <listitem>
+	      <para>The document work flow status is set in the document <literal>pom.xml</literal> file with the 
+	      <literal>&lt;documentStatus></literal> variable.  Valid settings are <literal>draft</literal>,
+	      <literal>review</literal>, and <literal>published</literal>. 
+	      Select the appropriate setting in the following section:
+<programlisting><![CDATA[<!-- TODO: Set the appropriate work flow status for the document.  For documents
+           which are not "published" this will affect the document title page
+           and create a vertical running ribbon on the internal margin of the 
+           security status in all CAPS.  Values and definitions are formally
+           defined by the IPR policy.  A layman's definition follows:
+
+               published = this document has completed all reviews and has
+                           been published
+               draft =     this document is actively being updated and has
+                           not yet been reviewed
+               review =    this document is presently being reviewed
+
+           The appropriate starting security for a new document is "draft". -->
+<documentStatus>draft</documentStatus>
+<!-- documentStatus>review</documentStatus -->
+<!-- documentStatus>publish</documentStatus -->]]></programlisting></para>
+	    </listitem>
+
+        <listitem>
+          <para>The final place to make updates to a new document is in the <literal>&lt;abstract></literal> section of
+          the <literal>bk_main.xml</literal> file for the document.  This section needs to be updated with the appropriate
+          work group information and document information.  Typical text appears as follows:
+<programlisting><![CDATA[<!-- TODO: Update the following text with the correct document description (first 
+           paragraph), Work Group name, and Work Product track (both in second
+           paragraph). -->
+<abstract>
+    <para>The purpose of the Master Template Guide document is to provide a guide
+    for OpenPOWER documentation writers.  As such, it provides directions, policies,
+    references, and examples of the XML Docbook environment.  It is intended to be
+    used both in final product form (PDF and html) as a document and in source form
+    as a template for new documents.</para>
+    <para>This document is a Non-standard Track, Work Group Note work product
+    owned by the System Software Workgroup and handled in compliance with the
+    requirements outlined in the <citetitle>OpenPOWER Foundation Work Group (WG)
+    Process</citetitle> document.</para>
+</abstract>]]></programlisting></para>
+          <para>As stated in the comment text of the book file, the first paragraph provides a typical abstract
+          statement about your particular document.  The second paragraph provides more structured
+          text which should be updated with the appropriate Work Group name, Work Product type,
+          and Work Product process.  The rest of the information in this paragraph should remain as-is.</para>
+        </listitem>
+
+      </orderedlist>
+
+</section>
+ 

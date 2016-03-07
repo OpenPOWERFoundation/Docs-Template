@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_existing_document">
 
-  <title>Modifying an existing document</title>
+  <title xml:id="section_template_existing_document_title">Modifying an existing document</title>
 
     <para>To begin editing an existing document, you must first clone two projects -- the master document framework project and 
     the specific document project.  Begin by cloning the master document as described in <xref linkend="section_cloning_master_doc"/>.</para>
@@ -69,6 +69,11 @@ Checking connectivity... done.
     <literal>mvn clean generate-sources</literal> in the specific document directory, executing this command in
     the base project directory will build all projects identified in the <literal>&lt;module></literal> list in the
     top-level <literal>pom.xml</literal> file, known as the "workgroup-pom".</para></note>
+    
+    <para>You are now ready to begin making updates.  Before diving deeply into new text, 
+    you may want to review
+    <xref linkend="section_template_process"/> to ensure that proper Work Product, 
+    Work Process, and security values are selected for your document.</para>
     
 </section>
  

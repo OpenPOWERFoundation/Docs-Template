@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
 
-        <title>Debugging build failures</title>
+        <title xml:id="section_template_debug_title">Debugging build failures</title>
           <para>Maven/docbkx failures generally fall into these categories:</para>
           <itemizedlist>
             <listitem><para>Project structure errors</para></listitem>

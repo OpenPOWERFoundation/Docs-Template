@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_new_document">
 
-  <title>Creating a new document</title>
+  <title xml:id="section_template_new_document_title">Creating a new document</title>
      <para>Creating a new document from scratch follows four simple steps:</para>
         <orderedlist>
             <listitem>
@@ -169,9 +169,16 @@ Checking connectivity... done.
             and <literal>bk_main.xml</literal>. Within these two files are XML comment tags that begin "<literal>&lt;!-- TODO:</literal>" 
             to identify places which need customization.  The surrounding comments will provide guidance on what needs to change and how 
             it may be changed.  Simply work through each item, making updates as requested.</para>
+            <para>Pick your setting for document work product type (<literal>&lt;workProduct></literal>, 
+            work flow status (<literal>&lt;documentStatus></literal>), and 
+            security (<literal>&lt;security></literal>)
+            carefully.  <xref linkend="section_template_process"/> provides an overview of the process
+            and details the various settings needed in the document core project files.  If you still have
+            questions after reading this section, consult with your Technical Steering Committee
+            representative.</para>
             <note><para>Be sure to remember two key values you used in the <literal>pom.xml</literal> file, <literal>&lt;webhelpDirname&gt;</literal> 
             and <literal>&lt;pdfFilenameBase&gt;</literal>, as these will be used to locate your generated document.</para></note>
-            <para>When complete, be sure to build your new document using standard maven commands like 
+            <para>When ready, build your new document using standard maven commands like 
             this:<screen><prompt>$ </prompt><userinput>cd my_proj/my_doc</userinput>
 <prompt>$ </prompt><userinput>mvn clean</userinput>
 [INFO] Scanning for projects...

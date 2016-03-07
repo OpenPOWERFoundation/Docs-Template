@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
 
-     <title>Understanding the project structure</title>
+     <title xml:id="section_template_structure_title">Understanding the project structure</title>
       <para>The OpenPOWER Foundation documentation build process involves dependency on a common
       framework and shared files.  As such a deeper explanation about the relationships of key projects and their
       components may be helpful to prevent and diagnose documentation build problems. This section 
@@ -23,7 +23,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
         <title>Directory structure and key files in the OpenPOWER Foundation Docbook projects</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="figures/project_structure_graphic.bmp" format="GIF" scalefit="1" width="100%" />
+            <imagedata fileref="figures/project_structure_graphic.svg" format="SVG" scalefit="1" width="100%" />
           </imageobject>
         </mediaobject>
       </figure> 

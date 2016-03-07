@@ -61,10 +61,12 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
         <title>Example figure</title>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="figures/example_graphic.bmp" format="GIF" scalefit="1" width="100%" />
+            <imagedata fileref="figures/example_graphic.bmp" format="BMP" scalefit="1" width="100%" />
           </imageobject>
         </mediaobject>
       </figure> 
+      <note><para>Raw images such as the bitmap (bmp) file above may become blurry as they are scaled.
+      Scalable graphic formats like SVG (Scalable Vector Graphics) embed and scale the best.</para></note>
     </section>
 
     <section>
