@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_references">
 
-    <title>Where to find more information</title>
+    <title xml:id="section_template_references_title">Finding more information</title>
       <para>The following lists of references may be helpful in learning about XML, Docbook, and/or Maven:</para>
       <itemizedlist>
         <listitem>

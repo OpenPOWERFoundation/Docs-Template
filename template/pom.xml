@@ -76,7 +76,7 @@
                             <pdfFilenameBase>template-guide</pdfFilenameBase>
 
                             <!-- TODO: If the document is not yet public, uncomment one of the following statements to create 
-			               a vertical running ribbon on the internal margin of the security status in all CAPS.
+                                       a vertical running ribbon on the internal margin of the security status in all CAPS.
                                        Values and definitions are formally defined by the IPR policy.  A layman's definition follows:
 
                                          working =	typically new document within a work group that has not yet been reviewed
@@ -90,7 +90,7 @@
                                        Note, the value of "external" is the same as specifying no status. -->
                             <security>review</security>
                             <!-- security>working</security -->
-			    <!-- security>internal</security -->
+                            <!-- security>internal</security -->
                             <!-- security>writeronly</security -->
                             <!-- security>external</security -->
 

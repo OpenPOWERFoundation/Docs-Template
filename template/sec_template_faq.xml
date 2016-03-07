@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_faq">
 
-  <title>Frequently asked questions</title>
+  <title xml:id="section_template_faq_title">Frequently asked questions</title>
     <para>The list of questions and answers may be helpful to first time document writers:</para>
     <qandaset defaultlabel="qanda"><?dbhtml toc="0" ?>
       <qandaentry>

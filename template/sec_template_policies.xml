@@ -1,7 +1,7 @@
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
 
-    <title>Policies and conventions</title>
+    <title xml:id="section_template_policies_title">Policies and conventions</title>
     <para>Most document style policies are established simply by using the template documentation framework.  However, 
     by applying some conventions to the document source structure, community members will be able to work across more d
     ocumentation projects.</para>
@@ -28,14 +28,14 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
             </listitem>
         </orderedlist>
     </para>
-    <para>In addition to documentation documentation structure, general community/project guidelines are as follows
+    <para>In addition to documentation structure, general community/project guidelines are as follows:
         <orderedlist>
             <listitem>
                 <para>Contributions to the documentation projects should conform to the <citetitle>Developer Certificate
                 Of Origin</citetitle> as defined at <link xlink:href="http://elinux.org/Developer_Certificate_Of_Origin">
-                http://elinux.org/Developer_Certificate_Of_Origin</link>. Submissions of patches to GitHub project need
+                http://elinux.org/Developer_Certificate_Of_Origin</link>. Commits to the GitHub project need
                 to contain the following line to indicate the submitter accepts the 
-                DCO:<screen>Signed-off-by: Your name &gt;your_email@domain.com</screen></para>
+                DCO:<screen>Signed-off-by: Your name &lt;your_email@domain.com></screen></para>
             </listitem>
         </orderedlist>
     </para>
