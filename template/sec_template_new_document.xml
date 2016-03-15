@@ -1,3 +1,19 @@
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  
+-->
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_new_document">
 
@@ -144,8 +160,8 @@ Checking connectivity... done.
 <prompt>$ </prompt></screen></para>
               </listitem>
               <listitem>
-                <para>Once copied, the Docs-Template directory and all its contents should be removed from your project so that it does accidentally get 
-                included in your project.  The command <userinput>rm -rf Docs-Template</userinput></para>
+                <para>Once copied, the Docs-Template directory and all its contents should be removed from your project so that it does not 
+                accidentally get included in your project.  The command <userinput>rm -rf Docs-Template</userinput></para>
               </listitem>
               <listitem>
                 <para>Finally, add the new project to the workgroup POM.xml file.  Using your editor, add the following lines
@@ -227,7 +243,7 @@ Checking connectivity... done.
       <title>Adding new content</title>
 
         <para>The starting point for book content is the <literal>bk_main.xml</literal> file (or whatever to which it was renamed 
-        in the previous step).  Removal and additions of the main chapter files files will be controlled by entries near the 
+        in the previous step).  Removal and additions of the main chapter files will be controlled by entries near the 
         end of that file which appear as follows:<programlisting><![CDATA[  <!-- The ch_preface.xml file is required by all documents -->
   <xi:include href="../../Docs-Master/common/ch_preface.xml"/>
 
