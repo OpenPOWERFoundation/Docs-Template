@@ -1,3 +1,19 @@
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  
+-->
 <section version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
 
@@ -28,11 +44,13 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
         </mediaobject>
       </figure> 
       
-      <para>To create this structure, one would get the green directories and files by cloning <literal>Docs-Master</literal>, blue 
-      directories and files by cloning <literal>Docs-Template</literal>, and the red files by cloning a hypothetical project
-      <literal>my_project</literal>.</para>
+      <para>To create this structure, one would clone the <literal>Docs-Master</literal> project to 
+      get the <literal>Docs-Master</literal> directory and all its contents (shown above in green), 
+      clone the <literal>Docs-Template</literal> project to get the <literal>Docs-Template</literal> directory
+      and all its contents (shown in blue), and clone <literal>my_project</literal> project to get the
+      <literal>my_project</literal> directory and all its contents (shown in red).</para>
       
-      <para>Among these directories, the most important directory and project is <literal>Docs-Master</literal>.  Without this project
+      <para>Among these projects, the most important directory and project is <literal>Docs-Master</literal>.  Without this project
       and associated directory, no document will build. As depicted in the above figure, the <literal>Docs-Master</literal> directory
       must sit at a level equal to all other project directories.  Details on how to install this project can be found in the 
       <xref linkend="section_cloning_master_doc"/> section.</para>
@@ -52,7 +70,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
       for Maven builds to complete successfully.
       At the top level of the <literal>Docs-Template</literal> project
       are a <literal>pom.xml</literal> referred to as the "Workgroup POM" and a single document directory (<literal>template</literal>).
-      The "Workgroup POM" is a minimal POM file that locates the the parent, "Master POM" in the <literal>Docs-Master</literal>project directory
+      The "Workgroup POM" is a minimal POM file that locates the parent, "Master POM" in the <literal>Docs-Master</literal>project directory
       with a <literal>&lt;relativePath></literal> definition of <literal>../Docs-Master/pom.xml</literal>.
       The document directory contains the unique files used to create the document.  The two most important files in the 
       <literal>Docs-Template/template</literal> directory(and in any project) are the <literal>pom.xml</literal> or "Document POM" which describes
