@@ -32,6 +32,12 @@ Document library at [TBD](http://openpowerfoundation.org/docs)
 The project which control the look and feel of the document is the 
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin).
 
+## License
+This project is licensed under the Apache V2 license.  More information
+can be found in the LICENSE file or online at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
 ## Contributions
 To contribute to the OpenPOWER Foundation template document project, contact Jeff Scheel \([scheel@us.ibm.com](mailto://scheel@us.ibm.com)\) or 
 Jeff Brown \([jeffdb@us.ibm.com](mailto://jeffdb@us.ibm.com)\).

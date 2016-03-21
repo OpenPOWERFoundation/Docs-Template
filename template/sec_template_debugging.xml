@@ -20,15 +20,16 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
         <title xml:id="section_template_debug_title">Debugging build failures</title>
           <para>Maven/docbkx failures generally fall into these categories:</para>
           <itemizedlist>
-            <listitem><para>Project structure errors</para></listitem>
-            <listitem><para>Docbook validation errors</para></listitem>
-            <listitem><para>Build failures</para></listitem>
+            <listitem><para><xref linkend="section_template_debug_structure_error" endterm="section_template_debug_structure_error_title"/></para></listitem>
+            <listitem><para><xref linkend="section_template_debug_docbook_validation_error" endterm="section_template_debug_docbook_validation_error_title"/></para></listitem>
+            <listitem><para><xref linkend="section_template_debug_build_failure" endterm="section_template_debug_build_failure_title"/></para></listitem>
+            <listitem><para><xref linkend="section_template_debug_fo_validation_error" endterm="section_template_debug_fo_validation_error_title"/></para></listitem>
           </itemizedlist>  
           <para>Correcting the document errors starts with understanding which type of failure has occurred and 
           understanding where to look in your document source.</para>
           
-    <section>
-      <title>Project structure errors</title>
+    <section xml:id="section_template_debug_structure_error">
+      <title xml:id="section_template_debug_structure_error_title">Project structure errors</title>
       
       <para>Because the OpenPOWER Foundation documentation projects are not self-contained in the 
       GitHub repositories, forgetting to clone the <literal>Docs-Master</literal> project in addition
@@ -46,7 +47,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/ProjectBuildingException
-[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException</screen>
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/UnresolvableModelException
+...</screen>
       <para>The identifying characteristic of this error type is the message, "Non-resolvable parent POM".  This occurs because the
       <literal>pom.xml</literal> file in the documentation project, called the "workgroup-pom" because of a project
       <literal>&lt;artifactId>workgroup-pom&lt;/artifactId></literal> declaration, expects its parent pom file to be in the
@@ -60,8 +62,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
       
     </section>
 
-    <section>
-      <title>Docbook validation errors</title>
+    <section xml:id="section_template_debug_docbook_validation_error">
+      <title xml:id="section_template_debug_docbook_validation_error_title">Docbook validation errors</title>
                 
           <para>Validation errors are generally indicated in the build output with text like the following:
 <screen>...
@@ -80,8 +82,7 @@ source DocBook or wadl files however.
 You can control whether build fails or not by 
 setting failOnValidationError to no in your pom. 
 
-lineNumber:  272; columnNumber: 70; text not allowed here; expected element "address", ...
-</screen></para>
+lineNumber:  272; columnNumber: 70; text not allowed here; expected element "address", ...</screen></para>
           <para>This error message contains three key pieces of information:</para>
             <orderedlist>
 	      <listitem>
@@ -98,8 +99,8 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
             
     </section>
 
-    <section>
-      <title>Build failures</title>
+    <section xml:id="section_template_debug_build_failure">
+      <title xml:id="section_template_debug_build_failure_title">Build failures</title>
             
           <para>Build errors are easily identified as well.  Below is an example:
 <screen>...
@@ -110,8 +111,8 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
 [INFO] Finished at: Wed Jul 29 14:55:33 CDT 2015
 [INFO] Final Memory: 17M/171M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp (generate-webhelp) on project openpower-template-guide: Execution generate-webhelp of goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp failed: XInclude resource error (sec_template_new_document.xml) and no fallback provided. XProc error err:XD0011: org.xml.sax.SAXParseException; systemId: file:/home/user1/openpower-foundation-docbkx-framework/doc/template/sec_template_new_document.xml; lineNumber: 55; columnNumber: 17; The element type "para" must be terminated by the matching end-tag "&lt;/para&gt;". -> [Help 1]...
-</screen></para>
+[ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp (generate-webhelp) on project openpower-template-guide: Execution generate-webhelp of goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp failed: XInclude resource error (sec_template_new_document.xml) and no fallback provided. XProc error err:XD0011: org.xml.sax.SAXParseException; systemId: file:/home/user1/openpower-foundation-docbkx-framework/doc/template/sec_template_new_document.xml; lineNumber: 55; columnNumber: 17; The element type "para" must be terminated by the matching end-tag "&lt;/para&gt;". -> [Help 1]
+...</screen></para>
 
           <para>Like validation errors, three key pieces of information are again provided:</para>
             <orderedlist>
@@ -132,5 +133,96 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
           correction.  Online resources such as those listed in <xref linkend="section_template_references"/> may be helpful.</para>
     </section>
 
+    <section xml:id="section_template_debug_fo_validation_error">
+      <title xml:id="section_template_debug_fo_validation_error_title">FO validation failures</title>
+            
+          <para>FO (formatting objects) validation failures are a slight bit more difficult to identify and require more effort to correct.  A sample appears as follows:
+<screen>...
+Error 
+  SXCH0003: org.apache.fop.fo.ValidationException:
+  "{http://www.w3.org/1999/XSL/Format}block" is not a valid child of "fo:list-block"!
+  (See position 70:-1): null:70:-1: "{http://www.w3.org/1999/XSL/Format}block" is not 
+  a valid   child of "fo:list-block"! (See position 70:-1)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 35.900s
+[INFO] Finished at: Sat Mar 19 15:54:34 CDT 2016
+[INFO] Final Memory: 107M/256M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.3:generate-webhelp (generate-webhelp) on project hwarch-caia-spec: Failed to transform to PDF: org.apache.fop.fo.ValidationException: "{http://www.w3.org/1999/XSL/Format}block" is not a valid child of "fo:list-block"! (See position 70:-1): null:70:-1: "{http://www.w3.org/1999/XSL/Format}block" is not a valid child of "fo:list-block"! (See position 70:-1) -> [Help 1]
+...</screen></para>
+
+          <para>The "<literal>org.apache.fop.fo.ValidationException</literal>" text indicates that this error was during FO validation.  The key pieces of information are as follows:</para>
+            <orderedlist>
+              <listitem>
+                <para>The error type is indicated in the text following the exception indictor.  In our case, the error statement is:
+                <literal>"{http://www.w3.org/1999/XSL/Format}block" is not a valid child of "fo:list-block"!</literal>. This error clearly
+                has something to do with the nesting of a "fo:block" statement in a "fo:list-block" statement.</para>
+              </listitem>
+    	      <listitem>
+                <para>The location of the validation error is given in the statement 
+                "<literal>See position 70:-1</literal>". These two values are the line number and character number of the error.  So, our sample 
+                error occurs on line 70, but the character number
+                of <literal>-1</literal> is an indication that the line is too long to effectively point.</para>
+              </listitem>
+            </orderedlist>
+
+          <para>What this information fails to detail is which file has the problem. To find the particular offending file, one must understand 
+          the Docbook build process. This process begins by collecting all XML into a working copy of the main book file. The build failure error 
+          in <xref linkend="section_template_debug_docbook_validation_error"/> includes a reference to this file which will be found in the 
+          <literal>.../target/</literal> directory. It generally has the same name as the main book file of the document, which if copied 
+          from the <citetitle>Master Template Guide</citetitle> project, will be <literal>bk_main.xml</literal>. When in doubt about
+          this file name, you will find it in the <literal>&lt;includes></literal> tag in the <literal>pom.xml</literal> file.</para>
+          
+          <para>Once all information has been pulled into the working XML file, the XML statements are transformed into FO statements 
+          in preparation for building the PDF.  This step generates a <literal>.fo</literal>
+          file which can be found in the <literal>.../target/docbkx/autopdf/</literal> directory and typically has the same base file name as 
+          the target PDF file.  Again, the <literal>pom.xml</literal> file will clarify this name with the <literal>&lt;pdfFilenameBase></literal>
+          variable.</para>  
+          
+          <para>If one locates and opens the .fo file, it becomes obvious that it was intended as a working file and is not readily readable.  Therefore, the first
+          step to understanding this error is to make the FO file more readable.
+          The <literal>xmllint</literal> tool can be used to create a more readable FO file.  Assuming you have been
+          working in the document directory, the follow steps can be used to produce a more readable XML file:
+          <screen><prompt>$ </prompt><userinput>cd target/docbkx/autopdf</userinput>
+<prompt>$ </prompt><userinput>xmllint --nonet --noent --nowarning --version --timing --format -o outfile infile</userinput>
+xmllint: using libxml version 20901
+   compiled with: Threads Tree Output Push Reader Patterns Writer SAXv1 FTP HTTP DTDValid HTML Legacy C14N Catalog XPath XPointer XInclude Iconv ISO8859X Unicode Regexps Automata Expr Schemas Schematron Modules Debug Zlib Lzma 
+Parsing took 63 ms
+Saving took 39 ms
+Freeing took 9 ms
+<prompt>$</prompt></screen></para>
+
+          <para>For your invocation of <literal>xmllint</literal>, substitute <literal>infile</literal> with the name of the Maven-generated 
+          .fo file for your new project and pick a new <literal>outfile</literal> for the new .fo file.</para>
+
+          <note><para>The <literal>xmllint</literal> utility may need to be loaded on your system.  On an Ubuntu Linux system, 
+          this utility is provided in the <literal>libxml2-utils</literal> package. To locate the proper package for your system, 
+          you may need to reference Google.</para></note>
+
+          <para>Now, with a nicely formatted FO file, we can re-invoke the FO Processor (FOP) directly and achieve a more readable error.  To do this, invoke 
+          <literal>fop</literal> as follows:<screen><prompt>$ </prompt><userinput>fop -fo fofile and -pdf pdffile</userinput>
+Rendered page #1.
+Rendered page #2.
+Rendered page #3.
+Rendered page #4.
+Rendered page #5.
+Rendered page #6.
+Rendered page #7.
+Exception
+javax.xml.transform.TransformerException: org.apache.fop.fo.ValidationException: "fo:block" is not a valid child of "fo:list-block"! (See position 7830:112)
+<prompt>$</prompt></screen></para>
+
+          <para>As expected, the FOP again reports an exception.  However, this time the position information appears more complete.  With this new information
+          and a nicely formatted .fo file, one can find the format statements in error, find the context for the error, and then locate the correct source
+          DocBook (XML) file.  With this information, one can inspect the document source to decide if the error is bad DocBook syntax or a tooling bug. If the latter,
+          please save the newly formatted .fo file and include it in the bug writeup.</para>
+          
+          <note><para>Fully understanding the error, may require knowing more about XSL FO syntax.  Many such web sites exist for this, but
+          the <citetitle>XSL Formatting Objects Summary</citetitle> from W3C (World Wide Web Consortium) provides a good starting reference online at
+          <link xlink:href="https://www.w3.org/2002/08/XSLFOsummary.html">https://www.w3.org/2002/08/XSLFOsummary.html</link>.</para></note>
+
+    </section>
 </section>
  
