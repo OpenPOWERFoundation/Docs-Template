@@ -46,7 +46,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 0.9.3</releaseinfo>
+    <releaseinfo>Revision 0.9.4</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -54,8 +54,8 @@
            "apache2" for an Apache V2 license or 
            "opfExternal" for an official OpenPOWER Foundation external license text.
          If you don't know which one to select, leave as "apache2" -->
-    <!--legalnotice role="apache2"-->
-    <legalnotice role="opfExternal">
+    <legalnotice role="apache2">
+    <!--legalnotice role="opfExternal"-->
 
       <annotation>
           <remark>Copyright details are filled in by the template.</remark>
@@ -76,6 +76,16 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-03-21</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 0.9.4: Review version for TSC.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-02-25</date>
           <revdescription>
