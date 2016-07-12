@@ -15,6 +15,16 @@
   limitations under the License.
   
 -->
+
+<!-- The following entity variable is used to reflect the version of the 
+     template document master used for building a document.  This value
+     should be set by copy of the of template used to create a new
+     document and should not be changed.  Use of this value is in
+     in the Abstract section in this file. --> 
+<!DOCTYPE book [
+<!ENTITY template_version "0.9.5">
+]>
+
 <book xmlns="http://docbook.org/ns/docbook"
   xmlns:xi="http://www.w3.org/2001/XInclude"
   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -46,7 +56,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 0.9.4</releaseinfo>
+    <releaseinfo>Revision 0.9.5</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -65,17 +75,28 @@
     <!-- TODO: Update the following text with the correct document description (first paragraph),
                Work Group name, and Work Product track (both in second paragraph). -->
     <abstract>
-      <para>The purpose of the Master Template Guide document is to provide a guide for OpenPOWER
+      <para>The purpose of this document is to provide a guide for OpenPOWER
       documentation writers.  As such, it provides directions, policies, references, and 
       examples of the XML Docbook environment.  It is intended to be used both in final product form
       (PDF and html) as a document and in source form as a template for new documents.</para>
       <para>This document is a Non-standard Track, Work Group Note work product owned by the
       System Software Workgroup and handled in compliance with the requirements outlined in the
-      <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document.</para>
+      <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document.  It was
+      created using the <citetitle>Master Template Guide</citetitle> version &template_version;.</para>
     </abstract>
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-04-28</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 0.9.5: Removal of confidentiality and preview of change notations for final review by TSC.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-03-21</date>
           <revdescription>
