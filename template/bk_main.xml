@@ -22,7 +22,7 @@
      document and should not be changed.  Use of this value is in
      in the Abstract section in this file. --> 
 <!DOCTYPE book [
-<!ENTITY template_version "0.9.5">
+<!ENTITY template_version "1.0.0">
 ]>
 
 <book xmlns="http://docbook.org/ns/docbook"
@@ -38,16 +38,14 @@
 
     <info>
     <author>
+      <!-- TODO: Set to the appropriate owning Work Group, not an individual -->
       <personname>
-          <!-- TODO: Insert appropriate firstname and surnames -->
-          <firstname>Jeff</firstname>
-          <surname>Scheel</surname>
+          System Software Work Group
       </personname>
-      <!-- TODO: Set correct email address of document author -->
-      <email>scheel@us.ibm.com</email>
+      <!-- TODO: Set email address of document author to the Work Group Chair -->
+      <email>syssw-chair@openpowerfoundation.org</email>
       <affiliation>
-          <!-- TODO: Insert appropriate orgname -->
-          <orgname>IBM</orgname>
+          <orgname>OpenPower Foundation</orgname>
       </affiliation>
     </author>
     <copyright>
@@ -56,7 +54,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 0.9.5</releaseinfo>
+    <releaseinfo>Revision 1.0.0</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -87,6 +85,16 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-08-25</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 1.0.0: Document approval for publish</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-04-28</date>
           <revdescription>
