@@ -27,7 +27,7 @@ This can be accomplished with the following steps:
   ```
 
 The online version of the document can be found in the OpenPOWER Foundation
-Document library at [TBD](http://openpowerfoundation.org/docs)
+Document library at [OpenPOWER Foundation Documentation Development Guide](http://openpowerfoundation.org/?resource_lib=openpower-foundation-documentation-development-guide)
 
 The project which control the look and feel of the document is the 
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin).
