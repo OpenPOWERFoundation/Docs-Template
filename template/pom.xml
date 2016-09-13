@@ -33,7 +33,7 @@
     <packaging>jar</packaging>
  
     <!-- TODO: Rename the name field to some appropriate for your new document -->
-   <name>OpenPOWER Template Guide</name>
+   <name>Documentation Development Guide</name>
 
     <properties>
         <!-- This is set by Jenkins according to the branch. -->
