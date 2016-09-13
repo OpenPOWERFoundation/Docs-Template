@@ -32,7 +32,7 @@
   xml:id="bk_main">
 
     <!-- TODO: Pick a Title for the new document -->
-    <title>Master Template Guide</title>
+    <title>Documentation Development Guide</title>
     <!-- TODO: Either add a subtitle or remove the following line -->
     <subtitle>A quick start template</subtitle>
 
@@ -54,7 +54,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.0.0</releaseinfo>
+    <releaseinfo>Revision 1.0.1</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -85,6 +85,16 @@
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2016-09-13</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Version 1.0.1: Minor updates to guide naming.</para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-08-25</date>
           <revdescription>

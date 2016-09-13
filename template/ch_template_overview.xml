@@ -17,9 +17,10 @@
 <chapter version="5.0" xml:lang="en" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
 xmlns:xlink="http://www.w3.org/1999/xlink">
   
-  <title>Template document overview</title>
+  <title>Document development overview</title>
 
-    <para>The OpenPOWER Foundation documentation template provides a framework for OpenPOWER public and private
+    <para>The <emphasis>OpenPOWER Foundation Documentation Development Guide</emphasis> 
+          provides a framework for OpenPOWER public and private
           documentation.  The goal of the template and this writeup is to promote community contributions
           to OpenPOWER documenation and to enable new contributions within a common look and feel. </para>
 
