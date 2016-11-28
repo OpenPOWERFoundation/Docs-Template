@@ -1,5 +1,6 @@
-# Master Template Document Project for OpenPOWER Foundation Documentation
-This repository hold the source for the master document template for 
+# OpenPOWER Foundation Documentation Development Guide
+This repository holds the source for the documentation development guide 
+(formerly *Master Template Document*) for 
 OpenPOWER Foundation. The PDF and HTML generated from the doc/template/ 
 directory build a document that both describes how to build a new
 document and contains examples and directions on how to do it.
