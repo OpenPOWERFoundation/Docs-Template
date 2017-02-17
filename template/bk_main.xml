@@ -22,7 +22,7 @@
      document and should not be changed.  Use of this value is in
      in the Abstract section in this file. --> 
 <!DOCTYPE book [
-<!ENTITY template_version "1.0.0">
+<!ENTITY template_version "1.1.0">
 ]>
 
 <book xmlns="http://docbook.org/ns/docbook"
@@ -50,18 +50,18 @@
     </author>
     <copyright>
       <!-- TODO: Set copyright year -->
-      <year>2015, 2016</year>
+      <year>2015, 2016, 2017</year>
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.0.1</releaseinfo>
+    <releaseinfo>Revision 1.1.0_pre2</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
     <!-- TODO: Select one of the two following legalnotice role= values:
            "apache2" for an Apache V2 license or 
            "opfExternal" for an official OpenPOWER Foundation external license text.
-         If you don't know which one to select, leave as "apache2" -->
+         If you don't know which one to select, change to "opfExternal" and ask your TSC representative. -->
     <legalnotice role="apache2">
     <!--legalnotice role="opfExternal"-->
 
@@ -80,11 +80,42 @@
       <para>This document is a Non-standard Track, Work Group Note work product owned by the
       System Software Workgroup and handled in compliance with the requirements outlined in the
       <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document.  It was
-      created using the <citetitle>Master Template Guide</citetitle> version &template_version;.</para>
+      created using the <citetitle>Document Development Guide</citetitle> version &template_version;.
+      Comments, questions, etc. can be submitted to the public mailing list  for this document at 
+      <email>syssw-doc_devel_guide@mailinglist.openpowerfoundation.org</email>.  Additionally,
+      the #doc-devel channel in the OpenPOWER Foundation Slack room 
+      (<link xlink:href="https://openpowerfoundation.slack.com/">openpowerfoundation.slack.com</link>)
+      can be used to answer more interactive questions.</para>
     </abstract>
 
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
+      <revision>
+          <date>2017-02-17</date>
+          <revdescription>
+            <para>Version 1.1.0 updates:
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Enhancements document creation to address project creation and update process.</para>
+              </listitem>
+              <listitem>
+                <para>Add "git" error to troubleshooting sections until JAR dependency removed.</para>
+              </listitem>
+              <listitem>
+                <para>Add optional font installation step to getting started.</para>
+              </listitem>
+              <listitem>
+                <para>Provide example usage of OPF Docbook extensions.</para>
+              </listitem>
+              <listitem>
+                <para>Extend explanation of versioning policy.</para>
+              </listitem>
+              <listitem>
+                <para>Correct, improve miscellenous wording and grammar.</para>
+              </listitem>
+            </itemizedlist></para>
+          </revdescription>
+      </revision>
       <revision>
           <date>2016-09-13</date>
           <revdescription>

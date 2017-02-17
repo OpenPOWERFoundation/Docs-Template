@@ -21,166 +21,260 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_new_document
      <para>Creating a new document from scratch follows four simple steps:</para>
         <orderedlist>
             <listitem>
-                <para>Cloning the project source.</para>
+                <para><xref linkend="section_cloning_project" endterm="section_cloning_project_title"/></para>
             </listitem>
             <listitem>
-                <para>Finding a document framework.</para>
+                <para><xref linkend="section_finding_framework" endterm="section_finding_framework_title"/></para>
             </listitem>
             <listitem>
-                <para>Modifying core project files.</para>
+                <para><xref linkend="section_modifying_project" endterm="section_modifying_project_title"/></para>
             </listitem>
 	        <listitem>
-                <para>Adding new document content.</para>
+                <para><xref linkend="section_adding_content" endterm="section_adding_content_title"/></para>
             </listitem>
         </orderedlist>
+        
+        <para>Before undertaking one of these activities, it may be helpful to read the
+        <xref linkend="section_template_structure" endterm="section_template_structure_title"/>
+        section to learn the basics about the documentation project structure.</para>
 
-        <section>
-          <title>Clone the project source.</title>
-            <para>All documentation projects reside in a project directory maintained in GitHub, just like the 
-            <literal>Docs-Master</literal> framework described in <xref linkend="section_cloning_master_doc"/>. In the same directory 
-            where the <literal>Docs-Master</literal> project has been cloned, you will need to 
-            clone the documentation source for your project.  A list of the OpenPOWER Foundation projects can be found at 
-            <link xlink:href="https://github.com/OpenPOWERFoundation/">https://github.com/OpenPOWERFoundation/</link>. Select
-            the project from this list.</para>
+        <section xml:id="section_cloning_project">
+          <title xml:id="section_cloning_project_title">Cloning a project</title>
+            <para>All documentation projects reside in a Git project directory, either locally or in the cloud at GitHub.
+            As described in <xref linkend="section_cloning_master_doc"/>, your document project directory must reside locally in the 
+            same directory as the <literal>Docs-Master</literal> framework.</para>
             
-            <note><para>If you do not see the project for which you are looking, you may not be authorized to it.  See  
-            <xref linkend="section_creating_accounts"/> for details about joining the OpenPOWER Foundation private projects. If you
-            feel that you need a new GitHub project, work with the 
-            Technical Steering Committee Chair, <email>tsc-chair@openpowerfoundation.org</email>, to request and get this setup.</para></note>
-            
-            <para>To clone an OpenPOWER Foundation project like <literal>Docs-Template</literal> issue the following 
-            command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
+            <para>To clone a project in which to work, select from one of the two approaches below:</para>
+            <itemizedlist>
+              <listitem><para><xref linkend="section_clone_existing_project" endterm="section_clone_existing_project_title"/></para>
+              </listitem>
+              <listitem><para><xref linkend="section_creating_new_project" endterm="section_creating_new_project_title"/></para>
+              </listitem>
+            </itemizedlist>
+                      
+            <para>Complete the project cloning and then continue with the next step in 
+              <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+
+            <section xml:id="section_clone_existing_project">
+              <title xml:id="section_clone_existing_project_title">Cloning an existing project</title>
+
+                <para>To work in an existing OpenPOWER Foundation project like the <citetitle>Documentation Development
+                Guide</citetitle> (<literal>Docs-Template</literal>),  
+                use the following command in the same directory that contains 
+                <literal>Docs-Master</literal>:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
 Cloning into 'Docs-Template'...
-Username for 'https://github.com': <userinput>my_userid</userinput>
-Password for 'https://my_userid@github.com': <userinput>my_password</userinput>
-remote: Counting objects: 62, done.
-remote: Compressing objects: 100% (10/10), done.
-remote: Total 62 (delta 2), reused 0 (delta 0), pack-reused 52
-Unpacking objects: 100% (62/62), done.
+remote: Counting objects: 163, done.
+remote: Total 163 (delta 0), reused 0 (delta 0), pack-reused 163
+Receiving objects: 100% (163/163), 275.60 KiB | 494.00 KiB/s, done.
+Resolving deltas: 100% (96/96), done.
 Checking connectivity... done.
 <prompt>$ </prompt></screen> The results should look roughly something like above with actual numbers of objects, files, etc. varying
-            for different projects.</para>
+                for different projects.</para>
 
-            <note><para>Private projects prompt for a GitHub userid and and password.  When cloning public projects, these prompts 
-            are skipped.</para></note> 
-                       
-            <para>The base project has now been cloned.</para>
+                <note><para>Private projects prompt for a GitHub userid and and password immediately following the "Cloning into..." message.
+                When cloning public projects such as <literal>Docs-Template</literal>, these prompts are skipped.</para></note> 
+
+                <para>A list of additional OpenPOWER Foundation projects can be found at 
+                <link xlink:href="https://github.com/OpenPOWERFoundation/">https://github.com/OpenPOWERFoundation/</link>. To work
+                on an existing project, note its name it the list and apply the above steps replacing <literal>Docs-Template</literal>
+                with your preferred project from the list.</para>
+                
+                <note><para>If you do not see the project for which you are looking, you may not be authorized to it.  See  
+                <xref linkend="section_creating_accounts"/> for details about joining the OpenPOWER Foundation private projects. If you
+                feel that you need a new GitHub project, work with the 
+                Technical Steering Committee Chair, <email>tsc-chair@openpowerfoundation.org</email>, to request and get this setup.</para></note>
+                
+                <para>The existing project should now be cloned.  Continue with the next step in 
+                  <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+            </section>
+
+            <section xml:id="section_creating_new_project">
+              <title xml:id="section_creating_new_project_title">Creating a new project locally</title>
+
+                <para>To create a new project locally, the simplest way is to clone the <citetitle>Documentation Development
+                Guide</citetitle> (<literal>Docs-Template</literal>) into a new project. In
+                our directions, <literal>my_project</literal> will be our new project name. 
+                Use the following command in the same directory that contains 
+                <literal>Docs-Master</literal>:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git my_project</userinput>
+Cloning into 'my_project'...
+remote: Counting objects: 163, done.
+remote: Total 163 (delta 0), reused 0 (delta 0), pack-reused 163
+Receiving objects: 100% (163/163), 275.60 KiB | 494.00 KiB/s, done.
+Resolving deltas: 100% (96/96), done.
+Checking connectivity... done.
+<prompt>$ </prompt></screen> The results should look roughly something like above with actual numbers of objects, files, etc. varying
+                for different projects.</para>
+
+                <para>The new project should now be generally setup.  Continue with the next step in 
+                  <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+            </section>
+
         </section>
         
-        <section>
-          <title>Finding a document framework</title>
-            <para>If this is your first document, in a brand new project (git tree), you have the fewest number of steps
-            to perform because your project should have been primed with a single project based on <literal>Docs-Template</literal>.  
-            You can verify this by inspecting
-            the files in your project directory.  A new project will contain a <literal>template</literal> directory, a <literal>pom.xml
-            </literal> file, a <literal>LICENSE</literal> file, and a <literal>README.md</literal> file.  If this is the case, you simply
-            need to perform the following three steps:</para>
+        <section xml:id="section_finding_framework">
+          <title xml:id="section_finding_framework_title">Finding a document framework</title>
+
+            <para>When creating a new document, the simplest way to start is to use an existing document.  This ensures
+            that you have a basic document structure and allows you to start with a working document from which to make
+            changes.  Select from one of the following scenarios for detailed directions on creating your document framework:</para>
             
-            <orderedlist>
-	          <listitem>
-                <para>Navigate down to your project directory, called <literal>my_project</literal> for this example. This can be achieved 
-                using the <literal>cd</literal> command:
+            <itemizedlist>
+              <listitem>
+                <para>If your project exits on GitHub in the OpenPOWER Foundation area and it contains a <literal>template</literal> directory,
+                then follow the directions in
+                <xref linkend="section_moving_template_document" endterm="section_moving_template_document_title"/>
+                to use this document as a base.</para>
+              </listitem>
+              <listitem>
+                <para>If you have an existing document in your project that you want to use as a 
+                base for your new document, then follow the directions in
+                <xref linkend="section_copying_existing_document" endterm="section_copying_existing_document_title"/>
+                to establish your base document.</para>
+              </listitem>
+              <listitem>
+                <para>Otherwise, the instructions in
+                <xref linkend="section_copying_template_document" endterm="section_copying_template_document_title"/>
+                will clone and copy this document as a base.</para>
+              </listitem>
+            </itemizedlist>
+            
+            <section xml:id="section_moving_template_document">
+              <title xml:id="section_moving_template_document_title">Moving the template document into your new document framework</title>
+            
+              <para>If this is your first document, in a brand new OpenPOWER Foundation project (on GitHub), you have the fewest number of steps
+              to perform because your project should have been primed with a single project based on <literal>Docs-Template</literal>.  
+              You can verify this by inspecting
+              the files in your project directory.  A new project will contain a <literal>template</literal> directory, a <literal>pom.xml
+              </literal> file, a <literal>LICENSE</literal> file, and a <literal>README.md</literal> file.  If this is the case, you simply
+              need to perform the following three steps:</para>
+              
+              <orderedlist>
+	              <listitem>
+                  <para>Navigate down to your project directory, called <literal>my_project</literal> for this example. This can be achieved 
+                  using the <literal>cd</literal> command:
 <screen><prompt>$ </prompt><userinput>cd ~/my_project</userinput>
 <prompt>$ </prompt></screen></para>
-                <para>This directory should contain the <literal>template</literal> folder used to prime the project.</para>
-              </listitem>
-              <listitem>
-                <para>Rename the <literal>template</literal> document directory to something new like <literal>my_doc</literal>. 
-                To accomplish this, use the <literal>mv</literal> command::
+                  <para>This directory should contain the <literal>template</literal> folder used to prime the project.</para>
+                </listitem>
+                <listitem>
+                  <para>Rename the <literal>template</literal> document directory to something new like <literal>my_doc</literal>. 
+                  To accomplish this, use the <literal>mv</literal> command::
 <screen><prompt>$ </prompt><userinput>mv template/ my_doc</userinput></screen></para>
-              </listitem>
-              <listitem>
-                <para>Change the project name in the workgroup POM.xml file.  Using your editor, change this line
-                between the &lt;modules> and the &lt;/modules> tags near the top of the 
-                file:<programlisting><![CDATA[<module>template</module>
+                </listitem>
+                <listitem>
+                  <para>Change the project name in the Workgroup POM file (<literal>my_project/pom.xml</literal>).  Using your editor, change this line
+                  between the &lt;modules> and the &lt;/modules> tags near the top of the 
+                  file:<programlisting><![CDATA[<module>template</module>
 ]]></programlisting> to read like this:<programlisting><![CDATA[<module>my_doc</module>
 ]]></programlisting></para>
-              </listitem>
-	        </orderedlist>
+                </listitem>
+              </orderedlist>
+              
+              <para>Your new document frameword has been copied from the <citetitle>Document Development Guide</citetitle>.  
+              Continue with the next step in 
+              <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+
+            </section>
 	                      
-            <para>If this is not the first document in the project, then you can either begin by copying an existing document or by cloning the
-            <literal>Docs-Template</literal> project.  To copy an existing project, follow these steps:</para>
-            
-            <orderedlist>
-	          <listitem>
-                <para>Navigate down to your project directory, called <literal>my_project</literal> for this example. 
-                This can be achieved using the <literal>cd</literal> command:
+            <section xml:id="section_copying_existing_document">
+              <title xml:id="section_copying_existing_document_title">Copying an existing document as a new document framework</title>
+
+              <para>If you have another document within your project that would serve as a good base for your new one, 
+              you can copy the existing document as the source for your new document. Follow these steps:</para>
+              
+              <orderedlist>
+	            <listitem>
+                  <para>Navigate down to your project directory, called <literal>my_project</literal> for this example. 
+                  This can be achieved using the <literal>cd</literal> command:
 <screen><prompt>$ </prompt><userinput>cd ~/my_project</userinput>
 <prompt>$ </prompt></screen></para>
-                <para>This directory should contain the folder name of the document wishing to be copied, called <literal>source_doc</literal> 
-                for clarity in these directions.</para>
-              </listitem>
-              <listitem>
-                <para>To create a new document directory, simply create a new directory and copy the contents of the <literal>source_doc</literal> 
-                directory.  If creating a new directory named <literal>my_doc</literal> via a command line, the command 
-                sequence would look like this:
+                  <para>This directory should contain the folder name of the document wishing to be copied, called <literal>source_doc</literal> 
+                  for clarity in these directions.</para>
+                </listitem>
+                <listitem>
+                  <para>To create a new document directory, simply create a new directory and copy the contents of the <literal>source_doc</literal> 
+                  directory.  If creating a new directory named <literal>my_doc</literal> via a command line, the command 
+                  sequence would look like this:
 <screen><prompt>$ </prompt><userinput>mkdir my_doc</userinput>
-<prompt>$ </prompt><userinput>cp -r source_doc/* my_doc</userinput>
+<prompt>$ </prompt><userinput>cp -r source_doc/*.* my_doc</userinput>
 <prompt>$ </prompt></screen></para>
-              </listitem>
-              <listitem>
-                <para>Add the new project to the workgroup POM.xml file.  Using your editor, add the following lines
-                between the &lt;modules> and the &lt;/modules> tags near the top of the file:<programlisting><![CDATA[<module>my_doc</module>
+                </listitem>
+                <listitem>
+                  <para>Add the new project to the Workgroup POM file (<literal>my_project/pom.xml</literal>).  
+                  Using your editor, add the following lines
+                  between the &lt;modules> and the &lt;/modules> tags near the top of the file:<programlisting><![CDATA[<module>my_doc</module>
 ]]></programlisting></para>
-              </listitem>
-            </orderedlist>
+                </listitem>
+              </orderedlist>
             
-            <para>Instead of copying an existing document, you may want to start with the template document source.  The steps to do this 
-            are similar to those above, but with a few more commands.  The following commands will create a new document based on the
-            the master template:</para>
+              <note><para>Before committing the project back to git, you will need to add the new directory to the git repository.  This can
+              be performed using the <literal>git add my_doc/</literal> command on the whole directory.</para></note>
+
+              <para>You are now ready to begin making updates to your new document.  Continue with the next step in 
+                <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+
+            </section>
+
+            <section xml:id="section_copying_template_document">
+              <title xml:id="section_copying_template_document_title">Copying the Document Development Guide as a new document framework</title>
             
-            <orderedlist>
-	          <listitem>
-                <para>Navigate down to your project directory, called <literal>my_project</literal> for this example. 
-                This can be achieved using the <literal>cd</literal> command:
+              <para>Instead of copying an existing document, you may want to start with the <citetitle>Document Development Guide</citetitle>
+              (<literal>Doces-Template</literal>) source.  The steps to do this are similar to those above, but with a few more commands.  
+              The following commands will create a new document based on this guide:</para>
+              
+              <orderedlist>
+                <listitem>
+                    <para>Navigate down to your project directory, called <literal>my_project</literal> for this example. 
+                    This can be achieved using the <literal>cd</literal> command:
 <screen><prompt>$ </prompt><userinput>cd ~/my_project</userinput>
 <prompt>$ </prompt></screen></para>
-                <para>This directory should contain any existing document folders along with at least a <literal>pom.xml</literal> file, a 
-                <literal>LICENSE</literal> file, and a <literal>README.md</literal> file.</para>
-              </listitem>
-              <listitem>
-                <para>Clone the the template project into your working directory with this 
-                command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
+                    <para>This directory should contain any existing document folders along with at least a <literal>pom.xml</literal> file, a 
+                    <literal>LICENSE</literal> file, and a <literal>README.md</literal> file.</para>
+                </listitem>
+                <listitem>
+                    <para>Clone the the <citetitle>Documentation Development Guide</citetitle>
+                    (<literal>Docs-Template</literal>) project into your working directory with this 
+                    command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
 Cloning into 'Docs-Template'...
-Username for 'https://github.com': <userinput>my_userid</userinput>
-Password for 'https://my_userid@github.com': <userinput>my_password</userinput>
-remote: Counting objects: 62, done.
-remote: Compressing objects: 100% (10/10), done.
-remote: Total 62 (delta 2), reused 0 (delta 0), pack-reused 52
-Unpacking objects: 100% (62/62), done.
+remote: Counting objects: 163, done.
+remote: Total 163 (delta 0), reused 0 (delta 0), pack-reused 163
+Receiving objects: 100% (163/163), 275.60 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (96/96), done.
 Checking connectivity... done.
 <prompt>$ </prompt></screen></para>
-              </listitem>
-              <listitem>
-                <para>To create a new project directory, simply create a new directory and copy the contents of the <literal>Docs-Template/template</literal> 
-                directory.  If creating a new project named <literal>my_doc</literal> via a command line, the command 
-                sequence would look like this:
+                </listitem>
+                <listitem>
+                  <para>To create a new project directory, simply create a new directory and copy the contents of the <literal>Docs-Template/template</literal> 
+                  directory.  If creating a new project named <literal>my_doc</literal> via a command line, the command 
+                  sequence would look like this:
 <screen><prompt>$ </prompt><userinput>mkdir my_doc</userinput>
 <prompt>$ </prompt><userinput>cp -r Docs-Template/template/* my_doc</userinput>
 <prompt>$ </prompt></screen></para>
-              </listitem>
-              <listitem>
-                <para>Once copied, the Docs-Template directory and all its contents should be removed from your project so that it does not 
-                accidentally get included in your project.  The command <userinput>rm -rf Docs-Template</userinput></para>
-              </listitem>
-              <listitem>
-                <para>Finally, add the new project to the workgroup POM.xml file.  Using your editor, add the following lines
-                between the &lt;modules> and the &lt;/modules> tags near the top of the file:<programlisting><![CDATA[<module>my_doc</module>
-]]></programlisting></para>
-              </listitem>
-            </orderedlist>
+                </listitem>
+                <listitem>
+                  <para>Once copied, the Docs-Template directory and all its contents should be removed from your project so that it does not 
+                  accidentally get included in your project.  The command <userinput>rm -rf Docs-Template</userinput></para>
+                </listitem>
+                <listitem>
+                  <para>Finally, add the new project to the Workgroup POM file (<literal>my_project/pom.xml</literal>).  
+                  Using your editor, add the following lines
+                  between the &lt;modules> and the &lt;/modules> tags near the top of the file:<programlisting><![CDATA[<module>my_doc</module>
+  ]]></programlisting></para>
+                </listitem>
+              </orderedlist>
 
-            <note><para>Before committing the project back to git, you will need to add the new directory to the git repository.  This can
-            be performed using the <literal>git add my_doc/</literal> command on the whole directory.</para></note>
+              <note><para>Before committing the project back to git, you will need to add the new directory to the git repository.  This can
+              be performed using the <literal>git add my_doc/</literal> command on the whole directory.</para></note>
 
-            <warning><para></para></warning> 
-                       
-            <para>You are now ready to begin making updates to your new document.  The next section will provided detailed steps of where to 
-            get started.</para>
+              <para>You are now ready to begin making updates to your new document.  Continue with the next step in 
+                <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+
+            </section>
+          
         </section>
 
         <section xml:id="section_modifying_project">
-          <title>Modifying core project files</title>
+          <title xml:id="section_modifying_project_title">Modifying core project files</title>
             <para>The first step to customizing a new project is to modify two core project files--<literal>pom.xml</literal> 
             and <literal>bk_main.xml</literal>. Within these two files are XML comment tags that begin "<literal>&lt;!-- TODO:</literal>" 
             to identify places which need customization.  The surrounding comments will provide guidance on what needs to change and how 
@@ -195,7 +289,7 @@ Checking connectivity... done.
             <note><para>Be sure to remember two key values you used in the <literal>pom.xml</literal> file, <literal>&lt;webhelpDirname&gt;</literal> 
             and <literal>&lt;pdfFilenameBase&gt;</literal>, as these will be used to locate your generated document.</para></note>
             <para>When ready, build your new document using standard maven commands like 
-            this:<screen><prompt>$ </prompt><userinput>cd my_proj/my_doc</userinput>
+            this:<screen><prompt>$ </prompt><userinput>cd my_project/my_doc</userinput>
 <prompt>$ </prompt><userinput>mvn clean</userinput>
 [INFO] Scanning for projects...
 [INFO] 
@@ -237,10 +331,14 @@ Checking connectivity... done.
     <note><para>The permutations of Maven invocations may be combined into one operation where the parameters are specified in the order
     in which one wishes to execute them.  Thus, the command <literal>mvn clean generate-sources</literal> would accomplish the 
     same thing as the above sequence of commands.</para></note>
+
+    <para>You have completed updates to core project files for your new document.  Continue with the next step in 
+      <xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>.</para>
+
 	</section>
 
-    <section>
-      <title>Adding new content</title>
+    <section xml:id="section_adding_content">
+      <title xml:id="section_adding_content_title">Adding new content</title>
 
         <para>The starting point for book content is the <literal>bk_main.xml</literal> file (or whatever to which it was renamed 
         in the previous step).  Removal and additions of the main chapter files will be controlled by entries near the 
@@ -267,7 +365,6 @@ Checking connectivity... done.
 
       <note><para>When creating new files for the project, remember to use the <literal>git add &lt;file name&gt;</literal> command to 
       add new files to the git tree.</para></note>
-
 	</section>
 
 </section>

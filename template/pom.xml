@@ -80,14 +80,14 @@
                             </generateToc>
                             <!-- The following elements sets the autonumbering of sections in output for chapter numbers but no numbered sections-->
                             <sectionAutolabel>1</sectionAutolabel>
-                            <tocSectionDepth>1</tocSectionDepth>
+                            <tocSectionDepth>3</tocSectionDepth>
                             <sectionLabelIncludesComponentLabel>1</sectionLabelIncludesComponentLabel>
 
                             <!-- TODO: Rename the webhelpDirname field to the new directory for new document -->
-                            <webhelpDirname>template-guide</webhelpDirname>
+                            <webhelpDirname>doc-devel-guide</webhelpDirname>
 
                             <!-- TODO: Rename the pdfFilenameBase field to the PDF name for new document -->
-                            <pdfFilenameBase>template-guide</pdfFilenameBase>
+                            <pdfFilenameBase>doc-devel-guide</pdfFilenameBase>
 
                             <!-- TODO: Define the appropriate work product type.  These values are defined by the IPR Policy.
                                        Consult with the Work Group Chair or a Technical Steering Committee member if you have
