@@ -23,7 +23,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_existing_doc
     the specific document project.  Begin by cloning the master document as described in <xref linkend="section_cloning_master_doc"/>.</para>
       
     <para>Once complete, obtain a copy of the desired document by cloning its project.  For example, to clone this document, 
-    <citetitle>Master Template Guide</citetitle>, from the 
+    <citetitle>Documentation Development Guide</citetitle>, from the 
     public OpenPOWER Foundation git repository, use this 
     command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
 Cloning into 'Docs-Template'...
@@ -36,7 +36,7 @@ Unpacking objects: 100% (62/62), done.
 Checking connectivity... done.
 <prompt>$ </prompt></screen></para>
 
-    <para>To build a specific document such as the template guide, follow these steps from the directory where 
+    <para>To build a specific document such as this guide, follow these steps from the directory where 
     you just cloned:<screen><prompt>$ </prompt><userinput>cd Docs-Template/template</userinput>
 <prompt>$ </prompt><userinput>mvn clean</userinput>
 [INFO] Scanning for projects...
@@ -84,7 +84,7 @@ Checking connectivity... done.
     <note><para>Projects may contain multiple documents. While specific documents can be built by executing a 
     <literal>mvn clean generate-sources</literal> in the specific document directory, executing this command in
     the base project directory will build all projects identified in the <literal>&lt;module></literal> list in the
-    top-level <literal>pom.xml</literal> file, known as the "workgroup-pom".</para></note>
+    top-level <literal>pom.xml</literal> file, known as the "Workgroup POM".</para></note>
     
     <para>You are now ready to begin making updates.  Before diving deeply into new text, 
     you may want to review

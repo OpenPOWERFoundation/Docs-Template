@@ -215,6 +215,48 @@ main()
       <para>If code formatting is not quite what you need, simply displaying text "literally" may suffice as follows: <literal>This is my literal 
 text.         It ignores      whitespace.</literal></para>
     </section>
+    
+    <xi:include href="sec_example.xml"/>
+    
+    <section>
+      <title>Examples of OpenPOWER Foundation Docbook extensions</title>
+      
+      <para>The OpenPOWER Foundation Maven Plugin supports a number of extensions that are not pure Docbook.  These are:</para>
+
+      <simplesect>
+        <title>Setting text color explicitly</title>
+             
+          <para>Text color can be controlled using <literal>&lt;phrase role="color"&gt;</literal> tags.  For example, this 
+          text:<programlisting><![CDATA[<para><phrase role="red">A red sentence.</phrase></para>]]></programlisting> produces this sentence:</para>
+          <para><phrase role="red">A red sentence.</phrase></para>
+          <para>Valid colors include either a keyword color name or a numerical RGB specification.  Keyword names are common with the HTML 4 specificiation:
+          <literal>aqua</literal>, <literal>black</literal>, <literal>blue</literal>, <literal>fuchsia</literal>, <literal>gray</literal>, 
+          <literal>green</literal>, <literal>lime</literal>, <literal>maroon</literal>, <literal>navy</literal>, <literal>olive</literal>, 
+          <literal>purple</literal>, <literal>red</literal>, <literal>silver</literal>, <literal>teal</literal>, <literal>white</literal>, 
+          and <literal>yellow</literal>.  Additionally, RGB values can be <literal>#nnnnnn</literal> where <literal>nnnnnn</literal> is a hexidecimal color value or
+          <literal>rgb(n1, n2, n3)</literal> where <literal>n1</literal>, <literal>n2</literal>, and <literal>n3</literal> are intergers 0-255.</para>
+      </simplesect>
+      
+      <simplesect>
+        <title>Inserting line breaks</title>
+          <para>Line breaks can be introduced using <literal>&lt;?linebreak?&gt;</literal> tags.  For example, this 
+          text:<programlisting><![CDATA[<para>A line break <?linebreak?> in the middle of text</para>]]></programlisting> produces this sentence:</para>
+          <para>A line break <?linebreak?> in the middle of text</para>
+          <para>This tag becomes useful in table text spacing.</para>
+      </simplesect>
+      
+      <simplesect>
+        <title>Inserting page breaks</title>
+          <para>Page breaks can be introduced using <literal>&lt;?hard-pagebreak?&gt;</literal> tags.  For example, this 
+          text:<programlisting><![CDATA[<para>A page break</para> <?hard-pagebreak?> <para>Between two paragraphs</para>]]></programlisting> produces this sentence:</para>
+          <para>A page break</para> <?hard-pagebreak?> <para>Between two paragraphs</para>
+          <para>This tag becomes useful in placing tables on page.  Placing this statement before a large table may prevent it from spanning a page.</para>
+          <warning><para>Because the XSL template behind the Processing Instruction generates 
+          a <programlisting><![CDATA[<fo:block break-after='page'/>]]></programlisting> in
+          the book FO output, this instruction should be used in the outer most blocks of a section to work effectively.  Use inside lists and other structural
+          components may result in the text after the break being dropped. <emphasis role="bold">User beware!</emphasis>.</para></warning>
+        </simplesect>
+    </section>
 
   </section>
 </chapter>

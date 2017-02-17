@@ -19,7 +19,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
 
      <title xml:id="section_template_structure_title">Understanding the project structure</title>
       <para>The OpenPOWER Foundation documentation build process involves dependency on a common
-      framework and shared files.  As such a deeper explanation about the relationships of key projects and their
+      framework and shared files.  As such, a deeper explanation about the relationships of key projects and their
       components may be helpful to prevent and diagnose documentation build problems. This section 
       provides a pictorial layout of key files and explains their roles and relationships.</para>
 
@@ -31,8 +31,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
 	    <literal>Docs-Master</literal> project.</para></listitem>
       </orderedlist>     
       <para>To begin to understand why, let us use a picture.  The following graphic illustrates 
-      the directory structure of three projects -- two
-      <literal>Docs-Master</literal> and <literal>Docs-Template</literal>, both existing OpenPOWER Foundation GitHub projects and a 
+      the directory structure of three projects: two existing OpenPOWER Foundation GitHub projects,
+      <literal>Docs-Master</literal> and <literal>Docs-Template</literal>, and a 
       hypothetical new project named <literal>my_project</literal>.</para>
       
       <figure pgwide="1" xml:id="project_structure_label">
@@ -58,8 +58,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
       <para>Inside the <literal>Docs-Master</literal>project directory, the two most important pieces are a 
       <literal>commmon</literal> directory
       and a <literal>pom.xml</literal> file.  The directory contains common files used by all projects such as the common preface 
-      (<literal>ch_preface.xml</literal>) and the common appendix (<literal>app_foundation.xml</literal>. The <literal>pom.xml</literal> file
-      in this directory serves as the "Master POM" for all builds. This file references the OpenPOWER Maven Plugin JAR 
+      (<literal>ch_preface.xml</literal>) and the common appendix (<literal>app_foundation.xml</literal>). The <literal>pom.xml</literal> file
+      in this directory serves as the "Master POM" (POM stands for Program Object Model and serves as the main configuration file) 
+      for all builds. This file references the OpenPOWER Maven Plugin JAR 
       (found in the OpenPOWER Foundation Repository at 
       <link xlink:href="http://openpowerfoundation.org/repo.openpowerfoundation.org/">http://openpowerfoundation.org/repo.openpowerfoundation.org/</link>)
       used to control the OpenPOWER 
@@ -78,7 +79,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
       contains all the Docbook source, directly or through include statements (<literal>&lt;xi:include href="..."</literal>), 
       to build the document.</para>
       
-      <para>For completeness of understanding, a hypothetical project <literal>my_project</literal> is also depected in red.  Like all
+      <para>For completeness of understanding, a hypothetical project <literal>my_project</literal> is also depicted in red.  Like all
       OpenPOWER Foundation projects, it is cloned at the correct level, equal to <literal>Docs-Master</literal>.  Like the 
       <literal>Docs-Template</literal> project, it has a "Workgroup POM" which will differ only in the <literal>&lt;modules></literal>
       section where it will describe two document projects, <literal>my_doc_1</literal> and <literal>my_doc_2</literal>.  But, each

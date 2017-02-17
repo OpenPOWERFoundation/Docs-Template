@@ -91,6 +91,10 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
               </listitem>
               <listitem>
                 <para>The location within the file of the syntax error.  For the above example, the key information is "<literal>lineNumber:  272; columnNumber: 70</literal>.</para>
+                <note><para>In some XML validation failure scenarios, the <literal>lineNumber</literal> or
+                <literal>colNumber</literal> values are not specified or are <literal>-1</literal>.  If you encounter such a situation,
+                please post to the Documentation Development mailing list at <email>syssw-doc_devel_guide@mailinglist.openpowerfoundation.org</email> 
+                so they can assist in identifying the exact location of the failure.</para></note>
               </listitem>
               <listitem>
                 <para>An explanation of the failure.  This information in the above error reads, "text not allowed here; expected element "address", ...".</para>
@@ -102,7 +106,7 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
     <section xml:id="section_template_debug_build_failure">
       <title xml:id="section_template_debug_build_failure_title">Build failures</title>
             
-          <para>Build errors are easily identified as well.  Below is an example:
+          <para>Build errors are easily identified as well.  Below is the most common example:
 <screen>...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
@@ -131,6 +135,14 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
 
           <para>With these details in hand for either error, one simply locates the offending syntax and makes the appropriate 
           correction.  Online resources such as those listed in <xref linkend="section_template_references"/> may be helpful.</para>
+          
+          <para>When creating new documentation projects, you may encounter the following error during
+          your first build:<screen>...
+[ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.5:generate-webhelp (generate-webhelp) on project openpower-vector-programming-guide: Execution generate-webhelp of goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.5:generate-webhelp failed: One of setGitDir or setWorkTree must be called. -> [Help 1]
+...</screen></para>
+
+          <para>This error results from interactions of the maven build process and git.  It may be
+          circumvented by issuing the <userinput>git init</userinput> command in your directory.</para>
     </section>
 
     <section xml:id="section_template_debug_fo_validation_error">
@@ -154,25 +166,26 @@ Error
 ...</screen></para>
 
           <para>The "<literal>org.apache.fop.fo.ValidationException</literal>" text indicates that this error was during FO validation.  The key pieces of information are as follows:</para>
-            <orderedlist>
-              <listitem>
-                <para>The error type is indicated in the text following the exception indictor.  In our case, the error statement is:
-                <literal>"{http://www.w3.org/1999/XSL/Format}block" is not a valid child of "fo:list-block"!</literal>. This error clearly
-                has something to do with the nesting of a "fo:block" statement in a "fo:list-block" statement.</para>
-              </listitem>
-    	      <listitem>
-                <para>The location of the validation error is given in the statement 
-                "<literal>See position 70:-1</literal>". These two values are the line number and character number of the error.  So, our sample 
-                error occurs on line 70, but the character number
-                of <literal>-1</literal> is an indication that the line is too long to effectively point.</para>
-              </listitem>
-            </orderedlist>
+
+          <orderedlist>
+            <listitem>
+              <para>The error type is indicated in the text following the exception indictor.  In our case, the error statement is:
+              <literal>"{http://www.w3.org/1999/XSL/Format}block" is not a valid child of "fo:list-block"!</literal>. This error clearly
+              has something to do with the nesting of a "fo:block" statement in a "fo:list-block" statement.</para>
+            </listitem>
+  	      <listitem>
+              <para>The location of the validation error is given in the statement 
+              "<literal>See position 70:-1</literal>". These two values are the line number and character number of the error.  So, our sample 
+              error occurs on line 70, but the character number
+              of <literal>-1</literal> is an indication that the line is too long to effectively point.</para>
+            </listitem>
+          </orderedlist>
 
           <para>What this information fails to detail is which file has the problem. To find the particular offending file, one must understand 
           the Docbook build process. This process begins by collecting all XML into a working copy of the main book file. The build failure error 
           in <xref linkend="section_template_debug_docbook_validation_error"/> includes a reference to this file which will be found in the 
           <literal>.../target/</literal> directory. It generally has the same name as the main book file of the document, which if copied 
-          from the <citetitle>Master Template Guide</citetitle> project, will be <literal>bk_main.xml</literal>. When in doubt about
+          from the <citetitle>Documentation Development Guide</citetitle> project, will be <literal>bk_main.xml</literal>. When in doubt about
           this file name, you will find it in the <literal>&lt;includes></literal> tag in the <literal>pom.xml</literal> file.</para>
           
           <para>Once all information has been pulled into the working XML file, the XML statements are transformed into FO statements 
@@ -219,7 +232,10 @@ javax.xml.transform.TransformerException: org.apache.fop.fo.ValidationException:
           DocBook (XML) file.  With this information, one can inspect the document source to decide if the error is bad DocBook syntax or a tooling bug. If the latter,
           please save the newly formatted .fo file and include it in the bug writeup.</para>
           
-          <note><para>Fully understanding the error, may require knowing more about XSL FO syntax.  Many such web sites exist for this, but
+          <note><para>This error generally indicates a problem with documentation tooling.  If you encounter such a situation,
+          please post to the Documentation Development mailing list at <email>syssw-doc_devel_guide@mailinglist.openpowerfoundation.org</email> 
+          so they can assist in identifying the exact cause of the failure.</para>
+          <para>If you wish to fully understanding the error, you may require knowing more about XSL FO syntax.  Many such web sites exist for this, but
           the <citetitle>XSL Formatting Objects Summary</citetitle> from W3C (World Wide Web Consortium) provides a good starting reference online at
           <link xlink:href="https://www.w3.org/2002/08/XSLFOsummary.html">https://www.w3.org/2002/08/XSLFOsummary.html</link>.</para></note>
 

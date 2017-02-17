@@ -18,7 +18,7 @@
 xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
 
     <title xml:id="section_template_policies_title">Policies and conventions</title>
-    <para>Most document style policies are established simply by using the template documentation framework.  However, 
+    <para>Most document style policies are established simply by using the provided documentation framework.  However, 
     by applying some conventions to the document source structure, community members will be able to work across more d
     ocumentation projects.</para>
     <para>The recommended documentation structure guidelines are as follows:
@@ -27,8 +27,26 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
                 <para>The head book file should be named with the prefix "bk_".</para>
             </listitem>
             <listitem>
-                <para>The document versioning as defined by the <literal>releaseinfo</literal> tag in the main book
-                file <literal>bk_xxx</literal> should be named "Revision N.N", not "Version N.N" or simply "N.N"</para>
+                <para>The document versioning as defined by the <literal>&lt;releaseinfo&gt;</literal> tag in the main book
+                file <literal>bk_xxx</literal> should be named "Revision V.R.M", not "Version V.R.M" or simply "V.R.M" where:</para>
+                <itemizedlist>
+                  <listitem>
+                    <para>Significant updates increment the <literal>V</literal> (Version) value while reseting the <literal>R</literal> and 
+                    <literal>M</literal> values to <literal>0</literal>,</para>  
+                  </listitem>
+                  <listitem>
+                    <para>Material, but small, updates increment the <literal>R</literal> (Release) value and reset the <literal>M</literal> 
+                    to <literal>0</literal>, and</para>
+                  </listitem>
+                  <listitem>
+                    <para>Trivial updates (such as typos and grammatical changes) only need to increment the <literal>M</literal> (Modifier) 
+                    value.</para>
+                  </listitem>
+                </itemizedlist>
+                <note><para>Numbering of "pre-release" versions or draft versions of a document may be handled in multiple ways such as
+                incrementing the previous modifier level until publication and then updating appropriately, setting the releases to 
+                the anticipated level and then appending a "_preN" suffix where "N" can be incremented during drafting.  Each Work Group
+                may set their own policy here.</para></note>
             </listitem>
             <listitem>
                 <para>Chapters files should be named with the prefix "ch_".</para>

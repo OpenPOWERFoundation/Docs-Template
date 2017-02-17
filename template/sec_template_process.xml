@@ -20,23 +20,48 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
      <title xml:id="section_template_process_title">Publishing OpenPOWER Documents</title>
       <para>The <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document
       found in the OpenPOWER Foundation Members Community documents is the definitive guide for understanding 
-      OpenPOWER Foundation documents and their work flow. The section strives to
+      OpenPOWER Foundation documents and their work flow. Details such as the duration and types of reviews as 
+      well as approval voting specifics are found in this document.</para>
+      
+      <para>This section of the guide does not attempt to provide process details, but instead strives to
       provide an overview to help writers understand enough of the basics to know how to prepare their
       document and what to expect as they proceed through various stages of document development from first
-      draft to specification publish.</para>
+      draft to publication.</para>
       
       <para>The first key concept to understand about OpenPOWER Foundation documents and the first
       decision to make when creating a new document is available document types or "Work Products".
       These fall into one of two categories -- Standards Track or Non-standards Track -- with the simple
       distinguishing factor being use.  If the purpose of a document is to define a specification or standard
       for hardware or software, then the document is "Standards Track".  Everything else is "Non-standards
-      Track."  For example, this document is a non-stardard work product.</para>
+      Track."  For example, this document is a Non-Stardard Work Product as noted on the title page
+      and the lower right corner of every subsequent page.</para>
+      
+      <para>Non-standard Track Work Products exist simply as Work Group Notes.  Their document
+      lifecycle follows this simplified workflow:</para>
+      
+      <figure pgwide="1" xml:id="project_process_non-std_track_label">
+        <title>Overview of Non-standard Track Work Products</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/project_process_non-std_track_graphic.svg" format="SVG" scalefit="1" width="100%" />
+          </imageobject>
+        </mediaobject>
+      </figure> 
+
+      <para>Non-standard Track, Work Group Notes begin as Drafts and drop the "Draft" annotation once reviewed. As shown
+      in the figure, the document lifecycle always returns to a "Draft" form for updates and new versions as needed.</para>
+      
+      <para>At any step in cycle, these documents may have security classifications as Public (non-confidential), Members-only
+      (OpenPOWER Foundation Confidential), or Work-Group only (OpenPOWER Work Group Confidential) which will
+      in turn dictate the review context (public or private).</para>
+
+      <?hard-pagebreak?>
       
       <para>Standards Track Work Products begin their life as Work Group Specification and may ultimately
       become an OpenPOWER Standard.  Their document lifecycle is defined in the following illustration:</para>      
 
       <figure pgwide="1" xml:id="project_process_std_track_label">
-        <title>Document work flow for Standard Track Work Products</title>
+        <title>Overview of Standard Track Work Products</title>
         <mediaobject>
           <imageobject>
             <imagedata fileref="figures/project_process_std_track_graphic.svg" format="SVG" scalefit="1" width="100%" />
@@ -51,32 +76,42 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
       Only Work Group Specifications classified as Public may proceed into OpenPOWER Standard Documents.  Confidential
       documents will remain Work Group Specifications.</para>
       
-      <para>Non-standard Track Work Products exist simply as Work Group Notes.  Their document
-      lifecycle follows this simplified workflow:</para>
+      <para>The following sections will provide additional details about how to control the document markings
+      and what the process that dictates those markings:</para>
       
-      <figure pgwide="1" xml:id="project_process_non-std_track_label">
-        <title>Document work flow for Non-standard Track Work Products</title>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="figures/project_process_non-std_track_graphic.svg" format="SVG" scalefit="1" width="100%" />
-          </imageobject>
-        </mediaobject>
-      </figure> 
+      <itemizedlist>
+        <listitem>
+          <para><xref linkend="section_template_process_pom" endterm="section_template_process_pom_title"/></para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="section_template_process_flowchart" endterm="section_template_process_flowchart_title"/></para>
+        </listitem>
+        <listitem>
+          <para><xref linkend="section_template_process_stdWP_steps" endterm="section_template_process_stdWP_steps_title"/></para>
+        </listitem>
+      </itemizedlist>
+      
+      <section xml:id="section_template_process_pom">
 
-      <para>Non-standard Track, Work Group Notes begin as Drafts and drop the "Draft" annotation once reviewed.  Like
-      Standard Track Work Products, they may have security classifications as Public (non-confidential), Members-only
-      (OpenPOWER Foundation Confidential), or Work-Group only (OpenPOWER Work Group Confidential) which will
-      in turn dictate the review context (public or private).</para>
-      
-      <para>Once these decisions have been made, then they can be reflected into the document in the following ways:</para>
-      
-      <orderedlist>
+        <title xml:id="section_template_process_pom_title">Understanding document marking variables in the pom.xml file</title>
+        
+        <para>Once the document type decision has been made (Work Group Note or Work Group Specification),
+        two additional markings must be considered during the documentation process: the document confidentiality and
+        the document status.  The next section, 
+        <xref linkend="section_template_process_flowchart" endterm="section_template_process_flowchart_title"/>, 
+        details how these values will change during the publishing process.  But, before diving into the process,
+        let us see what values in the document <literal>pom.xml</literal> file play a role in the document
+        development process.</para>
+        <para>The document Work Product categorization, security classification, and document status are reflected 
+        in the following ways:</para>
+        
+        <orderedlist>
 
-	    <listitem>
-	      <para>The document Work Product type is defined in the document <literal>pom.xml</literal> file with the 
-	      <literal>&lt;workProduct></literal> variable.  Valid settings are <literal>workgroupNotes</literal>,
-	      <literal>workgroupSpecification</literal>, <literal>candidateStandard</literal>, and <literal>openpowerStandard</literal>. 
-	      Select the appropriate setting in the following section:
+	      <listitem>
+	        <para>The document Work Product type is defined in the document <literal>pom.xml</literal> file with the 
+	        <literal>&lt;workProduct></literal> variable.  Valid settings are <literal>workgroupNotes</literal>,
+	        <literal>workgroupSpecification</literal>, <literal>candidateStandard</literal>, and <literal>openpowerStandard</literal>. 
+	        Select the appropriate setting in the following section:
 <programlisting><![CDATA[<!-- TODO: Define the appropriate work product type.  These values are defined by the
            IPR Policy. Consult with the Work Group Chair or a Technical Steering
            Committee member if you have questions about which value to select.
@@ -87,13 +122,13 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
 <!-- workProduct>workgroupSpecification</workProduct -->
 <!-- workProduct>candidateStandard</workProduct -->
 <!-- workProduct>openpowerStandard</workProduct -->]]></programlisting></para>
-	    </listitem>
+	      </listitem>
 
-	    <listitem>
-	      <para>The document security is set in the document <literal>pom.xml</literal> file with the 
-	      <literal>&lt;security></literal> variable.  Valid settings are <literal>public</literal>,
-	      <literal>foundationConfidential</literal>, and <literal>workgroupConfidential</literal>. 
-	      Select the appropriate setting in the following section:
+	      <listitem>
+	        <para>The document security is set in the document <literal>pom.xml</literal> file with the 
+	        <literal>&lt;security></literal> variable.  Valid settings are <literal>public</literal>,
+	        <literal>foundationConfidential</literal>, and <literal>workgroupConfidential</literal>. 
+	        Select the appropriate setting in the following section:
 <programlisting><![CDATA[<!-- TODO: Set the appropriate security policy for the document.  For documents
            which are not "public" this will affect the document title page and
            create a vertical running ribbon on the internal margin of the
@@ -114,13 +149,13 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
 <security>workgroupConfidential</security>
 <!-- security>foundationConfidential</security -->
 <!-- security>public</security -->]]></programlisting></para>
-	    </listitem>
+	      </listitem>
 
-	    <listitem>
-	      <para>The document work flow status is set in the document <literal>pom.xml</literal> file with the 
-	      <literal>&lt;documentStatus></literal> variable.  Valid settings are <literal>draft</literal>,
-	      <literal>review</literal>, and <literal>published</literal>. 
-	      Select the appropriate setting in the following section:
+	      <listitem>
+	        <para>The document work flow status is set in the document <literal>pom.xml</literal> file with the 
+	        <literal>&lt;documentStatus></literal> variable.  Valid settings are <literal>draft</literal>,
+	        <literal>review</literal>, and <literal>published</literal>. 
+	        Select the appropriate setting in the following section:
 <programlisting><![CDATA[<!-- TODO: Set the appropriate work flow status for the document.  For documents
            which are not "published" this will affect the document title page
            and create a vertical running ribbon on the internal margin of the 
@@ -137,18 +172,18 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
 <documentStatus>draft</documentStatus>
 <!-- documentStatus>review</documentStatus -->
 <!-- documentStatus>publish</documentStatus -->]]></programlisting></para>
-	    </listitem>
+	      </listitem>
 
-        <listitem>
-          <para>The final place to make updates to a new document is in the <literal>&lt;abstract></literal> section of
-          the <literal>bk_main.xml</literal> file for the document.  This section needs to be updated with the appropriate
-          work group information and document information.  Typical text appears as follows:
+          <listitem>
+            <para>The final place to make updates to a new document is in the <literal>&lt;abstract></literal> section of
+            the <literal>bk_main.xml</literal> file for the document.  This section needs to be updated with the appropriate
+            work group information and document information.  Typical text appears as follows:
 <programlisting><![CDATA[<!-- TODO: Update the following text with the correct document description (first 
            paragraph), Work Group name, and Work Product track (both in second
            paragraph). -->
 <abstract>
-    <para>The purpose of the Master Template Guide document is to provide a guide
-    for OpenPOWER documentation writers.  As such, it provides directions, policies,
+    <para>The purpose of this document is to provide a guide for OpenPOWER
+    documentation writers.  As such, it provides directions, policies,
     references, and examples of the XML Docbook environment.  It is intended to be
     used both in final product form (PDF and html) as a document and in source form
     as a template for new documents.</para>
@@ -157,13 +192,234 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
     requirements outlined in the <citetitle>OpenPOWER Foundation Work Group (WG)
     Process</citetitle> document.</para>
 </abstract>]]></programlisting></para>
-          <para>As stated in the comment text of the book file, the first paragraph provides a typical abstract
-          statement about your particular document.  The second paragraph provides more structured
-          text which should be updated with the appropriate Work Group name, Work Product type,
-          and Work Product process.  The rest of the information in this paragraph should remain as-is.</para>
-        </listitem>
+            <para>As stated in the comment text of the book file, the first paragraph provides a typical abstract
+            statement about your particular document.  The second paragraph provides more structured
+            text which should be updated with the appropriate Work Group name, Work Product type,
+            and Work Product process.  The rest of the information in this paragraph should remain as-is.</para>
+          </listitem>
 
       </orderedlist>
+
+      </section>
+
+      <section xml:id="section_template_process_flowchart">
+
+        <title xml:id="section_template_process_flowchart_title">Navigating the OpenPOWER Foundation
+        documentation publishing process</title>
+        
+        <para>As described in the previous section, 
+        <xref linkend="section_template_process_pom"/>, document
+        markings for work product, document confidentiality, and document status are set by the
+        <literal>&lt;workProduct&gt;</literal>, <literal>&lt;security&gt;</literal>, and 
+        <literal>&lt;documentStatus&gt;</literal> variables respectively.  Selecting the appropriate value
+        for each variable, however, generally depends on the status of the document in the development process.</para>
+
+        <para>The following figures and sub-sections provide detailed information about variable settings and process
+        steps.  For these figures, the following standards are used:</para>
+        
+        <itemizedlist>
+          <listitem>
+            <para>Rectangle boxes in various shades of blue represent the work product states previous introduced in 
+            <xref linkend="section_template_process"/>.</para>
+          </listitem>
+          <listitem>
+            <para>Green diamonds containing question marks, 
+            represent decision points with their key questions in bold green and the answers in standard green text.</para>
+          </listitem>
+          <listitem>
+            <para>Red octagons represent actions required in the process such as reviews or approvals.  
+            Specific descriptions are noted in bold red text beside the octagon.</para>
+          </listitem>
+          <listitem>
+            <para>Black text along the right side of the connecting lines, indicates changes to the 
+            various variables in the document <literal>pom.xml</literal> file.</para>
+          </listitem>
+        </itemizedlist>
+        
+        <?hard-pagebreak?>
+
+        <para>This flowchart expands upon the Non-Standard Track Work Product lifecycle
+        first introduced in <xref linkend="project_process_non-std_track_label"/>.  Document markings and key
+        process decisions and approvals occur as shown.</para>
+
+        <figure pgwide="1" xml:id="project_process_non-std_track_doc_variables_label">
+          <title>Document work flow for Non-Standard Track Work Products</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/project_process_non-std_track_doc_variables_graphic.svg" format="SVG" scalefit="1" width="80%" align="center" />
+            </imageobject>
+          </mediaobject>
+        </figure> 
+          
+        <para>The only Non-Standard Track Work Product <literal>&lt;workProduct&gt;</literal> setting is <literal>workgroupNotes</literal>.
+        Documents in this track have this value set and never changed.</para>
+        
+        <para>During the work flow progression of the document, a common decision point for the Non-Standard Track Work Product 
+        centers on <literal>&lt;security&gt;</literal> settings.  Documents may be marked as <literal>public</literal> 
+        just prior to review or prior to approval.  Each work
+        group will need to review their charter and determine whether public release of their work products is expected or allowed.</para>
+        
+        <para>The <literal>&lt;documentStatus&gt;</literal> variable tracks quite simply through the work flow, beginning as
+        <literal>draft</literal>, transitioning to <literal>review</literal>, and finishing as <literal>published</literal> when finished.</para>
+        
+        <para>A feature which makes a Non-Standard Track document unique is that the Work Group is the only approver prior to publish
+        as a Work Group Note.  As will be seen in the next figure, Standard Track Work Products often require multiple reviews.</para>
+        
+        <para>The following flowchart expands upon the Standard Track Work Product lifecycle
+        first introduced in <xref linkend="project_process_std_track_label"/>.  Document markings and key
+        process decisions and approvals reflect a more complex process than the previous one for Non-Standard Work Products.</para>
+
+        <?hard-pagebreak?>
+
+        <figure pgwide="1" xml:id="project_process_std_track_doc_variables_label">
+          <title>Document work flow for Standard Track Work Products</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/project_process_std_track_doc_variables_graphic.svg" format="SVG" scalefit="1" width="58%" align="center" />
+            </imageobject>
+          </mediaobject>
+        </figure> 
+        
+        <para>Like Non-Standard Track Work Products, Standard Track documents frequently evaluate the appropriate security setting.  
+        Unlike them, Standard Track Work Products involve many more steps, require numerous approval cycles, and ultimately create
+        a public document (<literal>&lt;security&gt;public&lt;/security&gt;</literal>) when they become a 
+        Candidate OpenPOWER Standard Work Product.</para>
+
+        <para>While the <literal>&lt;workProduct&gt;</literal> type has a value of <literal>workgroupSpecification</literal>, 
+        the <literal>&lt;documentStatus&gt;</literal> variable progress as expected -- beginning as
+        <literal>draft</literal>, transitioning to <literal>review</literal>, and finishing as <literal>published</literal>.</para>
+        
+        <para>Unlike the Non-Standard Work Product, the <literal>&lt;workProduct&gt;</literal> variable begins as 
+        <literal>workgroupSpecification</literal>, but may
+        transition to <literal>candidateStandard</literal> as it is proposed to be a Candidate OpenPOWER Standard Work Product
+        and ultimately becomes <literal>openpowerStandard</literal> if the document is approved as an OpenPOWER Standard Work Product.
+        In these latter work flow stages, the <literal>&lt;documentStatus&gt;</literal> and <literal>&lt;security&gt;</literal>remain as 
+        <literal>published</literal> and <literal>public</literal> respectively and never change.
+        However, it is work noting that a document may simply exist as a Work Group Specification Work Product for its whole
+        lifecycle.  Progression through Candidate OpenPOWER Standard to OpenPOWER Standard is an optional step.</para>
+        
+        <para>For a deeper look at the process, see the next section,
+        <xref linkend="section_template_process_stdWP_steps" endterm="section_template_process_stdWP_steps_title"/>, for step-by-step
+        descriptions of the Standard Product work flow.</para>
+        
+      </section>
+
+      <section xml:id="section_template_process_stdWP_steps">
+
+        <title xml:id="section_template_process_stdWP_steps_title">Understanding the specific steps of Standard Work Product documents</title>
+        
+        <para><xref linkend="section_template_process_flowchart"/> provides an overview of the work flow of both Non-Standard and 
+        Standard Work Products.  While <xref linkend="project_process_non-std_track_doc_variables_label"/> is rather straightforward,
+        <xref linkend="project_process_std_track_doc_variables_label"/> is larger and more complex.  In an attempt to simplify
+        the process, the following figures
+        decompose each state into just the actions needed to progress to the next step for Standard Track Work Products.</para>
+        
+        <para>For detailed assistance with the development of Standard Track Work Products, 
+        select the figure which reflects your current document state.  Then, follow the work flow to understand both 
+        the document settings and actions needed to progress to the next document state.</para>
+        
+        <?hard-pagebreak?>
+        
+        <para>For documents either getting started as Work Group Specification Draft or having returned to this state for updates,
+        reference the following figure.  Documents in this state will have 
+        <literal>&lt;workProduct&gt;workgroupSpecification&lt;/workProduct&gt;</literal> and 
+        <literal>&lt;documentStatus&gt;draft&lt;/documentStatus&gt;</literal> in their document POM (<literal>pom.xml</literal>).</para>
+
+        <figure pgwide="1" xml:id="project_process_std_track_doc_variables_draft_graphic_label">
+          <title>Document work flow for Standard Track Work Products in the Specification Draft State</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/project_process_std_track_doc_variables_draft_graphic.svg" format="SVG" scalefit="1" width="80%" align="center" />
+            </imageobject>
+          </mediaobject>
+        </figure>
+        
+        <para>To proceed from a Work Group Specification Draft to a Work Group Specification Review Draft, a document requires 3 approvals, in this
+        order: sponsoring Work Group, Technical Steering Committee, and Board of Directors.  Following these three approvals, 
+        the document POM (<literal>pom.xml</literal>) variable
+        <literal>&lt;documentStatus&gt;</literal> should be set to <literal>review</literal>.  In addition, the 
+        <literal>&lt;security&gt;</literal> variable may be set to <literal>public</literal> if the review is targeted to be public.</para>
+  
+        <?hard-pagebreak?>
+
+        <para>For documents currently in Work Group Specification Review Draft state
+        (<literal>&lt;workProduct&gt;workgroupSpecification&lt;/workProduct&gt;</literal> and 
+        <literal>&lt;documentStatus&gt;review&lt;/documentStatus&gt;</literal>), 
+        consult this figure.</para>
+
+        <figure pgwide="1" xml:id="project_process_std_track_doc_variables_review_draft_graphic_label">
+          <title>Document work flow for Standard Track Work Products in the Specification Review Draft State</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/project_process_std_track_doc_variables_review_draft_graphic.svg" format="SVG" scalefit="1" width="80%" align="center" />
+            </imageobject>
+          </mediaobject>
+        </figure> 
+  
+        <para>To proceed from a Work Group Specification Review Draft to a Work Group Specification, a document requires
+        a successful review and 3 approvals in this
+        order: sponsoring Work Group, Technical Steering Committee, and Board of Directors.  Following these three approvals,
+        the document POM (<literal>pom.xml</literal>) variable
+        <literal>&lt;documentStatus&gt;</literal> should be set to <literal>published</literal>.  In addition, the 
+        <literal>&lt;security&gt;</literal> variable should be set to <literal>public</literal> if for public specifications.</para>
+        
+        <?hard-pagebreak?>
+
+        <para>For Work Group Specifications marked
+        <literal>&lt;workProduct&gt;workgroupSpecification&lt;/workProduct&gt;</literal> and 
+        <literal>&lt;documentStatus&gt;published&lt;/documentStatus&gt;</literal>,
+        see the next figure.</para>
+
+        <figure pgwide="1" xml:id="project_process_std_track_doc_variables_specification_graphic_label">
+          <title>Document work flow for Standard Track Work Products in the Specification State</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/project_process_std_track_doc_variables_specification_graphic.svg" format="SVG" scalefit="1" width="80%" align="center" />
+            </imageobject>
+          </mediaobject>
+        </figure> 
+  
+        <para>A document in the Work Group Specification state may return to a Work Group Specification Draft or 
+        proceed as a Candidate OpenPOWER Standard.</para>
+
+        <para>To make updates, the document returns to the Work Group Specification Draft state.  To 
+        accomplish this, the <literal>&lt;documentStatus&gt;</literal> variable should be set to <literal>draft</literal> and
+        <literal>&lt;security&gt;</literal> should be set to either <literal>public</literal> or 
+        <literal>workgroupConfidential</literal>.</para>
+        
+        <para>To proceed to a Candidate OpenPOWER Standard, a document requires 3 approvals, in this
+        order: sponsoring Work Group, Technical Steering Committee, and Board of Directors.  Following these three approvals,
+        the <literal>&lt;workProduct&gt;</literal> variable should be set to <literal>candidateStandard</literal> and
+        <literal>&lt;security&gt;</literal> should be set to <literal>public</literal>.</para>
+
+        <?hard-pagebreak?>
+
+        <para>For documents currently in Work Group Candidate OpenPOWER Standard state
+        (<literal>&lt;workProduct&gt;candidateStandard&lt;/workProduct&gt;</literal> and 
+        <literal>&lt;documentStatus&gt;published&lt;/documentStatus&gt;</literal>),
+        reference the following figure.</para>
+
+        <figure pgwide="1" xml:id="project_process_std_track_doc_variables_candidate_graphic_label">
+          <title>Document work flow for Standard Track Work Products in the Candidate OpenPOWER Standard State</title>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/project_process_std_track_doc_variables_candidate_graphic.svg" format="SVG" scalefit="1" width="80%" align="center" />
+            </imageobject>
+          </mediaobject>
+        </figure> 
+  
+        <para>A document in the Work Group Candidate OpenPOWER Standard state may proceed in two directions, back to a Work Group Specification Draft or on to a 
+        Candidate OpenPOWER Standard.</para>
+
+        <para>To make updates to a Work Group Candidate OpenPOWER Standard document, the document returns to the Work Group Specification Draft state.  To 
+        accomplish this, the <literal>&lt;documentStatus&gt;</literal> variable should be set to <literal>draft</literal> and
+        <literal>&lt;security&gt;</literal> should be set to either <literal>public</literal> or 
+        <literal>workgroupConfidential</literal> depending on how the Work Group handles document drafts.</para>
+        
+        <para>To proceed to an OpenPOWER Standard, a document requires a successful review and a single approval from the Board of Directors.  
+        Following this approval, the document POM (<literal>pom.xml</literal>) variable  
+        <literal>&lt;workProduct&gt;</literal> should be set to <literal>openpowerStandard</literal>.</para>
+      </section>
 
 </section>
  

@@ -21,8 +21,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 
     <para>The <emphasis>OpenPOWER Foundation Documentation Development Guide</emphasis> 
           provides a framework for OpenPOWER public and private
-          documentation.  The goal of the template and this writeup is to promote community contributions
-          to OpenPOWER documenation and to enable new contributions within a common look and feel. </para>
+          documentation.  The goal of the document is to describe the documentation development
+          process, to promote community contributions to OpenPOWER documenation and to enable new 
+          contributions with a common look and feel. </para>
 
     <para>The major sections of this document addresses the following topics:</para>
     <itemizedlist>
@@ -30,6 +31,11 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
         <para><xref linkend="section_template_getting_started" endterm="section_template_getting_started_title"/>: 
         This section details tools and commands used to contribute to OpenPOWER documentation.
         All users who are new to OpenPOWER Foundation documentation should start here.</para>
+      </listitem>
+      <listitem>
+        <para><xref linkend="section_template_structure" endterm="section_template_structure_title"/>: 
+        This section provides detailed descriptions of the various project
+        components and their roles in the documentation creation process.</para>
       </listitem>
       <listitem>
         <para><xref linkend="section_template_new_document" endterm="section_template_new_document_title"/>: 
@@ -52,14 +58,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
         documents.</para>
       </listitem>
       <listitem>
-        <para><xref linkend="section_template_structure" endterm="section_template_structure_title"/>: 
-        This section provides detailed descriptions of the various project
-        components and their roles in the documentation creation process.</para>
-      </listitem>
-      <listitem>
         <para><xref linkend="section_template_policies" endterm="section_template_policies_title"/>: This section contains
         the generally accepted guidelines for creating OpenPOWER documentation.  Use this section as a reference
-        for documentation style beyond template provided features.</para>
+        for documentation source contruction and community process.</para>
       </listitem>
       <listitem>
         <para><xref linkend="section_template_faq" endterm="section_template_faq_title"/>:
@@ -82,11 +83,11 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
           provides examples of common documenation constructs in XML.</para>
 
   <xi:include href="sec_template_getting_started.xml"/>
+  <xi:include href="sec_template_structure.xml"/>
   <xi:include href="sec_template_new_document.xml"/>
   <xi:include href="sec_template_existing_document.xml"/>
   <xi:include href="sec_template_debugging.xml"/>
   <xi:include href="sec_template_process.xml"/>
-  <xi:include href="sec_template_structure.xml"/>
   <xi:include href="sec_template_policies.xml"/>
   <xi:include href="sec_template_faq.xml"/>
   <xi:include href="sec_template_git_commands.xml"/>
