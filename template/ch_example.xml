@@ -30,9 +30,20 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
       <para>
       Here is an example of an itemized list</para>
       <itemizedlist>
+        <title>A list title is completely optional</title>
         <listitem>
           <para>
           Item you don't care about</para>
+          <itemizedlist>
+            <listitem>
+              <para>Perhaps you'd like a sub-list</para>
+              <itemizedlist>
+                <listitem>
+                  <para>Oooh, here's about another</para>
+                </listitem>
+              </itemizedlist>
+            </listitem>
+          </itemizedlist>
         </listitem>
         <listitem>
           <para>
@@ -49,6 +60,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
       <para>
       All good documents need ordered lists.</para>
       <orderedlist>
+        <title>Another purely optional title</title>
         <listitem>
           <para>First item</para>
         </listitem>
@@ -126,10 +138,10 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
                 <para>Yes</para>
               </entry>
               <entry>
-                <para><phrase role="red">Red</phrase></para>
-                <para><phrase role="green">Green</phrase></para>
-                <para><phrase role="blue">Blue</phrase></para>           
-                <para><phrase role="#FFBF00">Custom (Amber)</phrase></para>
+                <para><phrase role="color:red">Red</phrase></para>
+                <para><phrase role="color:green">Green</phrase></para>
+                <para><phrase role="color:blue">Blue</phrase></para>           
+                <para><phrase role="color:#FFBF00">Custom (Amber)</phrase></para>
               </entry>
               <entry>
                 <para>MAIN_Junk</para>
@@ -215,10 +227,22 @@ main()
       <para>If code formatting is not quite what you need, simply displaying text "literally" may suffice as follows: <literal>This is my literal 
 text.         It ignores      whitespace.</literal></para>
     </section>
+    <section>
+      <title>Example of special characters in text</title>
+      <para>Sometimes in text you need special characters.  These can be provided using their UNICODE values such as &#8800; (&amp;#8800), 
+      &#x2126; (&amp;#x2126), and &#8710; (&amp;#8710;).
+      These can be "coded" using the form <literal>&amp;#</literal><emphasis>ddddd</emphasis><literal>;</literal> where <emphasis>ddddd</emphasis> is 
+      the up to five digit decimal representation of the character. The form <literal>&amp;#x</literal><emphasis>hhhh</emphasis><literal>;</literal> where 
+      <emphasis>hhhh</emphasis> is the up to 4 digit hexidecimal representation of the character.</para>
+      <para>This formatting works well as long as the symbol to which you are referring is contained in the font set
+      used for the document -- Arimo for standard text and Cousine for monospace.  If when building a document, you see a message like 
+      "WARNING, Glyph...not available in font 'Arimo',"
+      see <xref linkend="symbol_font" /> in <xref linkend="docbook_extensions" /> for details on using the provided symbol fonts explicitly.</para>
+    </section>
     
     <xi:include href="sec_example.xml"/>
     
-    <section>
+    <section xml:id="docbook_extensions">
       <title>Examples of OpenPOWER Foundation Docbook extensions</title>
       
       <para>The OpenPOWER Foundation Maven Plugin supports a number of extensions that are not pure Docbook.  These are:</para>
@@ -226,15 +250,19 @@ text.         It ignores      whitespace.</literal></para>
       <simplesect>
         <title>Setting text color explicitly</title>
              
-          <para>Text color can be controlled using <literal>&lt;phrase role="color"&gt;</literal> tags.  For example, this 
-          text:<programlisting><![CDATA[<para><phrase role="red">A red sentence.</phrase></para>]]></programlisting> produces this sentence:</para>
-          <para><phrase role="red">A red sentence.</phrase></para>
+          <para>Text color can be controlled using <literal>&lt;phrase role="color:</literal><emphasis>color_name</emphasis><literal>"&gt;</literal> 
+          tag  where <emphasis>color_name</emphasis> contains the color setting.  For example, this 
+          text:<programlisting><![CDATA[<para role="color:red">A red sentence contains a <phrase role="color:blue">blue</phrase> word.</para>]]></programlisting> produces this sentence:</para>
+          <para role="color:red">A red sentence contains a <phrase role="color:blue">blue</phrase> word.</para>
           <para>Valid colors include either a keyword color name or a numerical RGB specification.  Keyword names are common with the HTML 4 specificiation:
           <literal>aqua</literal>, <literal>black</literal>, <literal>blue</literal>, <literal>fuchsia</literal>, <literal>gray</literal>, 
           <literal>green</literal>, <literal>lime</literal>, <literal>maroon</literal>, <literal>navy</literal>, <literal>olive</literal>, 
           <literal>purple</literal>, <literal>red</literal>, <literal>silver</literal>, <literal>teal</literal>, <literal>white</literal>, 
           and <literal>yellow</literal>.  Additionally, RGB values can be <literal>#nnnnnn</literal> where <literal>nnnnnn</literal> is a hexidecimal color value or
-          <literal>rgb(n1, n2, n3)</literal> where <literal>n1</literal>, <literal>n2</literal>, and <literal>n3</literal> are intergers 0-255.</para>
+          <literal>rgb(n1, n2, n3)</literal> where <literal>n1</literal>, <literal>n2</literal>, and <literal>n3</literal> are integers 0-255.</para>
+          <para>This tag has also been implemented on the following tags: <literal>&lt;thead&gt;</literal>, 
+          <literal>&lt;tbody&gt;</literal>, and <literal>&lt;tfoot&gt;</literal>.</para>
+          <warning><para>This parameter should only be used for tags listed above.</para></warning>
       </simplesect>
       
       <simplesect>
@@ -248,14 +276,47 @@ text.         It ignores      whitespace.</literal></para>
       <simplesect>
         <title>Inserting page breaks</title>
           <para>Page breaks can be introduced using <literal>&lt;?hard-pagebreak?&gt;</literal> tags.  For example, this 
-          text:<programlisting><![CDATA[<para>A page break</para> <?hard-pagebreak?> <para>Between two paragraphs</para>]]></programlisting> produces this sentence:</para>
+          text:<programlisting><![CDATA[<para>A page break</para> <?hard-pagebreak?> <para>Between two paragraphs</para>]]></programlisting> produces this output:</para>
           <para>A page break</para> <?hard-pagebreak?> <para>Between two paragraphs</para>
           <para>This tag becomes useful in placing tables on page.  Placing this statement before a large table may prevent it from spanning a page.</para>
           <warning><para>Because the XSL template behind the Processing Instruction generates 
           a <programlisting><![CDATA[<fo:block break-after='page'/>]]></programlisting> in
           the book FO output, this instruction should be used in the outer most blocks of a section to work effectively.  Use inside lists and other structural
           components may result in the text after the break being dropped. <emphasis role="bold">User beware!</emphasis>.</para></warning>
-        </simplesect>
+      </simplesect>
+        
+      <simplesect>
+        <title>Varying the font size</title>
+          <para>Font sizes can also be set using the 
+          <literal>&lt;phrase role="font-size:</literal><emphasis>size</emphasis><literal>"&gt;</literal> 
+          tag where <emphasis>size</emphasis> contains a size value such as "6pt" or "50%" or "1.5em".</para>
+          <para>For example, a paragraph can be made to be 6 point as follows:<programlisting><![CDATA[<para>A sentence that contains some <phrase role="font-size:6pt">6pt font</phrase>, 
+<phrase role="font-size:50%">50% font</phrase>, and 
+<phrase role="font-size:1.5em">1.5em font</phrase> in it.</para>]]></programlisting> produces this output:</para>
+          <para>A sentence that contains some <phrase role="font-size:6pt">6pt font</phrase>, 
+          <phrase role="font-size:50%">50% font</phrase>, and <phrase role="font-size:1.5em">1.5em font</phrase> in it.</para>
+          <para>This tag has also been implemented on the following tags: <literal>&lt;para&gt;</literal>, 
+          <literal>&lt;thead&gt;</literal>, <literal>&lt;tbody&gt;</literal>, and <literal>&lt;tfoot&gt;</literal>.</para>
+          <warning><para>This parameter should only be used for tags listed above.</para></warning>
+      </simplesect>
+        
+      <simplesect xml:id="symbol_font">
+        <title>Using additional symbols</title>
+          <para>If you find that the Arimo and Cousine fonts do not contain the special symbol you need
+          for your document, you may use the additional symbol font provided for document (STIX Two Math).
+          Due to an unimplemented feature in the Apach FO Processor, selection of this 
+          font needs to be explicitly performed using the
+          <literal>&lt;symbol role="symbolfont"&gt;</literal> wrapper around your symbol value.</para>
+          
+          <para>For example, the symbol coding of <programlisting><![CDATA[&#x2A01;]]></programlisting> should produce
+          a circle with a cross in here "&#x2A01;", but instead creates a "Glyph...not available in font 'Arimo'" error
+          on document build and the PDF renders as a "#".</para>
+          
+          <para>Re-coding this to use <programlisting><![CDATA[<symbol role="symbolfont">&#x2A01;</symbol>]]></programlisting> produces
+          the correct symbole here "<symbol role="symbolfont">&#x2A01;</symbol>".</para>
+          <para>If this still does not provide the symbol you expected, double check the code and the font maps found at 
+          <link xlink:href="http://www.stixfonts.org/charactertable.html">http://www.stixfonts.org/charactertable.html</link>.</para>
+      </simplesect>
     </section>
 
   </section>

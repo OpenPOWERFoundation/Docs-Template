@@ -54,7 +54,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.1.0_pre2</releaseinfo>
+    <releaseinfo>Revision 1.1.0_pre3</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -105,7 +105,12 @@
                 <para>Add optional font installation step to getting started.</para>
               </listitem>
               <listitem>
-                <para>Provide example usage of OPF Docbook extensions.</para>
+                <para>Provide samples of how to access symbols by value, including extension for
+                new symbol library.</para>
+              </listitem>
+              <listitem>
+                <para>Provide example usage of OPF Docbook extensions -- hard page breaks, soft line breaks,
+                font-size changes, setting text color, and explicitly using symbol library.</para>
               </listitem>
               <listitem>
                 <para>Extend explanation of versioning policy.</para>
