@@ -137,7 +137,7 @@ def insert_toc_into_book(toc_file, book_file):
         print 'Error: key string of "', key_string, '" not found in ', book_file
         sys.exit(-7)
 
-def build_revhistory():
+def build_revhistory(book_file):
     from subprocess import Popen, PIPE
     
     # Variables for formating git log
@@ -160,7 +160,7 @@ def build_revhistory():
 
     # Update file
     rev_str = '<revhistory>TBD</revhistory>'
-    update_file('bk_main.xml', rev_str, revision)
+    update_file(book_file, rev_str, revision)
 
     
 def main(argv):
@@ -229,7 +229,7 @@ def main(argv):
     insert_toc_into_book(full_toc_file_tmp2, book_file)
     
     # Create revision history from Git Log
-    build_revhistory()
+    build_revhistory(book_file)
        
     sys.exit(0)
 
