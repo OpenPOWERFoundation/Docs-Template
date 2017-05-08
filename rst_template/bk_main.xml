@@ -66,15 +66,8 @@
     
     <abstract>TBD</abstract>
 
-    <revhistory>
-      <!-- TODO: Set the initial version information and clear any old information out -->
-      <revision>
-          <date>2017-02-17</date>
-          <revdescription>
-            <para>TBD</para>
-          </revdescription>
-      </revision>
-     </revhistory>
+    <!-- Note: The tooling converts the Git Log into a revision history -->
+    <revhistory>TBD</revhistory>
     </info>
 
   <!-- The ch_preface.xml file is required by all documents -->
