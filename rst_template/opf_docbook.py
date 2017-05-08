@@ -137,7 +137,7 @@ def insert_toc_into_book(toc_file, book_file):
         print 'Error: key string of "', key_string, '" not found in ', book_file
         sys.exit(-7)
 
-def build_revhistory()
+def build_revhistory():
     from subprocess import Popen, PIPE
     
     # Variables for formating git log
