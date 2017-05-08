@@ -141,7 +141,7 @@ def build_revhistory(book_file):
     from subprocess import Popen, PIPE
     
     # Variables for formating git log
-    log_format = '%h%x01%an%x01%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x01%s%x02'
+    log_format = '%h%x01%an%x01%ad%x01%s%x02'
     log_fields = ['id', 'author', 'date', 'subject']
 
     # Retrieve log
@@ -154,7 +154,7 @@ def build_revhistory(book_file):
     # Format log into revision history    
     revision = '<revhistory>\n'
     for entry in log:
-        revision = revision + '<revision><date>' + entry['date'] + '</date><revdescription><para>' +\
+        revision = revision + '<revision><date>' + entry['date'].split(' ')[0] + '</date><revdescription><para>' +\
             entry['subject'] + ' (' + entry['id'] + ')</para></revdescription></revision>\n'
     revision = revision + '</revhistory>\n'
 
