@@ -136,7 +136,33 @@ def insert_toc_into_book(toc_file, book_file):
     if not inserted_toc:
         print 'Error: key string of "', key_string, '" not found in ', book_file
         sys.exit(-7)
-                        
+
+def build_revhistory()
+    from subprocess import Popen, PIPE
+    
+    # Variables for formating git log
+    log_format = '%h%x01%an%x01%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x01%s%x02'
+    log_fields = ['id', 'author', 'date', 'subject']
+
+    # Retrieve log
+    pipe = Popen('git log --date=iso --format="%s"' % log_format, shell=True, stdout=PIPE)
+    log, _ = pipe.communicate()
+    log = log.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('\n','').strip('\x02').split('\x02')
+    log = [row.split('\01') for row in log]
+    log = [dict(zip(log_fields, row)) for row in log]
+
+    # Format log into revision history    
+    revision = '<revhistory>\n'
+    for entry in log:
+        revision = revision + '<revision><date>' + entry['date'] + '</date><revdescription><para>' +\
+            entry['subject'] + ' (' + entry['id'] + ')</para></revdescription></revision>\n'
+    revision = revision + '</revhistory>\n'
+
+    # Update file
+    rev_str = '<revhistory>TBD</revhistory>'
+    update_file('bk_main.xml', rev_str, revision)
+
+    
 def main(argv):
     build_dir = ''
     db_dir = ''
@@ -201,6 +227,9 @@ def main(argv):
 
     # Update link to first file
     insert_toc_into_book(full_toc_file_tmp2, book_file)
+    
+    # Create revision history from Git Log
+    build_revhistory()
        
     sys.exit(0)
 
