@@ -145,7 +145,7 @@ def build_revhistory(book_file):
     log_fields = ['id', 'author', 'date', 'subject']
 
     # Retrieve log
-    pipe = Popen('git log --date=iso --format="%s"' % log_format, shell=True, stdout=PIPE)
+    pipe = Popen('git log --date=iso --format="%s" -- doc doc' % log_format, shell=True, stdout=PIPE)
     log, _ = pipe.communicate()
     log = log.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('\n','').strip('\x02').split('\x02')
     log = [row.split('\01') for row in log]
