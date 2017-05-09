@@ -6,8 +6,11 @@
 # Assumes rst2db has been used to convert rst to docbook.
 #
 import os, sys, getopt, shutil, errno
+from git import Repo
 from lxml import etree
 from conf import opf_docbook_settings, master_doc
+from subprocess import Popen, PIPE
+    
 
 def copy_xml_to_template(src_dir, tgt_dir):
     # Copy XML files
@@ -138,8 +141,6 @@ def insert_toc_into_book(toc_file, book_file):
         sys.exit(-7)
 
 def build_revhistory(book_file):
-    from subprocess import Popen, PIPE
-    
     # Variables for formating git log
     log_format = '%h%x01%an%x01%ad%x01%s%x02'
     log_fields = ['id', 'author', 'date', 'subject']
@@ -147,8 +148,17 @@ def build_revhistory(book_file):
     # Retrieve log
     pipe = Popen('git log --date=iso --format="%s" -- . .' % log_format, shell=True, stdout=PIPE)
     log, _ = pipe.communicate()
-    log = log.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('\n','').strip('\x02').split('\x02')
+    
+    # Substitute for problem characters: &, <, >
+    log = log.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
+    
+    # Remove newlines, trailing end-of-record (0x02), and then split at end-of-record
+    log = log.replace('\n','').strip('\x02').split('\x02')
+    
+    # Split records into individual fields
     log = [row.split('\01') for row in log]
+    
+    # Create dictionary using field names
     log = [dict(zip(log_fields, row)) for row in log]
 
     # Format log into revision history    
@@ -164,6 +174,8 @@ def build_revhistory(book_file):
 
     
 def main(argv):
+    master_git_url = 'https://github.com/OpenPOWERFoundation/Docs-Master.git'    
+    template_git_url = 'https://github.com/OpenPOWERFoundation/Docs-Template.git'    
     build_dir = ''
     db_dir = ''
     master_dir = ''
@@ -179,7 +191,7 @@ def main(argv):
     for opt, arg in opts:
         if opt == '-h':
            print 'opf_docbook.py -b <builddir> -d <docbookdir> -m <masterdir> -t <templatedir>'
-           sys.exit()
+           sys.exit(0)
         elif opt in ("-b", "--builddir"):
            build_dir = arg
         elif opt in ("-d", "--docbookdir"):
@@ -189,15 +201,29 @@ def main(argv):
         elif opt in ("-t", "--templatedir"):
            template_dir = arg
 
+    # Clone a new Master Directory
+    print 'Cloning new Docs-Master directory...'
+    if os.path.exists(master_dir):
+        shutil.rmtree(master_dir)
+    Repo.clone_from(master_git_url, master_dir)
+    
+    # Clone a new Template Directory
+    print 'Cloning new Docs-Template directory...'
+    if os.path.exists(template_dir):
+        shutil.rmtree(template_dir)
+    Repo.clone_from(template_git_url, template_dir)
+    
     # Locate the TOC file
     rst_template_dir = os.path.join(template_dir, 'rst_template') 
     full_toc_file = os.path.join(rst_template_dir,  toc_file)
     book_file = os.path.join(rst_template_dir,  'bk_main.xml')
     
     # Copy all files and directories in docbook dir into rst_template recursively
+    print 'Copying docbook files into template build directory...'
     copy_xml_to_template( db_dir, rst_template_dir) 
 
     # Update all file in opf_docbook_settings with tag/value combinations specified
+    print 'Updating Docbook files with settings from conf.py...'
     for f in opf_docbook_settings.keys():
         filename = os.path.join(rst_template_dir, f)
         tags = opf_docbook_settings[f]
@@ -214,6 +240,7 @@ def main(argv):
           update_file(filename, old_str, new_str)
     
     # Parse TOC file, convert high level tag to "book" and write back out to .tmp1 file
+    print 'Cleaning up Docbook file structure...'
     parser = etree.XMLParser(remove_comments=False)    
     tree = etree.parse(full_toc_file, parser=parser)
     # print_tree( tree.getroot(), 0 )
@@ -229,10 +256,37 @@ def main(argv):
     insert_toc_into_book(full_toc_file_tmp2, book_file)
     
     # Create revision history from Git Log
+    print 'Building document revision history from git log...'
     build_revhistory(book_file)
+    
+    # Perform build of Docbook
+    print 'Building Docbook PDF and HTML output in Maven...'
+    maven_log_file = 'build.log'
+    maven_build = 'cd ' + rst_template_dir + '; mvn generate-sources 2>&1 | tee ' + maven_log_file + ''
+    pipe = Popen(maven_build, shell=True)
+    log, err = pipe.communicate()
+    
+    if pipe.returncode != 0:
+        print "Build failed with return code:%s" % pipe.returncode
+        print "See %s/build.log for more details" & rst_template_dir
+    
+    # Copy output to better location
+    print 'Copying build output...'
+    bld_out_dir = os.path.join(rst_template_dir, 'target/docbkx/webhelp')
+    html_head = os.path.join(bld_out_dir, opf_docbook_settings['pom.xml']['webhelpDirname'] + '/index.html')
+    if os.path.exists(bld_out_dir) and os.path.exists(html_head):
+        doc_dir = os.path.join(build_dir, 'docbook/opf_docbook')
+        
+        if os.path.exists(doc_dir):
+            shutil.rmtree(doc_dir)
+        shutil.copytree(bld_out_dir, doc_dir)
+        print "Build successful.  Output files located in %s" % os.path.join(doc_dir, opf_docbook_settings['pom.xml']['webhelpDirname'])
        
-    sys.exit(0)
+        sys.exit(0)
 
+    else:
+        print "Docbook build failed.  Check logfile %s for details." % os.path.join(rst_template_dir, maven_log_file)
+        sys.exit(-10)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
