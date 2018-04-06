@@ -420,6 +420,46 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
         Following this approval, the document POM (<literal>pom.xml</literal>) variable  
         <literal>&lt;workProduct&gt;</literal> should be set to <literal>openpowerStandard</literal>.</para>
       </section>
+      
+      <section xml:id="section_template_packaging_document_for_publish">
+        <title xml:id="section_template_packaging_document_for_publish_title">Packaging the document for publish</title>
+        
+        <para>The OpenPOWER Foundation process for publishing documents from WordPress in the
+        Resource Catalog on openpowerfoundatoin.org website has the following requirements:</para>
+        <itemizedlist>
+          <listitem>
+            <para>The PDF and all HTML source must be bundled in a self-contained zip file.</para>
+          </listitem>
+          <listitem>
+            <para>The zip file is expected to contain a single directory in which the document PDF and <literal>index.html</literal> file are found.</para>
+          </listitem>
+          <listitem>
+            <para>The filename of the zip file must be the same name as the contained directory.</para>
+          </listitem>
+        </itemizedlist>
+        
+        <para>To create this package for the <citetitle>Documentation Development Guide</citetitle>, one would perform the following commands
+        in Linux from the document source directory (<literal>.../Docs-Template/template/</literal>):
+        <screen><prompt>Docs-Template/template$ </prompt><userinput>cd target/docbkx/webhelp/</userinput>
+<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>ls</userinput>
+doc-devel-guide
+<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>zip -rv doc-devel-guide.zip doc-devel-guide/</userinput>
+  adding: doc-devel-guide/	(in=0) (out=0) (stored 0%)
+  adding: doc-devel-guide/favicon.ico	(in=806) (out=806) (stored 0%)
+  adding: doc-devel-guide/index.html	(in=654) (out=385) (deflated 41%)
+  ...snip...
+  adding: doc-devel-guide/doc-devel-guide-20180406.pdf 	(in=413655) (out=305492) (deflated 26%)
+  ...snip...
+  adding: doc-devel-guide/common/	(in=0) (out=0) (stored 0%)
+  adding: doc-devel-guide/common/main.js	(in=5674) (out=2119) (deflated 63%)
+  ...snip...
+  adding: doc-devel-guide/common/jquery/jquery-ui-1.8.2.custom.min.js 	(in=87032) (out=22729) (deflated 74%)
+total bytes=3342807, compressed=1332882 -> 60% savings
+<prompt>Docs-Template/template/target/docbkx/webhelp/doc-devel-guide$ </prompt><userinput>ls</userinput>
+doc-devel-guide  doc-devel-guide.zip</screen></para>
+        <para>For MacOS and Windows, the steps will be similar with slight variations on the command to create the zip file.</para>
+        <para>This zip file can be sent to the person managing the documents in the OpenPOWER Resource Catalog.</para>
+      </section>
 
 </section>
  

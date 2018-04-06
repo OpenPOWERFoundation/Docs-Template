@@ -32,6 +32,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_getting_star
         <listitem>
           <para><xref linkend="section_cloning_master_doc" endterm="section_cloning_master_doc_title"/></para>
         </listitem>
+        <listitem>
+          <para><xref linkend="section_building_first_doc" endterm="section_building_first_doc_title"/></para>
+        </listitem>
       </orderedlist>
     </para>
 
@@ -122,6 +125,82 @@ Checking connectivity... done.
         <para>More information can be found about the Docs-Master project online at <link xlink:href="https://github.com/OpenPOWERFoundation/Docs-Master">
         https://github.com/OpenPOWERFoundation/Docs-Master</link>. Additional details about the OpenPOWER Foundation documentation structure 
         are explained in <xref linkend="section_template_structure"/> of this document.</para>
+    </section>
+    
+    <section xml:id="section_building_first_doc">
+      <title xml:id="section_building_first_doc_title">Building the first document</title>
+      <para>The final step of setting up your environment to perform the first build.  The following steps are recommended:</para>
+      <orderedlist>
+        <listitem>
+          <para>Clone the <citetitle>Documentation Development Guide</citetitle> (this document) as source from which to build.  
+          To accomplish this, issue the following command in the same directory as as the master document clone from <xref linkend="section_cloning_master_doc" />.
+          <screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
+Cloning into 'Docs-Template'...
+remote: Counting objects: 253, done.
+remote: Total 253 (delta 0), reused 0 (delta 0), pack-reused 253
+Receiving objects: 100% (253/253), 468.94 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (151/151), done.
+Checking connectivity... done.
+<prompt>$ </prompt></screen></para>
+        </listitem>
+        <listitem>
+          <para>Change the working directory into the source directory for the <citetitle>Documentation Development Guide</citetitle>.
+          <screen><prompt>$ </prompt><userinput>cd Docs-Template/template</userinput>
+<prompt>Docs-Template/template$ </prompt></screen></para>
+        </listitem>
+        <listitem>
+          <para>Build the document in Maven.<screen><prompt>Docs-Template/template$ </prompt><userinput>mvn generate-sources</userinput>
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Documentation Development Guide 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- openpowerdocs-maven-plugin:1.1.0:generate-webhelp (generate-webhelp) @ openpower-template-guide ---
+[INFO] Processing input file: bk_main.xml
+[WARNING] Property not found in com.agilejava.docbkx.maven.DocbkxWebhelpMojo
+[WARNING] Property not found in com.agilejava.docbkx.maven.DocbkxWebhelpMojo
+[WARNING] Property not found in com.agilejava.docbkx.maven.DocbkxWebhelpMojo
+[WARNING] Property not found in com.agilejava.docbkx.maven.DocbkxWebhelpMojo
+Feb 27, 2018 11:43:28 AM org.apache.fop.apps.FopFactoryConfigurator configure
+INFO: Default page-height set to: 11in
+Feb 27, 2018 11:43:28 AM org.apache.fop.apps.FopFactoryConfigurator configure
+ ...snip...
+[INFO] Applying customization parameters
+
+&lt;!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+Parsing: /home/scheel/mydocs/Docs-Template/template/target/docbkx/webhelp/doc-devel-guide/content/section_cloning_project.html
+ ...snip...
+The created index files are located in /home/scheel/mydocs/Docs-Template/template/target/docbkx/webhelp/doc-devel-guide/content/search/.js
+[INFO] See /home/scheel/mydocs/Docs-Template/template/target/docbkx/webhelp/bk_main for generated file(s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 31.547 s
+[INFO] Finished at: 2018-02-27T11:43:45-06:00
+[INFO] Final Memory: 83M/729M
+[INFO] ------------------------------------------------------------------------
+<prompt>Docs-Template/template$ </prompt></screen></para>
+          <note><para>The first time one builds in a Maven environment, the build time will be noticeably
+          long due to JAR file downloads associated with the new Maven project types.  In future builds, these JAR files will 
+          only be downloaded when they are updated.  As such, one should both allow for this extra time and not be discouraged 
+          by the duration of the first build.</para></note>
+        </listitem>
+      </orderedlist>
+      <para>Once complete, there should be a single directory in the <literal>target/docbkx/webhelp/</literal> directory. For the 
+      Docs-Template project, that directory is <literal>doc-devel-guide</literal>.  Inside this directory will
+      be both the PDF file and the <literal>index.html</literal> file for the HTML document.</para>
+      <para>To verify this for the <citetitle>Documentation Development Guide</citetitle>, perform these commands:
+      <screen><prompt>Docs-Template/template$ </prompt><userinput>cd target/docbkx/webhelp/</userinput>
+<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>ls</userinput>
+doc-devel-guide
+<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>cd doc-devel-guide</userinput>
+<prompt>Docs-Template/template/target/docbkx/webhelp/doc-devel-guide$ </prompt><userinput>ls</userinput>
+bookinfo.xml  common  content  doc-devel-guide-20180227.pdf  favicon.ico  index.html
+webapp</screen></para>
+      <para>Now, you are ready to begin working on your own document.  Useful information on how to proceed can
+      be found in <xref linkend="section_template_new_document" /> and <xref linkend="section_template_existing_document" />.</para>
     </section>
 </section>
  
