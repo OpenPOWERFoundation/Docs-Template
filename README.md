@@ -28,7 +28,10 @@ This can be accomplished with the following steps:
   ```
 
 The online version of the document can be found in the OpenPOWER Foundation
-Document library at [OpenPOWER Foundation Documentation Development Guide](http://openpowerfoundation.org/?resource_lib=openpower-foundation-documentation-development-guide).
+Document library at [OpenPOWER Foundation Documentation Development Guide](http://openpowerfoundation.org/?resource_lib=openpower-foundation-documentation-development-guide).  
+
+An introductory video on how to develop in the OpenPOWER Foundation
+Docbook environment *[![OpenPOWER Docbook Development Overview](https://i.ytimg.com/vi/psh8xd4HRlo/hqdefault.jpg)](https://www.youtube.com/watch?v=psh8xd4HRlo "OpenPOWER Docbook Development Overview")* has been created and posted on YouTube.
 
 The project which controls the look and feel of the document is the 
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin), an 
