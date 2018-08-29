@@ -19,7 +19,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
   
   <!-- Chapter Title goes here. -->
   <title>Documentation examples</title>
- 
+
   
   <section>
     <title>Section Title goes here</title>
@@ -79,6 +79,22 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
           <para>Third item</para>
         </listitem>
       </orderedlist>
+    </section>
+    <section>
+      <title>Example variable list</title>
+      <para>
+      One of my favorite list types for formating items with definitions is called a variablelist.  
+      Here is an example with an embedded variablelist.</para>
+      <variablelist>
+        <varlistentry><term>Kirk</term><listitem><para>Captain</para></listitem></varlistentry>
+        <varlistentry><term>Crew</term><listitem><para>Members</para>
+        <variablelist spacing='compact'>
+          <varlistentry><term>Scotty</term><listitem><para>Engineering</para></listitem></varlistentry>
+          <varlistentry><term>McCoy</term><listitem><para>Doctor</para></listitem></varlistentry>
+          <varlistentry><term>Spock</term><listitem><para>Science Officer</para></listitem></varlistentry>
+        </variablelist>
+        </listitem></varlistentry>
+      </variablelist>
     </section>
 
     <section>
@@ -198,6 +214,36 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_examples">
               <entry>
                 <para>Finally the last cell</para>
               </entry>
+            </row>
+            <row>
+	      <?dbhtml bgcolor="#EEEEEE" ?><?dbfo bgcolor="#EEEEEE" ?>
+              <entry>
+                <para>This Row</para>         
+              </entry>             
+              <entry>
+                <para>Has </para>         
+              </entry>             
+              <entry>
+                <para>background </para>         
+              </entry>             
+              <entry>
+                <para>color</para>         
+              </entry>             
+            </row>
+            <row>
+              <entry>
+                <para>Eenie</para>         
+              </entry>             
+              <entry>
+                <para>Meenie </para>         
+              </entry>             
+              <entry>
+                <para>Meinie </para>         
+              </entry>             
+              <entry>
+		<?dbhtml bgcolor="#EEEEEE" ?><?dbfo bgcolor="#EEEEEE" ?>
+                <para>Entry with background color</para>         
+              </entry>             
             </row>
           </tbody>
         </tgroup>
