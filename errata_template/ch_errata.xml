@@ -1,0 +1,78 @@
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the GNU Free Documentation License, Version 1.3;
+  with no Invariants Sections, with no Front-Cover Texts,
+  and with no Back-Cover Texts (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.gnu.org/licenses/fdl-1.3.txt
+
+-->
+<chapter xmlns="http://docbook.org/ns/docbook"
+xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en"
+xml:id="dbdoclet.50655240_pgfId-1156194">
+  
+<title>Errata</title>
+
+<!-- TODO: remove "phrase" tags (2) and text below and insert proper information -->
+<para>The following statements in version 
+  <phrase role="color:red"><emphasis role="bold">#.#.#</emphasis></phrase> 
+  of the 
+  <citetitle><phrase role="color:red"><emphasis role="bold">Base Document Title</emphasis></phrase></citetitle>
+  specification are incorrect, and should be considered corrected as specified.</para>
+  
+<!-- TODO: For each updated section in the referenced section, create a section of the following template -->
+<section>
+  <!-- TODO: replace the <..> information with information from the base document -->
+  <title>Section &lt;#.#&gt;, &lt;Section Name&gt;</title>
+  <para>
+    <emphasis role="underline">Problem</emphasis>:
+    <!-- TODO: Explain the problem in the section by removing the <phrase> tag and adding appropriate text -->
+    <phrase role="color:red">TBD: Describe the problem here.  For example, 
+    "Paragraph 2 contains a statement that makes use of undefined behavior according to the C standard."
+    Then, cite the offending text in the next paragraph block.</phrase>
+  </para>
+  <para>
+    <!-- TODO: Quote the offending text.  Again remove <phrase> tag and replace with appropriate text. -->
+    <blockquote>
+      <para>
+        <phrase role="color:red">
+	        Regardless of the alignment rules for the allocation of data types,
+	        pointers to both aligned and unaligned data of each data type shall
+	        return the value corresponding to a data type starting at the specified
+	        address when accessed with either the pointer dereference operator * or
+	        the array reference operator [ ].
+        </phrase>
+      </para>
+    </blockquote>
+  </para>
+  <para>
+    <!-- TODO: Describe the resolution. Remove <phrase> tag and replace with appropriate text-->
+    <emphasis role="underline">Resolution</emphasis>: 
+    <phrase role="color:red">TBD: Describe resolution.  For example, 
+    "Paragraph 2 is stricken from the text."  If needed, add a block quote of the
+    updated text like below.</phrase>
+  </para>
+
+  <!-- TODO: If needed, quote the new text, by removing <phrase> tag and replace with appropriate text. 
+             If not needed, remove the outter <para> tag and all contained text. -->
+  <para>
+    <blockquote>
+      <para>
+        <phrase role="color:red">
+	        C pointer types have an emperical and undefined behavior which applications
+	        should simply tolerate.  Therefore and regardless of the alignment rules for 
+	        the allocation of data types, pointers to both aligned and unaligned data of 
+	        each data type shall return the value corresponding to a data type starting at the specified
+	        address when accessed with either the pointer dereference operator * or
+	        the array reference operator [ ].  Anything that doesn't work is somebody else's
+	        problem.
+        </phrase>
+      </para>
+    </blockquote>
+  </para>
+</section>
+
+</chapter>

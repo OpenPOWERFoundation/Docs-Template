@@ -24,10 +24,6 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_faq">
         <question><para>Do I have to follow the guidelines in <xref linkend="section_template_policies"/> of this guide?</para></question>
         <answer><para>No. <emphasis>HOWEVER</emphasis>, doing so makes it simpler for all community members to participate in maintaining your document.</para></answer>
       </qandaentry>
-      <qandaentry>
-        <question><para>Question 2...</para></question>
-        <answer><para>Answer 2...</para></answer>
-      </qandaentry>
     </qandaset>
 
 </section>

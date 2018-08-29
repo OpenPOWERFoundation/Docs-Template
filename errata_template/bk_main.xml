@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the GNU Free Documentation License, Version 1.3;
+  with no Invariants Sections, with no Front-Cover Texts,
+  and with no Back-Cover Texts (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.gnu.org/licenses/fdl-1.3.txt
+
+-->
+
+<!-- The following entity variable is used to reflect the version of the 
+     template document master used for building a document.  This value
+     should be set by copy of the of template used to create a new
+     document and should not be changed.  Use of this value is in
+     in the Abstract section in this file. --> 
+<!DOCTYPE book [
+<!ENTITY template_version "1.1.0">
+]>
+
+<book xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="5.0"
+  xml:id="bk_main">
+
+    <!-- TODO: Replace the text between the brackets <...> (2) with the appropriate information about the base document -->
+    <title>&lt;TBD Base Document Name&gt; Errata</title>
+    <subtitle>For &lt;TBD Base Document Name and version&gt;</subtitle>
+
+    <info>
+    <author>
+      <!-- TODO: Set the correct Work Group Name and email id for WG Chair -->
+      <!-- **Note: these values should match the base document -->
+      <personname>
+          TBD Work Group Name
+      </personname>
+      <email>tbd-chair@openpowerfoundation.org</email>
+      <affiliation>
+          <orgname>OpenPower Foundation</orgname>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2018</year>
+      <holder>OpenPOWER Foundation</holder>
+    </copyright>
+    <releaseinfo>Revision 1.0</releaseinfo>
+    <productname>OpenPOWER</productname>
+    <pubdate/>
+
+    <!-- TODO: Select one of the two following legalnotice role= values:
+           "apache2" for an Apache V2 license or 
+           "opfExternal" for an official OpenPOWER Foundation external license text.
+         If you don't know which one to select, change to "opfExternal" and ask your TSC representative. -->
+    <!-- **Note: these values should match the base document -->
+    <!-- legalnotice role="apache2" -->
+    <!-- legalnotice role="opfExternal" -->
+    <!-- legalnotice role="gnuFreeDoc"-->
+    <legalnotice role="apache2">
+
+      <annotation>
+          <remark>Copyright details are filled in by the template.</remark>
+      </annotation>
+    </legalnotice>
+    
+    <abstract>
+      <!-- TODO: remove "phrase" tags (3) and text below and insert proper information -->
+      <para>This document provides errata against version 
+      <phrase role="color:red"><emphasis role="bold">#.#.#</emphasis></phrase> of the
+      <citetitle><phrase role="color:red"><emphasis role="bold">Base Document Title</emphasis></phrase></citetitle>
+      specification.  These errata should be considered part of said specification until such
+      time as a newer version of the full specification is published.</para>
+      <para>This document is a Non-standard Track, Work Group Note work
+      product owned by the 
+      <phrase role="color:red"><emphasis role="bold">TBD Workgroup</emphasis></phrase> 
+      and handled in compliance with the requirements outlined in the
+      <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document.  It was
+      created using the <citetitle>Master Template Guide</citetitle> version &template_version;.
+      Comments, questions, etc. can be submitted to the
+      public mailing list for the parent specification at 
+      <!-- TODO: Set the mailing list email below -->
+      <!-- **Note: these values should match the base document -->
+      <email>tbd@mailinglist.openpowerfoundation.org</email>.</para>
+    </abstract>
+
+    <revhistory>
+      <revision>
+          <!-- TODO: Set correct date and remove "phrase" tags (1) and text below and insert proper information -->
+          <date>2018-08-29</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para><phrase role="color:red"><emphasis role="bold">TODO: Describe your initial draft, e.g. from where it came if not created from scratch</emphasis></phrase></para>
+            </listitem>
+          </itemizedlist>
+        </revdescription>
+      </revision>
+     </revhistory>
+    </info>
+
+  <!-- The ch_preface.xml file is required by all documents -->
+  <xi:include href="../../Docs-Master/common/ch_preface.xml"/>
+
+  <!-- TODO: Add your chapter heading files here.  Remove both files and insert your own. -->
+  <!--       See the template document for naming conventions and location of files.      -->
+  <xi:include href="ch_errata.xml"/>
+
+  <!-- The app_foundation.xml appendix file is required by all documents. -->
+  <xi:include href="../../Docs-Master/common/app_foundation.xml"/>
+
+  <!-- TODO: The following template document may be modified to create additional appendices as needed. -->
+  <!-- xi:include href="app_template.xml"/ -->
+
+</book>

@@ -1,7 +1,7 @@
 # OpenPOWER Foundation Documentation Development Guide
-This repository holds the source for the documentation development guide 
+This repository holds the source for the *Documentation Development Guide*
 (formerly *Master Template Document*) for 
-OpenPOWER Foundation. The PDF and HTML generated from the doc/template/ 
+OpenPOWER Foundation. The PDF and HTML generated from the ``doc_dev_guide``
 directory build a document that both describes how to build a new
 document and contains examples and directions on how to do it.
 
@@ -33,8 +33,11 @@ Document library at [OpenPOWER Foundation Documentation Development Guide](http:
 The project which controls the look and feel of the document is the 
 [Docs-Maven-Plugin project](https://github.com/OpenPOWERFoundation/Docs-Maven-Plugin), an 
 OpenPOWER Foundation private project on GitHub.  To obtain access to the Maven Plugin project, 
-contact Jeff Scheel \([scheel@us.ibm.com](mailto://scheel@us.ibm.com)\) or 
-Jeff Brown \([jeffdb@us.ibm.com](mailto://jeffdb@us.ibm.com)\).
+contact Jeff Scheel \([scheel@us.ibm.com](mailto://scheel@us.ibm.com)\).
+
+Additional sub-directories of interest in this project are:
+- ``doc_template``: provides a template for new specifications from scratch
+- ``errata_template``: provide a template for errata documents
 
 ## License
 This project is licensed under the Apache V2 license.  More information

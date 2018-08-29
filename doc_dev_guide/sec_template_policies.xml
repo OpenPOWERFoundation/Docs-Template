@@ -26,7 +26,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
             <listitem>
                 <para>The head book file should be named with the prefix "bk_".</para>
             </listitem>
-            <listitem>
+            <listitem  xml:id="section_template_vrm_policy">
                 <para>The document versioning as defined by the <literal>&lt;releaseinfo&gt;</literal> tag in the main book
                 file <literal>bk_xxx</literal> should be named "Revision V.R.M", not "Version V.R.M" or simply "V.R.M" where:</para>
                 <itemizedlist>
@@ -59,6 +59,11 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_policies">
             </listitem>
             <listitem>
                 <para>Figures source and images should be placed in the <literal>figures</literal> sub-directory for the document.</para>
+            </listitem>
+            <listitem>
+                <para>Releases of the same document sound be contained in the same tree, but tagged at levels of interest using
+                the <literal>git tag</literal> command.  See the <xref linkend="section_template_git_commands"/> for more specifics
+                on <literal>git</literal> commands.</para>
             </listitem>
         </orderedlist>
     </para>

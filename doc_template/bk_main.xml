@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2016 OpenPOWER Foundation
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  
+-->
+
+<!-- The following entity variable is used to reflect the version of the 
+     template document master used for building a document.  This value
+     should be set by copy of the of template used to create a new
+     document and should not be changed.  Use of this value is in
+     in the Abstract section in this file. --> 
+<!DOCTYPE book [
+<!ENTITY template_version "1.0.0">
+]>
+
+<book xmlns="http://docbook.org/ns/docbook"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="5.0"
+  xml:id="bk_main">
+
+    <!-- TODO: Pick a Title for the new document -->
+    <title>Title</title>
+    <!-- TODO: Either add a subtitle or remove the following line -->
+    <subtitle>Sub-title</subtitle>
+
+    <info>
+    <author>
+      <!-- TODO: Set the correct Work Group Name and email id for WG Chair -->
+      <personname>
+          TBD Work Group Name
+      </personname>
+      <email>tbd-chair@openpowerfoundation.org</email>
+      <affiliation>
+          <orgname>OpenPower Foundation</orgname>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>2018</year>
+      <holder>OpenPOWER Foundation</holder>
+    </copyright>
+    <!-- TODO: Set the correct document releaseinfo -->
+    <releaseinfo>Revision 1.0_pre1</releaseinfo>
+    <productname>OpenPOWER</productname>
+    <pubdate/>
+
+    <legalnotice role="apache2">
+    <!--legalnotice role="opfExternal"-->
+
+      <annotation>
+          <remark>Copyright details are filled in by the template.</remark>
+      </annotation>
+    </legalnotice>
+    
+    <!-- TODO: Update the following text with the correct document description (first paragraph),
+               Work Group name, and Work Product track (both in second paragraph). -->
+    <abstract>
+      <!-- TODO: remove "phrase" tags (2) and text below and insert proper information -->
+      <para>The purpose of this document is to <phrase role="color:red"><emphasis role="bold">...TBD describe the document</emphasis></phrase></para>
+      <para>This document is a Standard Track, Workgroup Specification work product owned by the
+      <phrase role="color:red"><emphasis role="bold">TBD Workgroup</emphasis></phrase> and handled in compliance with the requirements outlined in the
+      <citetitle>OpenPOWER Foundation Work Group (WG) Process</citetitle> document.  It was
+      created using the <citetitle>Master Template Guide</citetitle> version &template_version;.
+      Comments, questions, etc. can be submitted to the
+      public mailing list for the parent specification at 
+      <email>tbd@mailinglist.openpowerfoundation.org</email>.</para>
+    </abstract>
+
+    <revhistory>
+      <revision>
+          <!-- TODO: Set correct date and remove "phrase" tags (1) and text below and insert proper information -->
+          <date>2018-08-29</date>
+          <revdescription>
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para><phrase role="color:red"><emphasis role="bold">TODO: Describe your initial draft, e.g. from where it came if not created from scratch</emphasis></phrase></para>
+              </listitem>
+            </itemizedlist>
+          </revdescription>
+      </revision>
+     </revhistory>
+    </info>
+
+  <!-- The ch_preface.xml file is required by all documents -->
+  <xi:include href="../../Docs-Master/common/ch_preface.xml"/>
+
+  <!-- TODO: Add your chapter heading files here.  Remove both files and insert your own. -->
+  <!--       See the template document for naming conventions and location of files.      -->
+  <xi:include href="ch_example.xml"/>
+
+  <!-- The app_foundation.xml appendix file is required by all documents. -->
+  <xi:include href="../../Docs-Master/common/app_foundation.xml"/>
+
+  <!-- TODO: The following template document may be modified to create additional appendices as needed. -->
+  <xi:include href="app_template.xml"/>
+
+</book>

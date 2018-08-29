@@ -73,7 +73,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_debug">
 
 Note: Open the temporary file:
 
-file:/home/user1/Docs-Template/template/target//bk_main.xml-invalid.xml
+file:/home/user1/Docs-Template/doc_dev_guide/target//bk_main.xml-invalid.xml
 
 to see all the errors in context. 
 You must correct the errors in the original 
@@ -87,7 +87,7 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
             <orderedlist>
 	      <listitem>
                 <para>The full path and filename that contains the context for the failure.  In the message above, this is 
-<literal>/home/user1/Docs-Template/template/target//bk_main.xml-invalid.xml</literal>.</para>
+<literal>/home/user1/Docs-Template/doc_dev_guide/target//bk_main.xml-invalid.xml</literal>.</para>
               </listitem>
               <listitem>
                 <para>The location within the file of the syntax error.  For the above example, the key information is "<literal>lineNumber:  272; columnNumber: 70</literal>.</para>
@@ -115,14 +115,14 @@ lineNumber:  272; columnNumber: 70; text not allowed here; expected element "add
 [INFO] Finished at: Wed Jul 29 14:55:33 CDT 2015
 [INFO] Final Memory: 17M/171M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp (generate-webhelp) on project openpower-template-guide: Execution generate-webhelp of goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp failed: XInclude resource error (sec_template_new_document.xml) and no fallback provided. XProc error err:XD0011: org.xml.sax.SAXParseException; systemId: file:/home/user1/openpower-foundation-docbkx-framework/doc/template/sec_template_new_document.xml; lineNumber: 55; columnNumber: 17; The element type "para" must be terminated by the matching end-tag "&lt;/para&gt;". -> [Help 1]
+[ERROR] Failed to execute goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp (generate-webhelp) on project openpower-template-guide: Execution generate-webhelp of goal org.openpowerfoundation.docs:openpowerdocs-maven-plugin:1.0.0:generate-webhelp failed: XInclude resource error (sec_template_new_document.xml) and no fallback provided. XProc error err:XD0011: org.xml.sax.SAXParseException; systemId: file:/home/user1/openpower-foundation-docbkx-framework/doc/doc_dev_guide/sec_template_new_document.xml; lineNumber: 55; columnNumber: 17; The element type "para" must be terminated by the matching end-tag "&lt;/para&gt;". -> [Help 1]
 ...</screen></para>
 
           <para>Like validation errors, three key pieces of information are again provided:</para>
             <orderedlist>
 	      <listitem>
                 <para>The full path and filename of our failure is 
-<literal>/home/user1/Docs-Template/template/sec_template_new_document.xml</literal>.</para>
+<literal>/home/user1/Docs-Template/doc_dev_guide/sec_template_new_document.xml</literal>.</para>
               </listitem>
               <listitem>
                 <para>The location within the file of the error is "<literal>lineNumber: 55; columnNumber: 17</literal>.</para>
@@ -240,5 +240,30 @@ javax.xml.transform.TransformerException: org.apache.fop.fo.ValidationException:
           <link xlink:href="https://www.w3.org/2002/08/XSLFOsummary.html">https://www.w3.org/2002/08/XSLFOsummary.html</link>.</para></note>
 
     </section>
+    
+    <section xml:id="section_template_debug_java_awt_error">
+      <title xml:id="section_template_debug_java_awt_error_title">Java AWT exception</title>
+      
+      <para>Use of Maven in headless environments from Mac OS has uncovered an intermittent exception in the AWT libraries.
+      This error looks like the following:<screen>...
+---------------------------------------------------
+Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using 'localhost:11.0' as the value of the DISPLAY variable.
+	at sun.awt.X11GraphicsEnvironment.initDisplay(Native Method)
+	at sun.awt.X11GraphicsEnvironment.access$200(X11GraphicsEnvironment.java:65)
+	at sun.awt.X11GraphicsEnvironment$1.run(X11GraphicsEnvironment.java:115)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.awt.X11GraphicsEnvironment.&lt;clinit&gt;(X11GraphicsEnvironment.java:74)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at java.awt.GraphicsEnvironment.createGE(GraphicsEnvironment.java:103)
+	at java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment(GraphicsEnvironment.java:82)
+	at sun.awt.X11.XToolkit.&lt;clinit&gt;(XToolkit.java:126)
+...</screen></para>
+
+      <para>The circumvention for this error, is force AWT to run headless.  This can be accomplished by adding the 
+      <literal>-Djava.awt.headless=true</literal> parameter to the maven invocation such that it looks like this:
+      <screen><prompt>$ </prompt><userinput>mvn clean generate-sources -Djava.awt.headless=true</userinput></screen></para>
+    </section>
+
 </section>
  

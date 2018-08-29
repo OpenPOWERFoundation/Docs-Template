@@ -19,10 +19,11 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_existing_doc
 
   <title xml:id="section_template_existing_document_title">Modifying an existing document</title>
 
-    <para>To begin editing an existing document, you must first clone two projects -- the master document framework project and 
-    the specific document project.  Begin by cloning the master document as described in <xref linkend="section_cloning_master_doc"/>.</para>
+    <para>To begin editing an existing document, you may need to clone up to two projects -- 
+    the specific document project, and if not already cloned, the master document framework project too.
+    If needed, clone the master document as described in <xref linkend="section_cloning_master_doc"/>.</para>
       
-    <para>Once complete, obtain a copy of the desired document by cloning its project.  For example, to clone this document, 
+    <para>To obtain a copy of the desired document source, clone its project.  For example, to clone this document, 
     <citetitle>Documentation Development Guide</citetitle>, from the 
     public OpenPOWER Foundation git repository, use this 
     command:<screen><prompt>$ </prompt><userinput>git clone https://github.com/OpenPOWERFoundation/Docs-Template.git</userinput>
@@ -37,7 +38,7 @@ Checking connectivity... done.
 <prompt>$ </prompt></screen></para>
 
     <para>To build a specific document such as this guide, follow these steps from the directory where 
-    you just cloned:<screen><prompt>$ </prompt><userinput>cd Docs-Template/template</userinput>
+    you just cloned:<screen><prompt>$ </prompt><userinput>cd Docs-Template/doc_dev_guide</userinput>
 <prompt>$ </prompt><userinput>mvn clean</userinput>
 [INFO] Scanning for projects...
 [INFO] 
@@ -46,7 +47,7 @@ Checking connectivity... done.
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ openpower-template-guide ---
-[INFO] Deleting ~/Docs-Template/template/target
+[INFO] Deleting ~/Docs-Template/doc_dev_guide/target
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -77,7 +78,7 @@ Checking connectivity... done.
     in which one wishes to execute them.  Thus, the command <literal>mvn clean generate-sources</literal> would accomplish the 
     same thing as the above sequence of commands.</para></note>
 
-    <para>If all goes well, the generated pdf should be available in <literal>~/Docs-Template/template/target/docbkx/webhelp/template-guide/</literal>.</para>
+    <para>If all goes well, the generated pdf should be available in <literal>~/Docs-Template/doc_dev_guide/target/docbkx/webhelp/template-guide/</literal>.</para>
 
     <para>For assistance correcting commmon build failures, see <xref linkend="section_template_debug"/>.</para>
 
@@ -86,10 +87,44 @@ Checking connectivity... done.
     the base project directory will build all projects identified in the <literal>&lt;module></literal> list in the
     top-level <literal>pom.xml</literal> file, known as the "Workgroup POM".</para></note>
     
-    <para>You are now ready to begin making updates.  Before diving deeply into new text, 
-    you may want to review
-    <xref linkend="section_template_process"/> to ensure that proper Work Product, 
-    Work Process, and security values are selected for your document.</para>
+    <para>Before diving deeply into text updates, 
+    you should consider the following items for your project and document:
+    <itemizedlist>
+      <listitem>
+        <para>Ensure that the previous version of the tree is tagged.</para>
+        
+        <para>The command <literal>git tag</literal> may be used to see existing tree tags
+        and set new ones.
+        See <xref linkend="section_template_git_commands"/> for more specifics on <literal>git tag</literal> commands.</para>
+      </listitem>
+      <listitem>
+        <para>Reset the document status.</para>
+        <para>The <literal>pom.xml</literal> file contains the <literal>&lt;documentStatus></literal> field which generally
+        needs to be reset to the <literal>draft</literal> value.  In addition, for non-public work groups, the <literal>&lt;security></literal>
+        field should be returned to <literal>workgroupConfidential</literal> or <literal>foundationConfidential</literal>
+        values during the document update process.  More information on 
+        document development process can be found in <xref linkend="section_template_process"/>.  Detailed information on
+        key document settings can be found in <xref linkend="section_template_process_pom"/> and 
+        <xref linkend="section_template_process_flowchart"/>.</para>
+      </listitem>
+      <listitem>
+        <para>Incement the new document release information.</para>
+        <para>The <literal>bk_main.xml</literal> file contains the <literal>&lt;releaseinfo></literal> field
+        which contains the Versions, Release, and Modification values.  Typically, new documents when first being edited will increment the correct value,
+        reset sub-values to zero, and append a "_preN" tag.  During the development process, you will likely increment the "N-value" in your "pre" release 
+        information.  Then, at publish, you can remove the "_preN" suffix.</para>
+        <para>More details on the release information can be found in <xref linkend="section_template_policies"/> recommendation 
+        <xref linkend="section_template_vrm_policy" xrefstyle="select: nopage"/>.</para>
+      </listitem>
+      <listitem>
+        <para>Create a new entry in the revision history.</para>
+        <para>The <literal>bk_main.xml</literal> file contains the revision history in <literal>&lt;revhistory></literal> table.  To start a new entry,
+        add a new <literal>&lt;revision></literal> entry with <literal>&lt;date></literal> and <literal>&lt;revdescription></literal> fields at the top
+        of the list of revisions.</para>
+      </listitem>
+    </itemizedlist></para>
+    
+    <para>You are now ready to make textual updates.</para>
     
 </section>
  

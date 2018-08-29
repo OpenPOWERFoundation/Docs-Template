@@ -145,11 +145,11 @@ Checking connectivity... done.
         </listitem>
         <listitem>
           <para>Change the working directory into the source directory for the <citetitle>Documentation Development Guide</citetitle>.
-          <screen><prompt>$ </prompt><userinput>cd Docs-Template/template</userinput>
-<prompt>Docs-Template/template$ </prompt></screen></para>
+          <screen><prompt>$ </prompt><userinput>cd Docs-Template/doc_dev_guide</userinput>
+<prompt>Docs-Template/doc_dev_guide$ </prompt></screen></para>
         </listitem>
         <listitem>
-          <para>Build the document in Maven.<screen><prompt>Docs-Template/template$ </prompt><userinput>mvn generate-sources</userinput>
+          <para>Build the document in Maven.<screen><prompt>Docs-Template/doc_dev_guide$ </prompt><userinput>mvn generate-sources</userinput>
 [INFO] Scanning for projects...
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
@@ -170,10 +170,10 @@ Feb 27, 2018 11:43:28 AM org.apache.fop.apps.FopFactoryConfigurator configure
 
 &lt;!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-Parsing: /home/scheel/mydocs/Docs-Template/template/target/docbkx/webhelp/doc-devel-guide/content/section_cloning_project.html
+Parsing: /home/scheel/mydocs/Docs-Template/doc_dev_guide/target/docbkx/webhelp/doc-devel-guide/content/section_cloning_project.html
  ...snip...
-The created index files are located in /home/scheel/mydocs/Docs-Template/template/target/docbkx/webhelp/doc-devel-guide/content/search/.js
-[INFO] See /home/scheel/mydocs/Docs-Template/template/target/docbkx/webhelp/bk_main for generated file(s)
+The created index files are located in /home/scheel/mydocs/Docs-Template/doc_dev_guide/target/docbkx/webhelp/doc-devel-guide/content/search/.js
+[INFO] See /home/scheel/mydocs/Docs-Template/doc_dev_guide/target/docbkx/webhelp/bk_main for generated file(s)
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -181,7 +181,7 @@ The created index files are located in /home/scheel/mydocs/Docs-Template/templat
 [INFO] Finished at: 2018-02-27T11:43:45-06:00
 [INFO] Final Memory: 83M/729M
 [INFO] ------------------------------------------------------------------------
-<prompt>Docs-Template/template$ </prompt></screen></para>
+<prompt>Docs-Template/doc_dev_guide$ </prompt></screen></para>
           <note><para>The first time one builds in a Maven environment, the build time will be noticeably
           long due to JAR file downloads associated with the new Maven project types.  In future builds, these JAR files will 
           only be downloaded when they are updated.  As such, one should both allow for this extra time and not be discouraged 
@@ -192,11 +192,11 @@ The created index files are located in /home/scheel/mydocs/Docs-Template/templat
       Docs-Template project, that directory is <literal>doc-devel-guide</literal>.  Inside this directory will
       be both the PDF file and the <literal>index.html</literal> file for the HTML document.</para>
       <para>To verify this for the <citetitle>Documentation Development Guide</citetitle>, perform these commands:
-      <screen><prompt>Docs-Template/template$ </prompt><userinput>cd target/docbkx/webhelp/</userinput>
-<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>ls</userinput>
+      <screen><prompt>Docs-Template/doc_dev_guide$ </prompt><userinput>cd target/docbkx/webhelp/</userinput>
+<prompt>Docs-Template/doc_dev_guide/target/docbkx/webhelp$ </prompt><userinput>ls</userinput>
 doc-devel-guide
-<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>cd doc-devel-guide</userinput>
-<prompt>Docs-Template/template/target/docbkx/webhelp/doc-devel-guide$ </prompt><userinput>ls</userinput>
+<prompt>Docs-Template/doc_dev_guide/target/docbkx/webhelp$ </prompt><userinput>cd doc-devel-guide</userinput>
+<prompt>Docs-Template/doc_dev_guide/target/docbkx/webhelp/doc-devel-guide$ </prompt><userinput>ls</userinput>
 bookinfo.xml  common  content  doc-devel-guide-20180227.pdf  favicon.ico  index.html
 webapp</screen></para>
       <para>Now, you are ready to begin working on your own document.  Useful information on how to proceed can
