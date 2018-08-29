@@ -93,14 +93,8 @@
       <revision>
           <date>2018-08-27</date>
           <revdescription>
-            <para>Version 1.2 updates:
+            <para>Version 1.2 additional updates:
             <itemizedlist spacing="compact">
-              <listitem>
-                <para>Extend the Getting Started section to include a first document build.</para>
-              </listitem>
-              <listitem>
-                <para>Add a section on document packaging for publish in the Publishing OpenPOWER Documents section.</para>
-              </listitem>
               <listitem>
                 <para>Add a section on circumventing Java AWT exception.</para>
               </listitem>
@@ -112,6 +106,23 @@
               </listitem>
               <listitem>
                 <para>Rename the <literal>template</literal> directory to <literal>doc_dev_guide</literal>.</para>
+              </listitem>
+            </itemizedlist></para>
+          </revdescription>
+      </revision>
+      <revision>
+          <date>2018-04-11</date>
+          <revdescription>
+            <para>Version 1.2 updates:
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Extend the Getting Started section to include a first document build.</para>
+              </listitem>
+              <listitem>
+                <para>Add a section on document packaging for publish in the Publishing OpenPOWER Documents section.</para>
+              </listitem>
+               <listitem>
+                <para>Add examples for background color in tables, and variablelists.</para>
               </listitem>
            </itemizedlist></para>
           </revdescription>
