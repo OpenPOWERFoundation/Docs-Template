@@ -17,6 +17,8 @@
   <modules>
     <!-- TODO: Add new documents are build in the project, add their directories to this list to
                enable all document builds from the top level -->
-    <module>template</module>
+    <module>doc_dev_guide</module>
+    <module>doc_template</module>
+    <module>errata_template</module>
   </modules>
 </project>

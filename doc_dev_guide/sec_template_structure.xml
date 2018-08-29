@@ -74,7 +74,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_structure">
       The "Workgroup POM" is a minimal POM file that locates the parent, "Master POM" in the <literal>Docs-Master</literal>project directory
       with a <literal>&lt;relativePath></literal> definition of <literal>../Docs-Master/pom.xml</literal>.
       The document directory contains the unique files used to create the document.  The two most important files in the 
-      <literal>Docs-Template/template</literal> directory(and in any project) are the <literal>pom.xml</literal> or "Document POM" which describes
+      <literal>Docs-Template/doc_dev_guide</literal> directory (and in any project) are the <literal>pom.xml</literal> or "Document POM" which describes
       how to build the document and which points to the main document file, the <literal>bk_main.xml</literal> file.  This book file
       contains all the Docbook source, directly or through include statements (<literal>&lt;xi:include href="..."</literal>), 
       to build the document.</para>

@@ -120,7 +120,7 @@ Checking connectivity... done.
             
             <itemizedlist>
               <listitem>
-                <para>If your project exits on GitHub in the OpenPOWER Foundation area and it contains a <literal>template</literal> directory,
+                <para>If your project exits on GitHub in the OpenPOWER Foundation area and it contains a <literal>doc_template</literal> directory,
                 then follow the directions in
                 <xref linkend="section_moving_template_document" endterm="section_moving_template_document_title"/>
                 to use this document as a base.</para>
@@ -144,7 +144,7 @@ Checking connectivity... done.
               <para>If this is your first document, in a brand new OpenPOWER Foundation project (on GitHub), you have the fewest number of steps
               to perform because your project should have been primed with a single project based on <literal>Docs-Template</literal>.  
               You can verify this by inspecting
-              the files in your project directory.  A new project will contain a <literal>template</literal> directory, a <literal>pom.xml
+              the files in your project directory.  A new project will contain a <literal>doc_template</literal> directory, a <literal>pom.xml
               </literal> file, a <literal>LICENSE</literal> file, and a <literal>README.md</literal> file.  If this is the case, you simply
               need to perform the following three steps:</para>
               
@@ -154,12 +154,12 @@ Checking connectivity... done.
                   using the <literal>cd</literal> command:
 <screen><prompt>$ </prompt><userinput>cd ~/my_project</userinput>
 <prompt>$ </prompt></screen></para>
-                  <para>This directory should contain the <literal>template</literal> folder used to prime the project.</para>
+                  <para>This directory should contain the <literal>doc_template</literal> folder used to prime the project.</para>
                 </listitem>
                 <listitem>
-                  <para>Rename the <literal>template</literal> document directory to something new like <literal>my_doc</literal>. 
+                  <para>Rename the <literal>doc_template</literal> document directory to something new like <literal>my_doc</literal>. 
                   To accomplish this, use the <literal>mv</literal> command::
-<screen><prompt>$ </prompt><userinput>mv template/ my_doc</userinput></screen></para>
+<screen><prompt>$ </prompt><userinput>mv doc_template/ my_doc</userinput></screen></para>
                 </listitem>
                 <listitem>
                   <para>Change the project name in the Workgroup POM file (<literal>my_project/pom.xml</literal>).  Using your editor, change this line
@@ -244,11 +244,11 @@ Checking connectivity... done.
 <prompt>$ </prompt></screen></para>
                 </listitem>
                 <listitem>
-                  <para>To create a new project directory, simply create a new directory and copy the contents of the <literal>Docs-Template/template</literal> 
+                  <para>To create a new project directory, simply create a new directory and copy the contents of the <literal>Docs-Template/doc_dev_guide</literal> 
                   directory.  If creating a new project named <literal>my_doc</literal> via a command line, the command 
                   sequence would look like this:
 <screen><prompt>$ </prompt><userinput>mkdir my_doc</userinput>
-<prompt>$ </prompt><userinput>cp -r Docs-Template/template/* my_doc</userinput>
+<prompt>$ </prompt><userinput>cp -r Docs-Template/doc_dev_guide/* my_doc</userinput>
 <prompt>$ </prompt></screen></para>
                 </listitem>
                 <listitem>
@@ -279,15 +279,45 @@ Checking connectivity... done.
             and <literal>bk_main.xml</literal>. Within these two files are XML comment tags that begin "<literal>&lt;!-- TODO:</literal>" 
             to identify places which need customization.  The surrounding comments will provide guidance on what needs to change and how 
             it may be changed.  Simply work through each item, making updates as requested.</para>
-            <para>Pick your setting for document work product type (<literal>&lt;workProduct></literal>, 
+            
+            <para>In the <literal>pom.xml</literal> file, pick your settings for document work product type (<literal>&lt;workProduct></literal>, 
             work flow status (<literal>&lt;documentStatus></literal>), and 
             security (<literal>&lt;security></literal>)
             carefully.  <xref linkend="section_template_process"/> provides an overview of the process
             and details the various settings needed in the document core project files.  If you still have
             questions after reading this section, consult with your Technical Steering Committee
             representative.</para>
-            <note><para>Be sure to remember two key values you used in the <literal>pom.xml</literal> file, <literal>&lt;webhelpDirname&gt;</literal> 
+            
+            <note><para>In addition to the document settings, be sure to remember two key values you used in the <literal>pom.xml</literal> 
+            file, <literal>&lt;webhelpDirname&gt;</literal> 
             and <literal>&lt;pdfFilenameBase&gt;</literal>, as these will be used to locate your generated document.</para></note>
+            
+            <para>In the <literal>book.xml</literal> file, you will find the following document unique values which you most likely want to change:
+            <variablelist>
+              <varlistentry>
+                <term><literal>&lt;title></literal></term>
+                <listitem>
+                  <para>The main title of the document. This appears in the largest font at the top of the title page.</para>
+                </listitem>
+		          </varlistentry>
+
+              <varlistentry>
+                <term><literal>&lt;subtitle></literal></term>
+                <listitem>
+                  <para>The second title of the document. This title appears in a smaller font below the <literal>&lt;title></literal> on the title page.</para>
+                </listitem>
+		          </varlistentry>
+
+              <varlistentry>
+                <term><literal>&lt;realeaseinfo></literal></term>
+                <listitem>
+                  <para>The document version value. This value should take the form of "Revision V.R.M" as described in 
+                    <xref linkend="section_template_policies"/> recommendation <xref linkend="section_template_vrm_policy" xrefstyle="select: nopage"/>.</para>
+                </listitem>
+		          </varlistentry>
+            </variablelist>
+
+            </para>
             <para>When ready, build your new document using standard maven commands like 
             this:<screen><prompt>$ </prompt><userinput>cd my_project/my_doc</userinput>
 <prompt>$ </prompt><userinput>mvn clean</userinput>

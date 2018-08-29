@@ -439,11 +439,11 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="section_template_process">
         </itemizedlist>
         
         <para>To create this package for the <citetitle>Documentation Development Guide</citetitle>, one would perform the following commands
-        in Linux from the document source directory (<literal>.../Docs-Template/template/</literal>):
-        <screen><prompt>Docs-Template/template$ </prompt><userinput>cd target/docbkx/webhelp/</userinput>
-<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>ls</userinput>
+        in Linux from the document source directory (<literal>.../Docs-Template/doc_dev_guide/</literal>):
+        <screen><prompt>Docs-Template/doc_dev_guide$ </prompt><userinput>cd target/docbkx/webhelp/</userinput>
+<prompt>Docs-Template/doc_dev_guide/target/docbkx/webhelp$ </prompt><userinput>ls</userinput>
 doc-devel-guide
-<prompt>Docs-Template/template/target/docbkx/webhelp$ </prompt><userinput>zip -rv doc-devel-guide.zip doc-devel-guide/</userinput>
+<prompt>Docs-Template/doc_dev_guide/target/docbkx/webhelp$ </prompt><userinput>zip -rv doc-devel-guide.zip doc-devel-guide/</userinput>
   adding: doc-devel-guide/	(in=0) (out=0) (stored 0%)
   adding: doc-devel-guide/favicon.ico	(in=806) (out=806) (stored 0%)
   adding: doc-devel-guide/index.html	(in=654) (out=385) (deflated 41%)
@@ -455,7 +455,7 @@ doc-devel-guide
   ...snip...
   adding: doc-devel-guide/common/jquery/jquery-ui-1.8.2.custom.min.js 	(in=87032) (out=22729) (deflated 74%)
 total bytes=3342807, compressed=1332882 -> 60% savings
-<prompt>Docs-Template/template/target/docbkx/webhelp/doc-devel-guide$ </prompt><userinput>ls</userinput>
+<prompt>Docs-Template/doc_dev_guide/target/docbkx/webhelp/doc-devel-guide$ </prompt><userinput>ls</userinput>
 doc-devel-guide  doc-devel-guide.zip</screen></para>
         <para>For MacOS and Windows, the steps will be similar with slight variations on the command to create the zip file.</para>
         <para>This zip file can be sent to the person managing the documents in the OpenPOWER Resource Catalog.</para>

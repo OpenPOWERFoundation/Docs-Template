@@ -54,7 +54,7 @@
       <holder>OpenPOWER Foundation</holder>
     </copyright>
     <!-- TODO: Set the correct document releaseinfo -->
-    <releaseinfo>Revision 1.2_pre1</releaseinfo>
+    <releaseinfo>Revision 1.2_pre5</releaseinfo>
     <productname>OpenPOWER</productname>
     <pubdate/>
 
@@ -91,15 +91,27 @@
     <revhistory>
       <!-- TODO: Set the initial version information and clear any old information out -->
       <revision>
-          <date>2018-04-07</date>
+          <date>2018-08-27</date>
           <revdescription>
             <para>Version 1.2 updates:
             <itemizedlist spacing="compact">
               <listitem>
                 <para>Extend the Getting Started section to include a first document build.</para>
               </listitem>
-               <listitem>
+              <listitem>
                 <para>Add a section on document packaging for publish in the Publishing OpenPOWER Documents section.</para>
+              </listitem>
+              <listitem>
+                <para>Add a section on circumventing Java AWT exception.</para>
+              </listitem>
+              <listitem>
+                <para>Add information on key document tags which need update for new documents.</para>
+              </listitem>
+              <listitem>
+                <para>Extend information on modifying an existing document to include a step-by-step description of how to get started.</para>
+              </listitem>
+              <listitem>
+                <para>Rename the <literal>template</literal> directory to <literal>doc_dev_guide</literal>.</para>
               </listitem>
            </itemizedlist></para>
           </revdescription>
